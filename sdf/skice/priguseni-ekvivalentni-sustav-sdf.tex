@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+	%podloga
+	\draw[white, pattern=north east lines, pattern color=black] (0, 0)
+	rectangle (-0.5, 2.2);
+	\draw[thick] (0,0) -- (0, 2.2);
+
+	\draw[white, pattern=north east lines, pattern color=black] (0, 0) 
+	rectangle (5, -0.5);
+	\draw[thick] (0,0) -- (5,0);
+	
+	\draw[white, pattern=north east lines, pattern color=black] (0, 0)
+	rectangle (-0.5, -0.5);
+
+	%uteg
+	\filldraw[fill=gray] (1.5, 2) rectangle (3.5, 0.25);
+
+	%kotaci
+	\filldraw[fill=gray] (2, 0.125) circle (0.125);
+	\filldraw[fill=gray] (3, 0.125) circle (0.125);
+
+	%opruga
+	\draw[thick, decoration={aspect=0.1, segment length=2mm,amplitude=3mm,coil},decorate] (0,1.65) -- (1.5, 1.65);
+
+	%prigusivac
+	\draw[thick] (0, 0.65) -- (0.685, 0.65);
+	\draw[thick] (0.84, 0.65) -- (1.5, 0.65);
+
+	\draw[thick] (0.685, 0.35) -- (0.685, 0.95);
+	\draw[thick] (0.685, 0.95) -- (0.9, 0.95);
+	\draw[thick] (0.685, 0.35) -- (0.9, 0.35);
+
+	\draw[thick] (0.84, 0.5) -- (0.84, 0.8);
+
+        \node[draw=none, fill=none] at (0.75, 2.2) {\textbf{\large{$k$}}}; 
+        \node[draw=none, fill=none] at (2.5,   2.2) {\textbf{\large{$m$}}};
+        \node[draw=none, fill=none] at (0.75, 1.1) {\textbf{\large{$c$}}};
+
+\end{tikzpicture}

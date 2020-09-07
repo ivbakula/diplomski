@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+%štapovi
+	\draw[thick] (0,0) -- (0,2.2)
+		node[pos=0.5,left]{\textbf{\large{$k$}}};
+	\draw[thick] (0,2.2) -- (4,2.2);
+	\draw[thick] (4,0) -- (4,2.2);
+	
+%masa
+	\filldraw[color=black, fill=gray] (2,2.2) circle (0.5);
+	\node[draw=none, fill=none] at(2,3) 
+	{\textbf{\large{$m$}}};
+
+%podloga
+	\draw[white, pattern=north east lines, pattern color=black] (-0.5, 0) 
+	rectangle (0.5, -0.5);
+	\draw[thick] (-0.5, 0) -- (0.5, 0);
+
+	\draw[white, pattern=north east lines, pattern color=black] (3.5, 0)
+	rectangle (4.5, -0.5);
+	\draw[thick] (3.5, 0) -- (4.5, 0);
+\end{tikzpicture}

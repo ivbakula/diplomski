@@ -1,0 +1,64 @@
+\section{Normiranje modova}
+Modalni vektori nisu jedinstveni jer su jednako predstavljeni vektorima dobivenim
+rješenjem problema vlastitih vrijednosti i njihovim višekratnicima. Drugim riječima,
+modalni vektor predstavljen je familijom kolinearnih vektora jer vrijedi slijedeća
+jednakost (iz \eqref{eq:vlastite_vrijednosti})
+\[
+    \begin{aligned}
+        \kk(a\vtor{\psi}{}_n)&=\omega_n^2(a\vtor{\psi}{}_n)\mm\\
+        a\kk\vtor{\psi}{}_n&=a\omega_n^2\vtor{\psi}{}_n\mm\\
+        \kk\vtor{\psi}{}_n&=\omega_n^2\vtor{\psi}{}_n\mm
+    \end{aligned}
+\]
+
+Množenje vlastitog vektora skalarom, s ciljem postizanja željene forme modalnog
+vektora, naziva se normiranje modalnog vektora odnosno moda. Primjerice, željena forma 
+modalnog vektora može biti vektor čiji je najveći element jedan:
+\[
+    \vtor{\psi}{}=
+        \begin{Bmatrix}
+            \ffrac{1}{2}\\[8pt]
+            \ffrac{3}{4}
+        \end{Bmatrix}
+\]
+Množenjem vektora s $4/3$ dobijemo:
+\[
+    \vtor{\psi}{}=
+        \begin{Bmatrix}
+            \ffrac{2}{3}\\[6pt]
+            1
+        \end{Bmatrix}
+\]
+
+Od posebnog značaja je normiranje modalne mase na jediničnu vrijednost. Kako je
+$\vtor{\psi}{}_n^T\mm\vtor{\psi}{}_n=\mathbf{M}_{n,n}$, mod $\vtor{\psi}{}_n$
+potrebno je množiti sa $(M_{n,n})^{-1/2}$, odnosno:
+\begin{equation}\label{eq:normiranje_masa}
+    \vtor{\psi}{}_n^N=\frac{1}{\sqrt{M_{n,n}}}\vtor{\psi}{}_n
+\end{equation}
+
+Gdje je $\vtor{\psi}{}_n^N$ normirani vektor $n$-tog moda. Jednadžba
+\eqref{eq:normiranje_masa} zapisana u matričnoj formi glasi:
+\begin{equation}\label{eq:normiranje_masa_matricno}
+    \ppsi_n^N=\ppsi\,\mathbf{M}^{-\frac{1}{2}}
+\end{equation}
+
+Vrijedi slijedeća relacija:
+\begin{equation}\label{eq:relacija_normirani}
+        M_{n,n}=\left(\vtor{\psi}{}_n^N\right)^T\mm\vtor{\psi}{}_n^N=1
+\end{equation}
+
+Odnosno u matričnom obliku:
+\begin{equation}\label{eq:relacija_normirani_matricno}
+    \left(\ppsi^N\right)^T\mm\ppsi^N=I
+\end{equation}
+
+Gdje je $I$ jedinična matrica. Iz \eqref{eq:modalna_krutost} slijedi:
+\begin{equation}
+    \begin{split}
+        \left(\ppsi^N\right)^T\K\ppsi^N=\oomega^2\underbrace{\left(\ppsi^N\right)^T\M\ppsi^N}_{\text{$I$}} \notag\\
+        \left(\ppsi^N\right)^T\K\ppsi^N=\oomega^2\label{eq:normirana_krutost}
+    \end{split}
+\end{equation}
+
+

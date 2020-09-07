@@ -1,0 +1,424 @@
+\section{Odziv sustava s više stupnjeva slobode na pobudu sinusnom
+silom}\label{mdof_prisilne}
+Kao što je pokazano u poglavlju \ref{slobodne_oscilacije}, jednadžba gibanja sustava
+s $N$ stupnjeva slobode zadana je kao sustav od $N$ diferencijalnih jednadži drugog
+reda. U slučaju pobude harmonijskom silom, navedeni sustav će se sastojati od $N$
+nehomogenih diferencijalnih jednadžbi drugog reda, koje će biti povezane preko
+matrice krutosti i/ili matrice mase. 
+\par
+Općenito, rješenje jedne proizvoljne nehomogene diferencijalne jednadžbe drugog reda
+oblika $\alpha\ddot{y}+\beta\dot{y}+\gamma y= f(t)$ jest suma komplementarnog
+rješenja $y_c$ i partikularnog rješenja $Y_p$.
+\begin{equation}
+    y(t)=y_c(t)+U_p(t)
+\end{equation}
+
+Komplementarno rješenje dobijemo izjednačavanjem diferencijalne jednadžbe s nulom
+odnosno:
+\begin{equation}\label{eq:opce_komplementarno_rjesenje}
+    \alpha\ddot{y}+\beta\dot{y}+\gamma y=0
+\end{equation}
+
+Primjetimo da je komplementarno rješenje (rješenje jednadžbe \eqref{eq:opce_komplementarno_rjesenje}) 
+zapravo rješenje homogene diferencijalne jednadžbe, a jednako je i za slobodne 
+oscilacije i za prisilne oscilacije. Kod prisilnih oscilacija, komplementarno 
+rješenje predstavlja prolazni dio odziva. Partikularno riješenje možemo pronaći 
+koristeći se metodom neodređenih koeficijenata, a predstavlja prolazni dio odziva.
+\par
+
+Analogno tome, komplementarno rješenje sustava diferencijalnih jednadžbi dato je u
+\eqref{eq:opce_rjesenje_sustava} te predstavlja prolazni dio odziva, pa u slučaju
+prisilnih oscilacija preostaje nam odrediti još partikularno rješenje koje
+predstavlja prisilni dio odziva. 
+\par
+
+Zadana je jednadžba gibanja sustava s dva stupnja slobode prikazanog na slijedećoj
+slici
+
+\textbf{UBACI SLIKU SUSTAVA}
+
+\begin{equation}\label{eq:jednadzba_gibanja_matricno}
+    \begin{bmatrix}
+        m_1 & 0 \\
+        0   & m_2
+    \end{bmatrix}
+    \begin{Bmatrix}
+        \ddot{u}_1\\
+        \ddot{u}_2
+    \end{Bmatrix}
+    +
+    \begin{bmatrix}
+        k_1+k_2 & -k_2\\
+        -k_2 & k_2
+    \end{bmatrix}
+    \begin{Bmatrix}
+        u_1\\
+        u_2
+    \end{Bmatrix}
+    =
+    \begin{Bmatrix}
+        p_0\\
+        0 
+    \end{Bmatrix}
+    \sin(\omega t)
+\end{equation}
+
+Odnosno:
+\begin{equation}\label{eq:jednadzba_gibanja_matricno_kratko}
+    \mm\vtor{u}{:}+k\vtor{u}{}=\vtor{p_n}{}\sin(\omega t)
+\end{equation}
+
+Gdje je $\vtor{p_n}{}$ vektor amplituda harmonijskih sila. Odziv sustava biti će
+harmonijski, jednake frekvencije, pa partikularno rješenje možemo pretpostaviti:
+\begin{equation}\label{eq:partikularno_pretpostavka}
+    \vtor{u_p(t)}{}=\vtor{U_n}{}\sin(\omega t)
+\end{equation}
+Gdje je $\vtor{U_n}{}$ vektor koeficijenata.
+Druga derivacija \eqref{eq:partikularno_pretpostavka} glasi:
+\begin{equation}\label{eq:partikularno_pretpostavka_dd}
+    \{\ddot{u}(t)\}=-\omega^2\vtor{U_n}{}\sin(\omega t)
+\end{equation}
+
+Uvrštavanjem \eqref{eq:partikularno_pretpostavka} i \eqref{eq:partikularno_pretpostavka_dd}
+u \eqref{eq:jednadzba_gibanja_matricno_kratko} dobijemo:
+\begin{equation}\label{eq:neodredjeni_koeficijenti_1}
+    -\omega^2\vtor{U_n}{}\mm\sin(\omega t) 
+    +
+    \vtor{U_n}{}\kk\sin(\omega t)
+    =
+    \vtor{p}{}\sin(\omega t)
+\end{equation}
+
+Nakon sređivanja, jednadžba \eqref{eq:neodredjeni_koeficijenti_1} poprima oblik:
+\begin{equation}\label{eq:neodredjeni_koeficijenti_2}
+    [\kk-\omega^2\mm]\vtor{U_n}{}=\vtor{p}{}
+\end{equation}
+
+%Matrica $[\kk-\omega^2\mm]$ predstavlja matricu dinamičke krutosti sustava s više stupnjeva
+%slobode, a označava se kao $[Z(\omega)]$. Jednadžbu pod \eqref{eq:neodredjeni_koeficijenti_2}
+%možemo zapisati kao:
+%\begin{equation}\label{eq:neodredjeni_koeficijenti_z}
+%    [Z(\omega)]\vtor{U_n}{}=\vtor{p_n}{}
+%\end{equation}
+%
+%Konačno, vektor koeficijenata dobijemo množenjem izraza \eqref{eq:neodredjeni_koeficijenti_z}
+%inversom matrice dinamičke krutosti, te dobijemo:
+%\begin{equation}
+%    \vtor{U_n}{}=\vtor{p_n}{}\,[Z(\omega)]^{-1}
+%\end{equation}
+
+Množenjem jednadžbe \eqref{eq:neodredjeni_koeficijenti_2} s $[\kk-\omega^2\mm]^{-1}$
+dobijemo:
+\begin{equation}
+    \begin{split}
+        \vtor{U_n}{}=[\kk-\omega^2\mm]^{-1}\vtor{p_n}{} \notag\\
+        \vtor{U_n}{}=\frac{1}{det[\kk-\omega^2\mm]}adj[\kk-\omega^2\mm]\vtor{p_n}{}\label{eqneodredjeni_koeficijenti_3}
+    \end{split}
+\end{equation}
+
+Odnosno u matričnom obliku:
+\begin{equation}
+    \begin{Bmatrix}
+        U_1\\
+        U_2
+    \end{Bmatrix}
+    =
+    \frac{1}{det[\kk-\omega^2\mm]}
+        \begin{bmatrix}
+            k_2-m_2\omega^2 & k_2\\
+            k_2 & k_1+k_2-m_1\omega^2
+        \end{bmatrix}
+        \begin{Bmatrix}
+            p_0\\
+            0
+        \end{Bmatrix}
+\end{equation}
+
+Komponente vektora $\vtor{U_n}{}$ glase:
+\begin{align}
+    U_1=\frac{p_0(k_2-m_2\omega^2)}{m_1m_2(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)} \label{eq:vtor_1_opce}\\
+    U_2=\frac{p_0k_2}{m_1m_2(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)}\label{eq:vtor_2_opce}
+\end{align}
+
+Za $m_1=2m$, $m_2=m$, $k_1=2k$ i $k_2=k$ vektori glase:
+\begin{align}
+    U_1=\frac{p_0(k-m\omega^2)}{2m^2(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)}\label{eq:vtor_1}\\
+    U_2=\frac{p_0k}{2m^2(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)}\label{eq:vtor_2}
+\end{align}
+
+Uz $\omega_1=\sqrt{k/2m}$ i $\omega_2=\sqrt{2k/m}$ te dijeljenjem \eqref{eq:vtor_1} i \eqref{eq:vtor_2}
+dobijemo vektor dinamičkog koeficijenta pomaka (bez dimenzija), koji ovisi o
+omjerima frekvencija $\omega/\omega_1$ te $\omega/\omega_2$. Vektor je prikazan u nastavku
+\begin{equation}
+    \frac{2k}{p_0}\vtor{U}{}
+    =
+    \begin{Bmatrix}
+        \ffrac{1-0.5(\omega/\omega_1)^2}
+              {[1-(\omega/\omega_1)^2][1-(\omega/\omega_2)^2]}\\[12pt]
+        \ffrac{1}
+              {[1-(\omega/\omega_1)^2][1-(\omega/\omega_2)^2]}
+    \end{Bmatrix}
+\end{equation}
+
+Prisilni dio odziva glasi:
+\begin{equation}
+    \vtor{u(t)}{} = \vtor{U}{}\sin(\omega t) = 
+    \begin{Bmatrix}
+        \ffrac{1-0.5(\omega/\omega_1)^2}
+              {[1-(\omega/\omega_1)^2][1-(\omega/\omega_2)^2]}\\[12pt]
+        \ffrac{1}
+              {[1-(\omega/\omega_1)^2][1-(\omega/\omega_2)^2]}
+    \end{Bmatrix}
+    \sin(\omega t)
+\end{equation}
+
+Komponente vektora $\vtor{U}{}$ možemo iscrtati kao graf funkcije dinamičkog faktora
+$U_1/p_0/2k$ i $U_2/p_0/2k$ u ovisnosti o frekvencijskom omjeru $\omega/\omega_1$.
+
+\section{Interesantan postupak za rješavanje 2dof}
+Zadana je jednadžba gibanja prisilnog titranja sustava s dva stupnja slobode.
+\begin{equation}\label{eq:jdn_gibanja_osnovno}
+    \mm\vtor{u}{:}+\kk\vtor{u}{}=\vtor{p}{}\sin(\omega t)
+\end{equation}
+
+Odziv sustava će biti sinusni, iste frekvencije kao i pobuda, pa rješenje
+pretpostavljamo u slijedećem obliku:
+\begin{equation}\label{eq:pretpostavljeno}
+    \vtor{U_p}{}=\vtor{U}{}\sin(\omega t)
+\end{equation}
+
+Druga derivacija pretpostavljenog rješenja glasi:
+\begin{equation}\label{eq:pretpostavljeno_dd}
+    \vtor{U_p}{}=-\omega^2\vtor{U}{}\sin(\omega t)
+\end{equation}
+
+Uvrštavanjem \eqref{eq:pretpostavljeno} i \eqref{eq:pretpostavljeno_dd} u
+\eqref{eq:jdn_gibanja_osnovno} dobijemo:
+\begin{equation}
+    -\omega^2\vtor{U}{}\mm\sin(\omega t) + \mm\vtor{U}{}\sin(\omega t) = \vtor{p}{}\sin(\omega t)
+\end{equation}
+
+Te nakon sređivanja:
+\begin{equation}\label{eq:jdn_gibanja_part_1}
+    [\kk-\omega^2\mm]\vtor{U}{}=\vtor{p}{}
+\end{equation}
+
+Matrica $[\kk-\omega^2\mm]$ predstavlja matricu dinamičke krutosti.
+\begin{equation}\label{eq:mat_din_krutost}
+    [\kk-\omega^2\mm]=\mathbf{Z}
+\end{equation}
+
+Da bismo rješili \eqref{eq:jdn_gibanja_part_1} potrebno je pronaći invers matrice
+dinamičke krutosti. Invers matrice dinamičke krutosti predstavlja matrica
+frekvencijskih funkcija odziva, a označavamo ju s $\mathbf{H}$. Jednadžba pod 
+\eqref{eq:mat_din_krutost} može poprimiti slijedeći oblik:
+\begin{equation}
+    \left(\ppsi^N\right)^T[\kk-\omega^2\mm]\ppsi^N
+    =
+    \left(\ppsi^N\right)^T\mathbf{Z}\;\ppsi^T
+\end{equation}
+Odnosno
+\begin{equation}
+     \left(\ppsi^N\right)^T[\kk-\omega^2\mm]\ppsi^N
+    =
+    \left(\ppsi^N\right)^T\mathbf{H}^{-1}\;\ppsi^T
+\end{equation}
+
+Iz \eqref{eq:relacija_normirani_matricno} i \eqref{eq:normirana_krutost} slijedi:
+\begin{equation}
+    [\omega_n^2 - \omega^2] = \left(\ppsi^N\right)^T\mathbf{H}^{-1}\;\ppsi^T
+\end{equation}
+
+Nakon sređivanja, dobijemo:
+\begin{equation}
+    \mathbf{H}=\left(\ppsi^N\right)^T[\omega_n^2 - \omega^2]^{-1}\;\ppsi^T
+\end{equation}
+
+Član $H_{j,k}$ matrice $\mathbf{H}$ možemo dobiti preko slijedeće jednadžbe:
+\begin{equation}\label{eq:clan_frf_matrice}
+    H_{j,k}=\frac{\psi^N_{j,1}\psi^N_{k,1}}{\omega_1^2-\omega^2}
+            +
+            \frac{\psi^N_{j,2}\psi^N_{k,2}}{\omega_2^2-\omega^2}
+            +
+            \frac{\psi^N_{j,3}\psi^N_{k,3}}{\omega_3^2-\omega^2}
+            +
+            \cdots
+            +
+            \frac{\psi^N_{j,n}\psi^N_{k,n}}{\omega_n^2-\omega^2}
+\end{equation}
+
+Jednadžbu \eqref{eq:clan_frf_matrice} možemo zapisati kao skalarni umnožak vektora:
+\begin{equation}\label{eq:clan_frf_matrica_vektorski}
+    H_{j,k}
+    =
+    \begin{Bmatrix}
+        \psi_{j,1}\psi_{k,1} &
+        \psi_{j,2}\psi_{k,2} &
+        \psi_{j,3}\psi_{k,3} &
+        \cdots
+        \psi_{j,n}\psi_{k,n}
+    \end{Bmatrix}
+    \begin{Bmatrix}
+        \ffrac{1}{\omega_1^2-\omega^2}\\[6pt]
+        \ffrac{1}{\omega_2^2-\omega^2}\\[6pt]
+        \ffrac{1}{\omega_3^2-\omega^2}\\[6pt]
+        \vdots\\[6pt]
+        \ffrac{1}{\omega_n^2-\omega^2}
+    \end{Bmatrix}
+\end{equation}
+
+Za zadani sustav, matrica modova normiranih s obzirom na masu $\ppsi^N$ glasi:
+\[
+    \ppsi^N
+    =
+    \begin{Bmatrix}
+        \ffrac{\sqrt{6m}}{6m} & -\ffrac{\sqrt{3m}}{3m}\\[12pt]
+        \ffrac{\sqrt{6m}}{6m} & \ffrac{\sqrt{3m}}{3m}
+    \end{Bmatrix}
+\]
+
+Izračun matrice frekvencijske funkcije odziva $H_{1,1}$ prikazan je u nastavku:
+\[
+\begin{aligned}
+    H_{1,1} &=
+    \frac{\psi^N_{1,1}}{\omega_1^2-\omega^2}+\frac{\psi^N_{1,1}}{\omega_2^2-\omega^2}
+    =
+    \frac{\ffrac{\sqrt{6m}}{6m}\ffrac{\sqrt{6m}}{6m}}{\omega_1^2-\omega^2}
+    +
+    \frac{\ffrac{\sqrt{3m}}{3m}\ffrac{\sqrt{3m}}{3m}}{\omega_2^2-\omega^2}\\
+    %
+    H_{1,1} &=
+    \frac{1}{3m} 
+        \left(
+            \frac{\ffrac{1}{2}}{(\omega_1^2-\omega^2}
+            +
+            \frac{1}{(\omega_2^2-\omega^2)}
+        \right)
+    =
+    \frac{1}{3m}
+        \left(
+            \frac{\ffrac{1}{2}(\omega_2^2-\omega^2)+(\omega_1^2-\omega^2)}
+                {\omega_1^2\omega_2^2(1-(\omega/\omega_1)^2)(1-(\omega/\omega_2)^2}
+        \right)\\
+\end{aligned}
+\]
+
+U brojniku, $\omega_2$ izrazimo kao $\omega_1$ pomoću relacije $\omega_2=\sqrt{2k/m}$
+i $\omega_1=\sqrt{k/2m}$.
+\[
+    \begin{aligned}
+        H_{1,1}=
+        \frac{1}{3m}
+            \left(
+                \frac{3-\ffrac{3}{2}(\omega/\omega_1)^2}
+                    {\omega_2^2(1-(\omega/\omega_1)^2)(1-(\omega/\omega_2)^2)}
+            \right)
+    \end{aligned}
+\]
+Nakon sređivanja:
+\begin{equation}\label{eq:frf_11}
+    H_{1,1}=\frac{1-\ffrac{1}{2}(\omega/\omega_1)^2}{2k(1-(\omega_1/\omega)^2)(1-(\omega_2/\omega)^2)}
+\end{equation}
+
+Analogno tome, dobiju se ostali članovi matrice te glase:
+\begin{align}
+    H_{1,2} &= \frac{1}{2k(1-(\omega_1/\omega)^2)(1-(\omega_2/\omega)^2)}\label{eq:frf_12}\\
+    H_{2,1} &= \frac{1}{2k(1-(\omega_1/\omega)^2)(1-(\omega_2/\omega)^2)}\label{eq:frf_21}\\
+    H_{2,2} &= \frac{1-2(\omega/\omega_2)^2}{2k(1-(\omega_1/\omega)^2)(1-(\omega_2/\omega)^2)}\label{eq:frf_22}\\
+\end{align}
+
+Matrica $\mathbf{H}$ glasi:
+\begin{equation}\label{eq:matrica_frf}
+    \mathbf{H}=\frac{1}{2k(1-(\omega/\omega_1)^2(1-(\omega/\omega_2)^2)}
+    \begin{bmatrix}
+        1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2 & 1 \\
+        1 & 1-2\left(\ffrac{\omega}{\omega_2}\right)^2
+    \end{bmatrix}
+\end{equation}
+
+Uvrštavanjem \eqref{eq:matrica_frf} u \eqref{eq:jdn_gibanja_part_1} dobijemo:
+\begin{equation}
+    \mathbf{H}^{-1}\vtor{U}{}=\vtor{p}{}
+\end{equation}
+
+Množenjem prethodnog izraza s $\mathbf{H}$:
+\begin{equation}
+    \vtor{U}{} = \mathbf{H}\vtor{p}{}
+\end{equation}
+
+Raspisivanjem prethodne jednadžbe:
+\begin{equation}
+    \begin{Bmatrix}
+        U_1\\
+        U_2
+    \end{Bmatrix}
+    =
+    \frac{1}{2k\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+    %
+    \begin{bmatrix}
+        1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2 & 1 \\
+        1 & 1-2\left(\ffrac{\omega}{\omega_2}\right)^2
+    \end{bmatrix}
+    % 
+    \begin{Bmatrix}
+        p_0\\
+        0
+    \end{Bmatrix}
+\end{equation}
+
+Te konačno, vektor $\vtor{U}{}$ glasi:
+\begin{equation}\label{eq:vektor_u_konacno}
+    \begin{Bmatrix}
+        U_1\\
+        U_2
+    \end{Bmatrix}
+    =
+    \frac{1}{2k\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+    \begin{Bmatrix}
+        p_0\left(1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2\right)\\
+        p_0 
+    \end{Bmatrix}
+\end{equation}
+
+Dijeljenjem vektora $\vtor{U}{}$ s $p_0/2k$ dobijemo slijedeće:
+\begin{equation}
+    \begin{Bmatrix}
+        U_1\\
+        U_2
+    \end{Bmatrix}
+    =
+    \frac{1}{\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+    \begin{Bmatrix}
+        1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2\\
+        1 
+    \end{Bmatrix}
+\end{equation}
+
+%Komponente vektora zapisane posebno:
+%\begin{align}
+%    U_1&=\frac{1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2}
+%        {\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}\\
+%    U_2&=\frac{1}{\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+%\end{align}
+
+Komponente vektora $U$ predstavljaju funkcije ovisnosti dinamičkog faktora o 
+frekvencijskim omjerima $\omega/\omega_1$ i $\omega/\omega_2$. Njihovi grafovi
+prikazani su u nastavku.
+
+\textbf{UBACI GRAFOVE}
+
+Prisilni dio odziva glasi:
+\begin{equation}
+    \begin{split}
+        \vtor{u(t)}{} = \vtor{U}{}\; sin(\omega t)
+        %\vtor{u(t)}{}=
+        =
+        \frac{1}{\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+    \begin{Bmatrix}
+        1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2\\
+        1 
+    \end{Bmatrix}
+    \sin(\omega t)
+    \end{split}
+\end{equation}
+

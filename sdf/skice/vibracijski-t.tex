@@ -1,0 +1,42 @@
+\begin{tikzpicture}[scale=0.6,>=latex']
+
+    %koordinatni sustav
+    \draw[thick,strelica1] (-2.2,0) -- (5,0)
+        node[pos=1,below]{{$x$}};
+    \draw[thick,strelica1] (0,-1) -- (0,5)
+        node[pos=1,left]{{$y$}};
+
+    %lezaj
+    \draw[very thick] (0,0) circle (0.25);
+    \filldraw[fill=black] (0,0) circle (0.130);
+
+    %stapovi
+    \draw[very thick, rotate=-30] (-0.25,0) -- (-5,0);
+    \draw[very thick, rotate=30]  (0.25,0) -- (5,0);
+
+    %mase
+    \filldraw[fill=black,rotate=30] (5,0) circle (0.35);
+    \filldraw[fill=black,rotate=-30] (-5,0)circle (0.35);
+
+    %oznake
+    \draw[strelica1,shift={(-1,-1.732)},rotate=60] (0,0.25) -- (0,5)
+        node[pos=0.5, above,rotate=-30]{{$e$}};
+    \draw[strelica0,shift={(-1,-1.732)},rotate=60] (0,0.25) -- (0,5);
+
+    \draw[shift={(-1,-1.732)},rotate=-30] (0,-0.5) -- (0,0.5);
+    \draw[shift={(-1,-1.732)},shift={(-4.33,2.5)},rotate=-30] (0,-0.5) -- (0,0.5);
+
+    %kut
+    \draw[thick, strelica1] (2,0) arc[start angle=0, end angle=30, radius=2];
+    \draw[thick, strelica1, shift={(-2,0)}, rotate=180] (0,0) arc[start angle=0, end angle=-30, radius=2];
+    \node at (1.4,0.35) {{$\omega t$}};
+    \node at (-1.4,0.35){{$\omega t$}};
+
+    %sile
+    \draw[strelica0,very thick,shift={(-3.46,2)},rotate=60] (0,0)--(0,1)
+        node[pos=0,right=2.5mm] {{$m_ee\omega^2/2$}};
+
+    \draw[strelica0,very thick,shift={(4.33,2.5)},rotate=30] (-1,0)--(0,0)
+        node[pos=-0.5,right=3mm] {{$m_ee\omega^2/2$}};
+\end{tikzpicture}
+

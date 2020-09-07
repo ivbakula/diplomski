@@ -1,0 +1,65 @@
+\section{Ortogonalnost modova}
+Kao što je već pokazano, modove (modalne oblike) definiraju vektori. Dva vektora su
+međusobno ortogonalna (okomita) ukoliko je njihov skalarni produkt jednak nuli.
+Razmotrimo li $r$-ti i $n$-ti mod sustava, dobijemo slijedeći sustav jednadžbi 
+(iz \eqref{eq:sustav_diferencijalnih_matricni_kratko}):
+\begin{equation}\label{eq:pocetni_sustav_ortogonalnost}
+    \begin{dcases}
+        (\kk-\omega_r^2\mm)\vtor{\psi}{}_r=\vtor{0}{}\\
+        (\kk-\omega_n^2\mm)\vtor{\psi}{}_n=\vtor{0}{}
+    \end{dcases}
+\end{equation}
+
+Donju jednadžbu pomnožimo s $\vtor{\psi}{}_r^T$. U gornjoj jednadžbi prvo
+transponiramo $\vtor{\psi}{}_r$ te ju pomnožimo s $\vtor{\psi}{}_n$. Sustav jednadžbi
+\eqref{eq:pocetni_sustav_ortogonalnost} postaje:
+\begin{equation}\label{eq:konacni_sustav_ortogonalnost}
+    \begin{dcases}
+        \vtor{\psi}{}_r^T(\kk-\omega_r^2\mm)\vtor{\psi}{}_n=0\\
+        \vtor{\psi}{}_r^T(\kk-\omega_n^2\mm)\vtor{\psi}{}_n=0
+    \end{dcases}
+\end{equation}
+
+Oduzimanjem gornje i donje jednadžbe dobijemo:
+\begin{equation}
+    (\omega_n^2-\omega_r^2)\vtor{\psi}{}_r^T\mm\vtor{\psi}{}_s=0
+\end{equation}
+
+Za $\omega_n\neq\omega_r$ vrijedi:
+\begin{equation}\label{eq:ortogonalnost_masa}
+    \vtor{\psi}{}_r^T\mm\vtor{\psi}{}_n=0
+\end{equation}
+
+Uvrštavanjem $\vtor{\psi}{}_r^T\mm\vtor{\psi}{}_n=0$ u bilo koju od jednadžbi iz
+\eqref{eq:konacni_sustav_ortogonalnost} dobijemo:
+\begin{equation}\label{eq:ortogonalnost_krutost}
+    \vtor{\psi}{}_r^T\kk\vtor{\psi}{}_n=0
+\end{equation}
+
+Jednadžbe pod \eqref{eq:ortogonalnost_masa} i \eqref{eq:ortogonalnost_krutost}
+govore da su modovi, pomnoženi težinskim koeficijentima iz matrice krutosti ili
+matrice masa, međusobno ortogonalni (valjda). Kažemo da su modovi međusobno ortogonalni s
+obzirom na matricu mase ili matricu krutosti (valjda).
+\par
+
+Poslijedica ortogonalnosti je dijagonalnost slijedećih pravokutnih matrica:
+\begin{alignat}{2}
+    &\text{Modalna krutost}\quad & \mathbf{K}&=\ppsi^T\kk\ppsi\label{eq:modalna_krutost_matrica}\\
+    &\text{Modalna masa}\quad &\mathbf{M}&=\ppsi^T\mm\ppsi\label{eq:modalna_masa_matrica}
+\end{alignat}
+
+Članovi matrica računaju se prema slijedećim formulama:
+\begin{alignat}{2}
+    &\text{Za modalnu krutost}\quad & K_{n,n}&=\vtor{\psi}{}_n^Tk\vtor{\psi}{}_n\label{eq:modalna_krutost}\\
+    &\text{Za modalnu masu}\quad &M_{n,n}&=\vtor{\psi}{}_n^Tk\vtor{\psi}{}_n\label{eq:modalna_masa}
+\end{alignat}
+
+Između elemenata matrica vrijedi slijedeći odnos:
+\begin{equation}
+    \omega_n^2=\frac{K_n}{M_n}
+\end{equation}
+U matričnoj formi:
+\begin{equation}
+    \oomega^2=\mathbf{K}\mathbf{M}^{-1}
+\end{equation}
+

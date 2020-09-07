@@ -1,0 +1,72 @@
+\documentclass[12pt]{book}
+\usepackage[croatian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=3cm]{geometry}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xfrac}
+\usepackage{mathtools}
+\usepackage{titlesec}
+\usepackage{tabu}
+
+%font
+%\usepackage{fontspec}
+%\setmainfont[Mapping=tex-text]{Minion Pro}
+%\setsansfont{Myriad Pro}
+%\newfontfamily\HeadingsFont{Myriad Pro}
+%\newfontfamily\CaptionsFont{Myriad Pro}
+
+%za slike i oznacavanje
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+%oznaci reference prema poglavlju
+\numberwithin{equation}{subsection}
+\numberwithin{figure}{subsection}
+
+%stupnjevi
+\usepackage{gensymb}
+
+%za grafove
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,decorations.markings}
+\usetikzlibrary{shapes, arrows, positioning}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathmorphing,patterns}
+\pgfplotsset{width=15cm, compat=1.15}
+
+%strelice
+\tikzset{strelica1/.style={decoration={markings,mark=at position 1 with %
+    {\arrow[scale=2,>=latex']{>}}},postaction={decorate}}}
+
+\tikzset{strelica0/.style={decoration={markings,mark=at position 0 with %
+    {\arrow[scale=2,>=latex']{<}}},postaction={decorate}}}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{3pt}
+\setlength{\intextsep}{8.0pt plus 2.0pt minus 2.0pt}    %za floatove
+\setlength{\abovedisplayskip}{-12pt}
+\setlength{\belowdisplayskip}{12pt}
+\addtolength{\jot}{0.5em}
+%naredbe
+\newcommand{\ltr}{\mathcal{L}}	%operator laplaceove transformacije
+
+\titleformat{\section}
+{\Large \bfseries}
+{}
+{0em}
+{}[\vspace{1ex}\titlerule]
+
+\begin{document}
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
+
+\input{sdf/sdf.tex}
+\end{document}

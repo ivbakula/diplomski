@@ -1,0 +1,926 @@
+\chapter{Sustavi s više stupnjeva slobode}
+\section{Jednadžba gibanja slobodnih oscilacija}\label{slobodne_oscilacije}
+Općenito, sustavi s više stupnjeva slobode modelirani su kao $N$ etažni posmični
+okviri. Takavi sustavi se sastoje od $N$ koncentriranih masa, što znači da je potrebno 
+pratiti $N$ različitih pomaka. Drugim riječima, jednadžba gibanja takvog sustava biti će
+zadana kao sustav od N diferencijalnih jednadžbi drugog reda.
+\par
+
+Sustav s više stupnjeva slobode, koji će biti razmatran u ovom radu, je dvoetažni
+posmični okvir prikazan na slijedećoj slici, a osnovni pojmovi biti će objašnjeni
+pomoću slobodnih oscilacija navedenog modela.
+
+\par
+ubaci sliku sustava i ekvivalentnog modela
+\par
+
+Sustavi sa slike imaju dva dinamička stupnja slobode jer su moguće dvije translacije
+dviju različitih masa, pa jednadžbu gibanja opisuje sustav od dvije diferencijelne
+jednadžbe drugog reda.
+\begin{equation}\label{eq:sustav_diferencijalnih}
+    \begin{dcases}
+        m\ddot{u}_1 + (k_1+k_2)u_1 -k_2u_2 = 0\\
+        m\ddot{u}_2 - k_2u_1 + k_2 u_2 = 0
+    \end{dcases}
+\end{equation}
+
+Zapisano u matričnoj formi:
+\begin{equation}\label{eq:sustav_diferencijalnih_matricno}
+    \begin{bmatrix}
+        m_1 & 0 \\
+        0   & m_2
+    \end{bmatrix}
+    \begin{Bmatrix}
+        \ddot{u}_1\\
+        \ddot{u}_2
+    \end{Bmatrix}
+    +
+    \begin{bmatrix}
+        k_1+k_2 & -k_2\\
+        -k_2 & k_2
+    \end{bmatrix}
+    \begin{Bmatrix}
+        u_1\\
+        u_2
+    \end{Bmatrix}
+    =
+    \begin{Bmatrix}
+        0\\
+        0
+    \end{Bmatrix}
+\end{equation}
+
+Odnosno
+\begin{equation}\label{eq:sustav_diferencijalnih_matricni_kratko}
+    \mm\vtor{u}{:}+\kk\vtor{u}{}=\vtor{0}{}
+\end{equation}
+Iz \eqref{eq:sustav_diferencijalnih} i \eqref{eq:sustav_diferencijalnih_matricno}
+vidi se da je sustav diferencijalnih jednadžbi povezan preko krutosti odnosno
+matrice krutosti. Opći oblik rješenja sustava je slijedeći:
+\begin{equation}\label{eq:rjesenje_opcenitog_sustava}
+    \vtor{u(t)}{} = \vtor{\psi}{}q(t)
+\end{equation}
+
+Vektor $\psi$ možemo shvatiti kao konstantu integracije, a funkcija $q(t)$ je
+jednostavna harmonijska funkcija oblika:
+\begin{equation}\label{eq:jednostavna_harmonijska_funkcija}
+    q(t)=A\cos(\omega t) + B\sin(\omega t)
+\end{equation}
+Druga derivacija \eqref{eq:jednostavna_harmonijska_funkcija} jest:
+\begin{equation}\label{eq:jednostavna_harmonijska_funkcija_dd}
+    \ddot{q}(t)=-\omega^2(
+    \underbrace{
+        A\cos(\omega t) + B\sin(\omega t)
+    }_{\text{$q(t)$}}
+    )
+    =-\omega^2q(t)
+\end{equation}
+
+Stoga, druga derivacija od \eqref{eq:rjesenje_opcenitog_sustava} glasi:
+\begin{equation}\label{eq:rjesenje_opcenitog_sustava_dd}
+    \vtor{u}{:}=-\omega^2q(t)\vtor{\psi}{}
+\end{equation}
+
+Uvrštavanjem \eqref{eq:rjesenje_opcenitog_sustava} i \eqref{eq:rjesenje_opcenitog_sustava_dd}
+u \eqref{eq:sustav_diferencijalnih_matricni_kratko} dobijemo:
+\begin{equation}
+    (\vtor{\psi}{}\kk-\omega^2\vtor{\psi}{}\mm)q(t)=\vtor{0}{}
+\end{equation}
+Prvo trivijalno rješenje je za $q(t)=0$ što implicira da je $u(t)=0$ (sustav
+miruje). Netrivijalno rješenje se dobije izjednačavanjem zagrade s nulom:
+
+\begin{equation}\label{eq:vlastite_vrijednosti}
+    \kk\{\psi\}=\omega^2\mm\{\psi\}
+\end{equation}
+Izraz \eqref{eq:vlastite_vrijednosti} predstavlja realni problem vlastitih
+vrijednosti odnosno matrični problem vlastitih vrijednosti. Potrebno je odrediti
+dvije nepoznanice: 
+\begin{enumerate}
+    \item vlastite vektore $\psi$
+    \item vlastite skalare $\omega^2$
+\end{enumerate}
+
+Prebacivanjem nepoznanica na jednu stranu dobijemo
+\begin{equation}\label{eq:vlastite_vrijednosti_homogeno}
+    (\kk-\omega^2\mm)\vtor{\psi}{}=\vtor{0}{}
+\end{equation}
+
+U općenitom slučaju, izraz \eqref{eq:vlastite_vrijednosti_homogeno} predstavlja
+sustav od N algebarskih jednadžbi s N nepoznanica. Trivijalno rješenje sustava je za
+$\{\psi\}={0}$, a netrivijalno se određuje raspisom determinante matrice
+$[[k]-\omega^2[m]]$. Raspisom determinante navedene matrice, dobije se polinom N-tog
+stupnja kojeg nazivamo \textit{karakterističnim polinomom}. Nultočke polinoma
+predstavljaju vlastite vrijednosti $\omega^2$, odnosno kvadrirane prirodne
+frekvencije. Da bi nultočke polinoma bile realne pozitivne vrijednosti, matrice $[m]$
+i $[k]$ moraju biti simetrične i pozitivno definitne. Uvijeti za pozitivnu
+definitnost u građevinarstvu su slijedeći:
+\begin{enumerate}
+    \item za matricu $\kk$ - broj i raspored ležajeva u ispravnoj mreži mora biti
+        takav da se spriječe pomaci krutog tijela
+    \item za matricu $\mm$ - moraju se ukloniti stupnjevi slobode bez pridružene
+        koncentrirane mase. Uklanjanje nepotrebnih stupnjeva slobode, vrši se
+        statičkom kondenzacijom.
+\end{enumerate}
+
+Vlastiti vektori $\psi$ se određuju uvrštavanjem vrijednosti $\omega^2$ u matricu
+$[k-\omega^2m]$, stoga je očito da vektori $\psi$ nisu jedinstveni jer i njihovi
+višektratnici zadovoljavaju jednadžbu \eqref{eq:vlastite_vrijednosti_homogeno}.
+Vektori $\psi$ nazivaju se \textit{modalnim vektorima}, a definiraju oblik titranja
+sustava na frekvenciji $\omega$. Prvi modalni vektor $\psi_1$, naziva se temeljnim
+(osnovnim) modom, a frekvencija na kojoj sustav titra u navedenom modu ($\omega_1$)
+naziva se \textit{vlastitom frekvencijom temeljnog moda}.
+\par
+
+Ako su sve prirodne frekvencije različite od nula i međusobno različite, tada su svi
+vlastiti vektori linearno nezavisni. Skup od n linearno nezavisnih vektora čini bazu
+n-dimenzionalnog vektorskog prostora, pa je ukupno rješenje sustava diferencijalnih
+jednadžbi linearna kombinacija svih pojedinačnih rješenja.
+\begin{equation}\label{eq:opce_rjesenje_sustava}
+    \vtor{u(t)}{}=\sum_{n=1}^N\vtor{\psi}{}_nq_n 
+\end{equation}
+Pri čemu je $q_n$:
+\begin{equation}
+    q_n=A_n\cos(\omega_n t) + B_n\sin(\omega_n t)
+\end{equation}
+
+Raspisivanjem \eqref{eq:opce_rjesenje_sustava} dobivamo:
+\[
+	\begin{Bmatrix}
+		u_1\\
+		u_2\\
+		\vdots\\
+		u_n
+	\end{Bmatrix}
+	=
+	q_1(t)
+	\begin{Bmatrix}
+		\psi_{1,1}\\
+		\psi_{2,1}\\
+		\vdots\\
+		\psi_{N,1}
+	\end{Bmatrix}
+	+
+	q_2(t)
+	\begin{Bmatrix}
+		\psi_{1,2}\\
+		\psi_{2,2}\\
+		\vdots\\
+		\psi_{N,2}
+	\end{Bmatrix}
+		+
+		\cdots
+		+
+	q_N(t)
+	\begin{Bmatrix}
+		\psi_{1,N}\\
+		\psi_{2,N}\\
+		\vdots\\
+		\psi_{N,N}
+	\end{Bmatrix}
+	\]
+\[
+	=
+	\begin{bmatrix}
+		q_1(t) \psi_{1,1} + q_2(t) \psi_{1,2} + q_N(t) \psi_{1,N} \\
+		q_1(t) \psi_{2,1} + q_2(t) \psi_{2,2} + q_N(t) \psi_{2,N} \\
+		\vdots \\
+		q_1(t) \psi_{N,1} + q_2(t) \psi_{N,2} + q_N(t) \psi_{N,N}
+	\end{bmatrix}
+	=
+	\underbrace{
+	\begin{bmatrix}
+		\psi_{1,1} & \psi_{1,2} & \cdots & \psi_{1_N} \\
+		\psi_{2,1} & \psi_{2,2} & \cdots & \psi_{2_N} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		\psi_{N,1} & \psi_{N,2} & \cdots & \psi_{N,N} 
+	\end{bmatrix}
+	}_{\text{\large{$\ppsi$}}}
+	\underbrace{
+	\begin{Bmatrix}
+		q_1(t) \\
+		q_2(t) \\
+		\vdots \\
+		q_n(t)
+	\end{Bmatrix}
+	}_{\text{\large{$\overrightarrow{q}$}}}
+\]
+
+Matricu $\ppsi$ nazivamo modalna matrica, a komponente vektora $q$ nazivaju se
+modalne koordinate. Opće rješenje pod \eqref{eq:opce_rjesenje_sustava} sada možemo 
+zapisati matrično kao:
+\begin{equation}
+    \vtor{u(t)}{} = \ppsi \vtor{q}{}
+\end{equation}
+
+
+Osim modalne matrice postoji i spektralna matrica ($N$x$N$) koja se sastoji od N
+svojstvenih vrijednosti $\omega^2$.
+\[
+	\oomega^2 
+	= 
+	\begin{bmatrix}
+		\omega_1^2 & 0 & 0 & \cdots & 0 \\
+		0 & \omega_2^2 & 0 & \cdots & 0 \\
+		0 & 0 & \omega_3^2 & \cdots & 0 \\
+		\vdots  & \vdots  & \vdots  & \ddots &  0 \\
+		0 & 0 & 0 & \cdots &  \omega_N^2 
+	\end{bmatrix}
+\]
+
+
+Za slučaj sustava s dva stupnja slobode, definiranog sustavom diferencijalnih
+jednadžbi pod \eqref{eq:sustav_diferencijalnih_matricno}, prirodne frekvencije 
+$\omega_1^2$ i $\omega_2^2$ dobivene su rješavanjem kvadratne jednadžbe karakterističnog
+polinoma za $\omega^2$. Modalne vektore možemo zapisati kao:
+\begin{align}
+    \overrightarrow{\psi}_1=
+    \begin{Bmatrix}
+        \psi_1\\
+        \psi_2
+    \end{Bmatrix}
+    &=
+    \begin{Bmatrix}
+        \ffrac{k_1+k_2-\omega_1^2m_1}{k_2}\\
+        1
+    \end{Bmatrix}\\
+    \overrightarrow{\psi}_2=
+    \begin{Bmatrix}
+        \psi_1\\
+        \psi_2
+    \end{Bmatrix}
+    &=
+    \begin{Bmatrix}
+        \ffrac{k_1+k_2-\omega_1^2m_1}{k_2}\\
+        1
+    \end{Bmatrix}
+\end{align}
+
+Ukupno rješenje sustava jest linearna kombinacija slijedećih vektora:
+\begin{equation}
+    \begin{dcases}
+        \vtor{u}_1(t) = \vtor{\psi}_1 q_1(t) = \vtor{\psi}_1 (A_1\cos(\omega_1 t) + B_1\sin(\omega_1 t))\\
+        \vtor{u}_2(t) = \vtor{\psi}_2 q_2(t) = \vtor{\psi}_2 (A_2\cos(\omega_2 t) + B_2\sin(\omega_2 t))
+    \end{dcases}
+\end{equation}
+
+Stoga, ukupno opće rješenje glasi:
+\begin{equation}\label{eq:ukupno_opce_rjesenje_2dof}
+    \vtor{u}(t)=\vtor{u}_1(t)+\vtor{u}_2(t)
+\end{equation}
+
+Bitno je za napomenuti da modalni vektor $\psi$ ne određuje maksimalne iznose
+ordinata već samo njihov relativni odnos, tj. modalni oblik ili oblik titranja. Da
+bismo dobili amplitude $A_n$ i $B_n$, potrebno je rješiti inicijalni problem oblika 
+$\vtor{u(0)}{} = \vtor{u}{}$ i $\vtor{u(0)}{.}=\vtor{u}{}$. Za slučaj slobodnog titranja,
+konstante $A_n$ i $B_n$ glase:
+\begin{align}
+    A_n&=u_n(0)\\
+    B_n&=\frac{\dot{u}_n(0)}{\omega_n}
+\end{align}
+
+Shematski prikaz modova sustava s dva stupnja slobode prikazan je na slijedećoj
+slici.
+
+\section{Ortogonalnost modova}
+Kao što je već pokazano, modove (modalne oblike) definiraju vektori. Dva vektora su
+međusobno ortogonalna (okomita) ukoliko je njihov skalarni produkt jednak nuli.
+Razmotrimo li $r$-ti i $n$-ti mod sustava, dobijemo slijedeći sustav jednadžbi 
+(iz \eqref{eq:sustav_diferencijalnih_matricni_kratko}):
+\begin{equation}\label{eq:pocetni_sustav_ortogonalnost}
+    \begin{dcases}
+        (\kk-\omega_r^2\mm)\vtor{\psi}{}_r=\vtor{0}{}\\
+        (\kk-\omega_n^2\mm)\vtor{\psi}{}_n=\vtor{0}{}
+    \end{dcases}
+\end{equation}
+
+Donju jednadžbu pomnožimo s $\vtor{\psi}{}_r^T$. U gornjoj jednadžbi prvo
+transponiramo $\vtor{\psi}{}_r$ te ju pomnožimo s $\vtor{\psi}{}_n$. Sustav jednadžbi
+\eqref{eq:pocetni_sustav_ortogonalnost} postaje:
+\begin{equation}\label{eq:konacni_sustav_ortogonalnost}
+    \begin{dcases}
+        \vtor{\psi}{}_r^T(\kk-\omega_r^2\mm)\vtor{\psi}{}_n=0\\
+        \vtor{\psi}{}_r^T(\kk-\omega_n^2\mm)\vtor{\psi}{}_n=0
+    \end{dcases}
+\end{equation}
+
+Oduzimanjem gornje i donje jednadžbe dobijemo:
+\begin{equation}
+    (\omega_n^2-\omega_r^2)\vtor{\psi}{}_r^T\mm\vtor{\psi}{}_s=0
+\end{equation}
+
+Za $\omega_n\neq\omega_r$ vrijedi:
+\begin{equation}\label{eq:ortogonalnost_masa}
+    \vtor{\psi}{}_r^T\mm\vtor{\psi}{}_n=0
+\end{equation}
+
+Uvrštavanjem $\vtor{\psi}{}_r^T\mm\vtor{\psi}{}_n=0$ u bilo koju od jednadžbi iz
+\eqref{eq:konacni_sustav_ortogonalnost} dobijemo:
+\begin{equation}\label{eq:ortogonalnost_krutost}
+    \vtor{\psi}{}_r^T\kk\vtor{\psi}{}_n=0
+\end{equation}
+
+Jednadžbe pod \eqref{eq:ortogonalnost_masa} i \eqref{eq:ortogonalnost_krutost}
+govore da su modovi, pomnoženi težinskim koeficijentima iz matrice krutosti ili
+matrice masa, međusobno ortogonalni (valjda). Kažemo da su modovi međusobno ortogonalni s
+obzirom na matricu mase ili matricu krutosti (valjda).
+\par
+
+Poslijedica ortogonalnosti je dijagonalnost slijedećih pravokutnih matrica:
+\begin{alignat}{2}
+    &\text{Modalna krutost}\quad & \mathbf{K}&=\ppsi^T\kk\ppsi\label{eq:modalna_krutost_matrica}\\
+    &\text{Modalna masa}\quad &\mathbf{M}&=\ppsi^T\mm\ppsi\label{eq:modalna_masa_matrica}
+\end{alignat}
+
+Članovi matrica računaju se prema slijedećim formulama:
+\begin{alignat}{2}
+    &\text{Za modalnu krutost}\quad & K_{n,n}&=\vtor{\psi}{}_n^Tk\vtor{\psi}{}_n\label{eq:modalna_krutost}\\
+    &\text{Za modalnu masu}\quad &M_{n,n}&=\vtor{\psi}{}_n^Tk\vtor{\psi}{}_n\label{eq:modalna_masa}
+\end{alignat}
+
+Između elemenata matrica vrijedi slijedeći odnos:
+\begin{equation}
+    \omega_n^2=\frac{K_n}{M_n}
+\end{equation}
+U matričnoj formi:
+\begin{equation}
+    \oomega^2=\mathbf{K}\mathbf{M}^{-1}
+\end{equation}
+
+\section{Normiranje modova}
+Modalni vektori nisu jedinstveni jer su jednako predstavljeni vektorima dobivenim
+rješenjem problema vlastitih vrijednosti i njihovim višekratnicima. Drugim riječima,
+modalni vektor predstavljen je familijom kolinearnih vektora jer vrijedi slijedeća
+jednakost (iz \eqref{eq:vlastite_vrijednosti})
+\[
+    \begin{aligned}
+        \kk(a\vtor{\psi}{}_n)&=\omega_n^2(a\vtor{\psi}{}_n)\mm\\
+        a\kk\vtor{\psi}{}_n&=a\omega_n^2\vtor{\psi}{}_n\mm\\
+        \kk\vtor{\psi}{}_n&=\omega_n^2\vtor{\psi}{}_n\mm
+    \end{aligned}
+\]
+
+Množenje vlastitog vektora skalarom, s ciljem postizanja željene forme modalnog
+vektora, naziva se normiranje modalnog vektora odnosno moda. Primjerice, željena forma 
+modalnog vektora može biti vektor čiji je najveći element jedan:
+\[
+    \vtor{\psi}{}=
+        \begin{Bmatrix}
+            \ffrac{1}{2}\\[8pt]
+            \ffrac{3}{4}
+        \end{Bmatrix}
+\]
+Množenjem vektora s $4/3$ dobijemo:
+\[
+    \vtor{\psi}{}=
+        \begin{Bmatrix}
+            \ffrac{2}{3}\\[6pt]
+            1
+        \end{Bmatrix}
+\]
+
+Od posebnog značaja je normiranje modalne mase na jediničnu vrijednost. Kako je
+$\vtor{\psi}{}_n^T\mm\vtor{\psi}{}_n=\mathbf{M}_{n,n}$, mod $\vtor{\psi}{}_n$
+potrebno je množiti sa $(M_{n,n})^{-1/2}$, odnosno:
+\begin{equation}\label{eq:normiranje_masa}
+    \vtor{\psi}{}_n^N=\frac{1}{\sqrt{M_{n,n}}}\vtor{\psi}{}_n
+\end{equation}
+
+Gdje je $\vtor{\psi}{}_n^N$ normirani vektor $n$-tog moda. Jednadžba
+\eqref{eq:normiranje_masa} zapisana u matričnoj formi glasi:
+\begin{equation}\label{eq:normiranje_masa_matricno}
+    \ppsi_n^N=\ppsi\,\mathbf{M}^{-\frac{1}{2}}
+\end{equation}
+
+Vrijedi slijedeća relacija:
+\begin{equation}\label{eq:relacija_normirani}
+        M_{n,n}=\left(\vtor{\psi}{}_n^N\right)^T\mm\vtor{\psi}{}_n^N=1
+\end{equation}
+
+Odnosno u matričnom obliku:
+\begin{equation}\label{eq:relacija_normirani_matricno}
+    \left(\ppsi^N\right)^T\mm\ppsi^N=I
+\end{equation}
+
+Gdje je $I$ jedinična matrica. Iz \eqref{eq:modalna_krutost} slijedi:
+\begin{equation}
+    \begin{split}
+        \left(\ppsi^N\right)^T\K\ppsi^N=\oomega^2\underbrace{\left(\ppsi^N\right)^T\M\ppsi^N}_{\text{$I$}} \notag\\
+        \left(\ppsi^N\right)^T\K\ppsi^N=\oomega^2\label{eq:normirana_krutost}
+    \end{split}
+\end{equation}
+
+\section{Odziv sustava s više stupnjeva slobode na pobudu sinusnom
+silom}\label{mdof_prisilne}
+Kao što je pokazano u poglavlju \ref{slobodne_oscilacije}, jednadžba gibanja sustava
+s $N$ stupnjeva slobode zadana je kao sustav od $N$ diferencijalnih jednadži drugog
+reda. U slučaju pobude harmonijskom silom, navedeni sustav će se sastojati od $N$
+nehomogenih diferencijalnih jednadžbi drugog reda, koje će biti povezane preko
+matrice krutosti i/ili matrice mase. 
+\par
+Općenito, rješenje jedne proizvoljne nehomogene diferencijalne jednadžbe drugog reda
+oblika $\alpha\ddot{y}+\beta\dot{y}+\gamma y= f(t)$ jest suma komplementarnog
+rješenja $y_c$ i partikularnog rješenja $Y_p$.
+\begin{equation}
+    y(t)=y_c(t)+U_p(t)
+\end{equation}
+
+Komplementarno rješenje dobijemo izjednačavanjem diferencijalne jednadžbe s nulom
+odnosno:
+\begin{equation}\label{eq:opce_komplementarno_rjesenje}
+    \alpha\ddot{y}+\beta\dot{y}+\gamma y=0
+\end{equation}
+
+Primjetimo da je komplementarno rješenje (rješenje jednadžbe \eqref{eq:opce_komplementarno_rjesenje}) 
+zapravo rješenje homogene diferencijalne jednadžbe, a jednako je i za slobodne 
+oscilacije i za prisilne oscilacije. Kod prisilnih oscilacija, komplementarno 
+rješenje predstavlja prolazni dio odziva. Partikularno riješenje možemo pronaći 
+koristeći se metodom neodređenih koeficijenata, a predstavlja prolazni dio odziva.
+\par
+
+Analogno tome, komplementarno rješenje sustava diferencijalnih jednadžbi dato je u
+\eqref{eq:opce_rjesenje_sustava} te predstavlja prolazni dio odziva, pa u slučaju
+prisilnih oscilacija preostaje nam odrediti još partikularno rješenje koje
+predstavlja prisilni dio odziva. 
+\par
+
+Zadana je jednadžba gibanja sustava s dva stupnja slobode prikazanog na slijedećoj
+slici
+
+\textbf{UBACI SLIKU SUSTAVA}
+
+\begin{equation}\label{eq:jednadzba_gibanja_matricno}
+    \begin{bmatrix}
+        m_1 & 0 \\
+        0   & m_2
+    \end{bmatrix}
+    \begin{Bmatrix}
+        \ddot{u}_1\\
+        \ddot{u}_2
+    \end{Bmatrix}
+    +
+    \begin{bmatrix}
+        k_1+k_2 & -k_2\\
+        -k_2 & k_2
+    \end{bmatrix}
+    \begin{Bmatrix}
+        u_1\\
+        u_2
+    \end{Bmatrix}
+    =
+    \begin{Bmatrix}
+        p_0\\
+        0 
+    \end{Bmatrix}
+    \sin(\omega t)
+\end{equation}
+
+Odnosno:
+\begin{equation}\label{eq:jednadzba_gibanja_matricno_kratko}
+    \mm\vtor{u}{:}+k\vtor{u}{}=\vtor{p_n}{}\sin(\omega t)
+\end{equation}
+
+Gdje je $\vtor{p_n}{}$ vektor amplituda harmonijskih sila. Odziv sustava biti će
+harmonijski, jednake frekvencije, pa partikularno rješenje možemo pretpostaviti:
+\begin{equation}\label{eq:partikularno_pretpostavka}
+    \vtor{u_p(t)}{}=\vtor{U_n}{}\sin(\omega t)
+\end{equation}
+Gdje je $\vtor{U_n}{}$ vektor koeficijenata.
+Druga derivacija \eqref{eq:partikularno_pretpostavka} glasi:
+\begin{equation}\label{eq:partikularno_pretpostavka_dd}
+    \{\ddot{u}(t)\}=-\omega^2\vtor{U_n}{}\sin(\omega t)
+\end{equation}
+
+Uvrštavanjem \eqref{eq:partikularno_pretpostavka} i \eqref{eq:partikularno_pretpostavka_dd}
+u \eqref{eq:jednadzba_gibanja_matricno_kratko} dobijemo:
+\begin{equation}\label{eq:neodredjeni_koeficijenti_1}
+    -\omega^2\vtor{U_n}{}\mm\sin(\omega t) 
+    +
+    \vtor{U_n}{}\kk\sin(\omega t)
+    =
+    \vtor{p}{}\sin(\omega t)
+\end{equation}
+
+Nakon sređivanja, jednadžba \eqref{eq:neodredjeni_koeficijenti_1} poprima oblik:
+\begin{equation}\label{eq:neodredjeni_koeficijenti_2}
+    [\kk-\omega^2\mm]\vtor{U_n}{}=\vtor{p}{}
+\end{equation}
+
+%Matrica $[\kk-\omega^2\mm]$ predstavlja matricu dinamičke krutosti sustava s više stupnjeva
+%slobode, a označava se kao $[Z(\omega)]$. Jednadžbu pod \eqref{eq:neodredjeni_koeficijenti_2}
+%možemo zapisati kao:
+%\begin{equation}\label{eq:neodredjeni_koeficijenti_z}
+%    [Z(\omega)]\vtor{U_n}{}=\vtor{p_n}{}
+%\end{equation}
+%
+%Konačno, vektor koeficijenata dobijemo množenjem izraza \eqref{eq:neodredjeni_koeficijenti_z}
+%inversom matrice dinamičke krutosti, te dobijemo:
+%\begin{equation}
+%    \vtor{U_n}{}=\vtor{p_n}{}\,[Z(\omega)]^{-1}
+%\end{equation}
+
+Množenjem jednadžbe \eqref{eq:neodredjeni_koeficijenti_2} s $[\kk-\omega^2\mm]^{-1}$
+dobijemo:
+\begin{equation}
+    \begin{split}
+        \vtor{U_n}{}=[\kk-\omega^2\mm]^{-1}\vtor{p_n}{} \notag\\
+        \vtor{U_n}{}=\frac{1}{det[\kk-\omega^2\mm]}adj[\kk-\omega^2\mm]\vtor{p_n}{}\label{eqneodredjeni_koeficijenti_3}
+    \end{split}
+\end{equation}
+
+Odnosno u matričnom obliku:
+\begin{equation}
+    \begin{Bmatrix}
+        U_1\\
+        U_2
+    \end{Bmatrix}
+    =
+    \frac{1}{det[\kk-\omega^2\mm]}
+        \begin{bmatrix}
+            k_2-m_2\omega^2 & k_2\\
+            k_2 & k_1+k_2-m_1\omega^2
+        \end{bmatrix}
+        \begin{Bmatrix}
+            p_0\\
+            0
+        \end{Bmatrix}
+\end{equation}
+
+Komponente vektora $\vtor{U_n}{}$ glase:
+\begin{align}
+    U_1=\frac{p_0(k_2-m_2\omega^2)}{m_1m_2(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)} \label{eq:vtor_1_opce}\\
+    U_2=\frac{p_0k_2}{m_1m_2(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)}\label{eq:vtor_2_opce}
+\end{align}
+
+Za $m_1=2m$, $m_2=m$, $k_1=2k$ i $k_2=k$ vektori glase:
+\begin{align}
+    U_1=\frac{p_0(k-m\omega^2)}{2m^2(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)}\label{eq:vtor_1}\\
+    U_2=\frac{p_0k}{2m^2(\omega^2-\omega_1^2)(\omega^2-\omega_2^2)}\label{eq:vtor_2}
+\end{align}
+
+Uz $\omega_1=\sqrt{k/2m}$ i $\omega_2=\sqrt{2k/m}$ te dijeljenjem \eqref{eq:vtor_1} i \eqref{eq:vtor_2}
+dobijemo vektor dinamičkog koeficijenta pomaka (bez dimenzija), koji ovisi o
+omjerima frekvencija $\omega/\omega_1$ te $\omega/\omega_2$. Vektor je prikazan u nastavku
+\begin{equation}
+    \frac{2k}{p_0}\vtor{U}{}
+    =
+    \begin{Bmatrix}
+        \ffrac{1-0.5(\omega/\omega_1)^2}
+              {[1-(\omega/\omega_1)^2][1-(\omega/\omega_2)^2]}\\[12pt]
+        \ffrac{1}
+              {[1-(\omega/\omega_1)^2][1-(\omega/\omega_2)^2]}
+    \end{Bmatrix}
+\end{equation}
+
+Prisilni dio odziva glasi:
+\begin{equation}
+    \vtor{u(t)}{} = \vtor{U}{}\sin(\omega t) = 
+    \begin{Bmatrix}
+        \ffrac{1-0.5(\omega/\omega_1)^2}
+              {[1-(\omega/\omega_1)^2][1-(\omega/\omega_2)^2]}\\[12pt]
+        \ffrac{1}
+              {[1-(\omega/\omega_1)^2][1-(\omega/\omega_2)^2]}
+    \end{Bmatrix}
+    \sin(\omega t)
+\end{equation}
+
+Komponente vektora $\vtor{U}{}$ možemo iscrtati kao graf funkcije dinamičkog faktora
+$U_1/p_0/2k$ i $U_2/p_0/2k$ u ovisnosti o frekvencijskom omjeru $\omega/\omega_1$.
+
+\section{Interesantan postupak za rješavanje 2dof}
+Zadana je jednadžba gibanja prisilnog titranja sustava s dva stupnja slobode.
+\begin{equation}\label{eq:jdn_gibanja_osnovno}
+    \mm\vtor{u}{:}+\kk\vtor{u}{}=\vtor{p}{}\sin(\omega t)
+\end{equation}
+
+Odziv sustava će biti sinusni, iste frekvencije kao i pobuda, pa rješenje
+pretpostavljamo u slijedećem obliku:
+\begin{equation}\label{eq:pretpostavljeno}
+    \vtor{U_p}{}=\vtor{U}{}\sin(\omega t)
+\end{equation}
+
+Druga derivacija pretpostavljenog rješenja glasi:
+\begin{equation}\label{eq:pretpostavljeno_dd}
+    \vtor{U_p}{}=-\omega^2\vtor{U}{}\sin(\omega t)
+\end{equation}
+
+Uvrštavanjem \eqref{eq:pretpostavljeno} i \eqref{eq:pretpostavljeno_dd} u
+\eqref{eq:jdn_gibanja_osnovno} dobijemo:
+\begin{equation}
+    -\omega^2\vtor{U}{}\mm\sin(\omega t) + \mm\vtor{U}{}\sin(\omega t) = \vtor{p}{}\sin(\omega t)
+\end{equation}
+
+Te nakon sređivanja:
+\begin{equation}\label{eq:jdn_gibanja_part_1}
+    [\kk-\omega^2\mm]\vtor{U}{}=\vtor{p}{}
+\end{equation}
+
+Matrica $[\kk-\omega^2\mm]$ predstavlja matricu dinamičke krutosti.
+\begin{equation}\label{eq:mat_din_krutost}
+    [\kk-\omega^2\mm]=\mathbf{Z}
+\end{equation}
+
+Da bismo rješili \eqref{eq:jdn_gibanja_part_1} potrebno je pronaći invers matrice
+dinamičke krutosti. Invers matrice dinamičke krutosti predstavlja matrica
+frekvencijskih funkcija odziva, a označavamo ju s $\mathbf{H}$. Jednadžba pod 
+\eqref{eq:mat_din_krutost} može poprimiti slijedeći oblik:
+\begin{equation}
+    \left(\ppsi^N\right)^T[\kk-\omega^2\mm]\ppsi^N
+    =
+    \left(\ppsi^N\right)^T\mathbf{Z}\;\ppsi^T
+\end{equation}
+Odnosno
+\begin{equation}
+     \left(\ppsi^N\right)^T[\kk-\omega^2\mm]\ppsi^N
+    =
+    \left(\ppsi^N\right)^T\mathbf{H}^{-1}\;\ppsi^T
+\end{equation}
+
+Iz \eqref{eq:relacija_normirani_matricno} i \eqref{eq:normirana_krutost} slijedi:
+\begin{equation}
+    [\omega_n^2 - \omega^2] = \left(\ppsi^N\right)^T\mathbf{H}^{-1}\;\ppsi^T
+\end{equation}
+
+Nakon sređivanja, dobijemo:
+\begin{equation}
+    \mathbf{H}=\left(\ppsi^N\right)^T[\omega_n^2 - \omega^2]^{-1}\;\ppsi^T
+\end{equation}
+
+Član $H_{j,k}$ matrice $\mathbf{H}$ možemo dobiti preko slijedeće jednadžbe:
+\begin{equation}\label{eq:clan_frf_matrice}
+    H_{j,k}=\frac{\psi^N_{j,1}\psi^N_{k,1}}{\omega_1^2-\omega^2}
+            +
+            \frac{\psi^N_{j,2}\psi^N_{k,2}}{\omega_2^2-\omega^2}
+            +
+            \frac{\psi^N_{j,3}\psi^N_{k,3}}{\omega_3^2-\omega^2}
+            +
+            \cdots
+            +
+            \frac{\psi^N_{j,n}\psi^N_{k,n}}{\omega_n^2-\omega^2}
+\end{equation}
+
+Jednadžbu \eqref{eq:clan_frf_matrice} možemo zapisati kao skalarni umnožak vektora:
+\begin{equation}\label{eq:clan_frf_matrica_vektorski}
+    H_{j,k}
+    =
+    \begin{Bmatrix}
+        \psi_{j,1}\psi_{k,1} &
+        \psi_{j,2}\psi_{k,2} &
+        \psi_{j,3}\psi_{k,3} &
+        \cdots
+        \psi_{j,n}\psi_{k,n}
+    \end{Bmatrix}
+    \begin{Bmatrix}
+        \ffrac{1}{\omega_1^2-\omega^2}\\[6pt]
+        \ffrac{1}{\omega_2^2-\omega^2}\\[6pt]
+        \ffrac{1}{\omega_3^2-\omega^2}\\[6pt]
+        \vdots\\[6pt]
+        \ffrac{1}{\omega_n^2-\omega^2}
+    \end{Bmatrix}
+\end{equation}
+
+Za zadani sustav, matrica modova normiranih s obzirom na masu $\ppsi^N$ glasi:
+\[
+    \ppsi^N
+    =
+    \begin{Bmatrix}
+        \ffrac{\sqrt{6m}}{6m} & -\ffrac{\sqrt{3m}}{3m}\\[12pt]
+        \ffrac{\sqrt{6m}}{6m} & \ffrac{\sqrt{3m}}{3m}
+    \end{Bmatrix}
+\]
+
+Izračun matrice frekvencijske funkcije odziva $H_{1,1}$ prikazan je u nastavku:
+\[
+\begin{aligned}
+    H_{1,1} &=
+    \frac{\psi^N_{1,1}}{\omega_1^2-\omega^2}+\frac{\psi^N_{1,1}}{\omega_2^2-\omega^2}
+    =
+    \frac{\ffrac{\sqrt{6m}}{6m}\ffrac{\sqrt{6m}}{6m}}{\omega_1^2-\omega^2}
+    +
+    \frac{\ffrac{\sqrt{3m}}{3m}\ffrac{\sqrt{3m}}{3m}}{\omega_2^2-\omega^2}\\
+    %
+    H_{1,1} &=
+    \frac{1}{3m} 
+        \left(
+            \frac{\ffrac{1}{2}}{(\omega_1^2-\omega^2}
+            +
+            \frac{1}{(\omega_2^2-\omega^2)}
+        \right)
+    =
+    \frac{1}{3m}
+        \left(
+            \frac{\ffrac{1}{2}(\omega_2^2-\omega^2)+(\omega_1^2-\omega^2)}
+                {\omega_1^2\omega_2^2(1-(\omega/\omega_1)^2)(1-(\omega/\omega_2)^2}
+        \right)\\
+\end{aligned}
+\]
+
+U brojniku, $\omega_2$ izrazimo kao $\omega_1$ pomoću relacije $\omega_2=\sqrt{2k/m}$
+i $\omega_1=\sqrt{k/2m}$.
+\[
+    \begin{aligned}
+        H_{1,1}=
+        \frac{1}{3m}
+            \left(
+                \frac{3-\ffrac{3}{2}(\omega/\omega_1)^2}
+                    {\omega_2^2(1-(\omega/\omega_1)^2)(1-(\omega/\omega_2)^2)}
+            \right)
+    \end{aligned}
+\]
+Nakon sređivanja:
+\begin{equation}\label{eq:frf_11}
+    H_{1,1}=\frac{1-\ffrac{1}{2}(\omega/\omega_1)^2}{2k(1-(\omega_1/\omega)^2)(1-(\omega_2/\omega)^2)}
+\end{equation}
+
+Analogno tome, dobiju se ostali članovi matrice te glase:
+\begin{align}
+    H_{1,2} &= \frac{1}{2k(1-(\omega_1/\omega)^2)(1-(\omega_2/\omega)^2)}\label{eq:frf_12}\\
+    H_{2,1} &= \frac{1}{2k(1-(\omega_1/\omega)^2)(1-(\omega_2/\omega)^2)}\label{eq:frf_21}\\
+    H_{2,2} &= \frac{1-2(\omega/\omega_2)^2}{2k(1-(\omega_1/\omega)^2)(1-(\omega_2/\omega)^2)}\label{eq:frf_22}\\
+\end{align}
+
+Matrica $\mathbf{H}$ glasi:
+\begin{equation}\label{eq:matrica_frf}
+    \mathbf{H}=\frac{1}{2k(1-(\omega/\omega_1)^2(1-(\omega/\omega_2)^2)}
+    \begin{bmatrix}
+        1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2 & 1 \\
+        1 & 1-2\left(\ffrac{\omega}{\omega_2}\right)^2
+    \end{bmatrix}
+\end{equation}
+
+Uvrštavanjem \eqref{eq:matrica_frf} u \eqref{eq:jdn_gibanja_part_1} dobijemo:
+\begin{equation}
+    \mathbf{H}^{-1}\vtor{U}{}=\vtor{p}{}
+\end{equation}
+
+Množenjem prethodnog izraza s $\mathbf{H}$:
+\begin{equation}
+    \vtor{U}{} = \mathbf{H}\vtor{p}{}
+\end{equation}
+
+Raspisivanjem prethodne jednadžbe:
+\begin{equation}
+    \begin{Bmatrix}
+        U_1\\
+        U_2
+    \end{Bmatrix}
+    =
+    \frac{1}{2k\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+    %
+    \begin{bmatrix}
+        1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2 & 1 \\
+        1 & 1-2\left(\ffrac{\omega}{\omega_2}\right)^2
+    \end{bmatrix}
+    % 
+    \begin{Bmatrix}
+        p_0\\
+        0
+    \end{Bmatrix}
+\end{equation}
+
+Te konačno, vektor $\vtor{U}{}$ glasi:
+\begin{equation}\label{eq:vektor_u_konacno}
+    \begin{Bmatrix}
+        U_1\\
+        U_2
+    \end{Bmatrix}
+    =
+    \frac{1}{2k\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+    \begin{Bmatrix}
+        p_0\left(1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2\right)\\
+        p_0 
+    \end{Bmatrix}
+\end{equation}
+
+Dijeljenjem vektora $\vtor{U}{}$ s $p_0/2k$ dobijemo slijedeće:
+\begin{equation}
+    \begin{Bmatrix}
+        U_1\\
+        U_2
+    \end{Bmatrix}
+    =
+    \frac{1}{\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+    \begin{Bmatrix}
+        1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2\\
+        1 
+    \end{Bmatrix}
+\end{equation}
+
+%Komponente vektora zapisane posebno:
+%\begin{align}
+%    U_1&=\frac{1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2}
+%        {\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}\\
+%    U_2&=\frac{1}{\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+%\end{align}
+
+Komponente vektora $U$ predstavljaju funkcije ovisnosti dinamičkog faktora o 
+frekvencijskim omjerima $\omega/\omega_1$ i $\omega/\omega_2$. Njihovi grafovi
+prikazani su u nastavku.
+
+\textbf{UBACI GRAFOVE}
+
+Prisilni dio odziva glasi:
+\begin{equation}
+    \begin{split}
+        \vtor{u(t)}{} = \vtor{U}{}\; sin(\omega t)
+        %\vtor{u(t)}{}=
+        =
+        \frac{1}{\left(1-\left(\ffrac{\omega_1}{\omega}\right)^2\right)\left(1-\left(\ffrac{\omega_2}{\omega}\right)^2\right)}
+    \begin{Bmatrix}
+        1-\ffrac{1}{2}\left(\ffrac{\omega}{\omega_1}\right)^2\\
+        1 
+    \end{Bmatrix}
+    \sin(\omega t)
+    \end{split}
+\end{equation}
+
+\section{Modalna analiza}
+Modalna analiza je postupak određivanja osnovnih dinamičkih parametara linearnog
+sustava s ciljem definiranja matematičkog modela ponašanja sustava pod utjecajem
+dinamičkih sila. Modalna analiza temelji se na \textit{principu superpozicije},
+odnosno na činjenici da se ukupni odziv sustava može zapisati kao linearna
+kombinacija odziva pojedinih modova.
+\par
+
+Razmotrimo jednadžbu gibanja sustava s više stupnjeva slobode pobuđenog proizvoljnom
+silom:
+\begin{equation}\label{eq:mdof_jdn_gibanja_opca_pobuda}
+    \mm\vtor{u}{:} + \kk\vtor{u}{} = \vtor{p(t)}{}
+\end{equation}
+
+Klasično rješenje jednadžbe gibanja \eqref{eq:mdof_jdn_gibanja_opca_pobuda}
+prikazano je u poglavlju ~\ref{mdof_prisilne} na primjeru sustava s dva stupnja 
+slobode pobuđenog harmonijskom silom. Za sustave s više od dva stupnja slobode ili
+za složenije sile pobude, rješavanje jednadžbe gibanja na klasični način može biti
+izuzetno teško ili nemoguće. U takvim slučajevima, jednadžba gibanja se rješava
+postupcima modalne analize.
+\par
+
+Iz poglavlja ~\ref{slobodne_oscilacije} znamo da je rješenje jednadžbe gibanja
+slobodnog titranja sustava s više stupnjeva slobode linearna kombinacija
+odziva svih pojedinih modova odnosno:
+\begin{equation}\label{eq:mdf_ukupno_rjesenje}
+    u(t)=\sum_{r=1}^N\mm\psi_rq_r(t)
+\end{equation}
+
+Uvrštavanjem \eqref{eq:mdf_ukupno_rjesenje} u \eqref{eq:mdof_jdn_gibanja_opca_pobuda} 
+dobijemo:
+\begin{equation}\label{eq:mdf_modalna_1}
+    \sum_{r=1}^N\mm\psi_r\ddot{q}_r(t) + \sum_{r=1}^N\kk\psi_rq_r(t)=p(t)
+\end{equation}
+
+Množenjem jednadžbe \eqref{eq:mdf_modalna_1} s $\psi_n^T$ dobijemo:
+\begin{equation}\label{eq:mdf_modalna_2}
+    \sum_{r=1}^N\psi_n^T\mm\psi_r\ddot{q}_r(t)+\sum_{r=1}^N\psi_n^T\kk\psi_rq_r(t)=\psi_n^Tp(t)
+\end{equation}
+
+Zbog svojstva ortogonalnosti, isčezavaju svi članovi sumacija osim $n$-tog člana, pa
+preostaje:
+\begin{equation}\label{eq:mdf_modalna_jednadzba_nesredjeno}
+    \psi_n^T\,\mm\,\psi_n\,\ddot{q}_n(t)\;+\;\psi_n^T\,\kk\,\psi_n\,q_r(t)=\psi_n^T\,p(t)
+\end{equation}
+
+Koristeći relacije iz \eqref{eq:modalna_masa} i \eqref{eq:modalna_krutost} jednadžba
+\eqref{eq:mdf_modalna_jednadzba_nesredjeno} poprima slijedeći oblik:
+\begin{equation}\label{eq:mdf_modalna_jednadzba_sredjeno}
+    M_n\ddot{q}_n(t)+K_nq_n(t)=P_n(t)
+\end{equation}
+
+Gdje su $M_n$, $K_n$ i $P_n$ poopćena masa, krutost i opterećenje $n$-tog moda.
+
+Postupkom, prikazanim u jednadžbama \eqref{eq:mdf_ukupno_rjesenje},
+\eqref{eq:mdf_modalna_1}, \eqref{eq:mdf_modalna_2},
+\eqref{eq:mdf_modalna_jednadzba_nesredjeno}, jednadžbu gibanja sustava predstavljenu
+sustavom diferencijalnih jednadžbi sveli smo na skup međusobno neovisnih
+diferencijalnih jednadžbi. Drugim riječima, sustav od $N$ stupnjeva slobode razložen
+je na $N$ međusobno neovisnih podsustava s jednim stupnjem slobode (princip superpozicije), 
+pri čemu $n$-ti podsustav prikazuje odziv sustava u $n$-tom modu. Podsustave 
+nazivamo \textit{poopćeni sustav za n-ti mod}. "Jednadžba gibanja" 
+poopćenog sustava za $n$-ti oblik titranja predstavljena je diferencijalnom jednadžbom
+\eqref{eq:mdf_modalna_jednadzba_sredjeno} čije rješenje predstavlja modalnu 
+koordinatu $n$-tog moda $q_n(t)$.
+\par
+
+Odziv $n$-tog moda je:
+\begin{equation}\label{eq:mdf_odziv_ntog_moda}
+    u_n(t)=\psi_nq_n(t)
+\end{equation}
+
+Da bismo odredili ukupni odziv sustava s $N$-stupnjeva slobode, potrebno je riješiti
+$N$ modalnih jednadžbi, oblika definiranog pod \eqref{eq:mdf_modalna_jednadzba_sredjeno}.
+Matrični zapis sustava modalnih jednadžbi prikazan je u nastavku.
+\begin{equation}\label{eq:sustav_modalnih_jednadzbi}
+    \M\vtor{q}{:} + \K\vtor{q}{}=\vtor{P(t)}{}
+\end{equation}
+
+Gdje je $\M$ matrica modalnih masa, $\K$ matrica modalnih krutosti, $\vtor{P(t)}{}$
+vektor poopćenih opterećenja. Iz \eqref{eq:modalna_masa_matrica} i
+\eqref{eq:modalna_krutost_matrica} znamo da su matrice $\M$ i $\K$ dijagonalne što
+znači da je \eqref{eq:sustav_modalnih_jednadzbi} sustav međusobno neovisnih jednadžbi.
+Rješenjem navedenog sustava, dobijemo funkcije modalnih koordinata za sve modove
+sustava, a ukupni odziv definirano je linearnom kombinacijom (princip superpozicije) 
+odziva svakog pojedinog moda. Odziv pojedinog moda definiran je
+\eqref{eq:mdf_odziv_ntog_moda}, a ukupni odziv je:
+
+\begin{equation}\label{eq:mdf_modalna_ukupno_rjesenje}
+    u(t)=\sum_{n=1}^Nu_n(t)=\sum_{n=1}^N\psi_nq_n(t)
+\end{equation}

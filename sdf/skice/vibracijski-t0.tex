@@ -1,0 +1,34 @@
+\begin{tikzpicture}[scale=0.65][>=latex']
+
+    %lezaj
+    \draw[very thick] (0,0) circle (0.25);
+    \filldraw[fill=black] (0,0) circle (0.145);
+
+    %stapovi
+    \draw[very thick] (0.25,0) -- (4,0);
+    \draw[very thick] (-0.25,0)--(-4,0);
+
+    %utezi
+    \filldraw[fill=black] (4,0) circle (0.35);
+    \filldraw[fill=black] (-4,0)circle (0.35);
+
+    %oznake
+    \draw[strelica1](0,-2) -- (4,-2)
+        node[pos=0.5,below] {\textbf{{$e$}}};
+    \draw[strelica1](4,-2) -- (0,-2);
+
+    \draw[thick] (0,-1.75) -- (0,-2.25);
+    \draw[thick] (4,-1.75) -- (4,-2.25);
+
+    \draw[->,thick] (2,-1.414) arc [start angle=-45, end angle=45, radius=2];
+
+    %namjesti lijevu strelicu (za ovo mora postojat laksi nacin ali ne da mi se istrazivat trenutno)
+    \draw[<-,thick,shift={(-2,1.414)},rotate=180] (0,0)arc [start angle=-45, end angle=45, radius=2];
+    \node at (1.414,1.414) {\textbf{{$\omega$}}};
+    \node at (-1.414,1.414) {\textbf{{$\omega$}}};
+
+    %za mase
+    \node at (4,1) {\textbf{{$m_e/2$}}};
+    \node at (-4,1) {\textbf{{$m_e/2$}}};
+\end{tikzpicture}
+

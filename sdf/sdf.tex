@@ -1,0 +1,1466 @@
+\section{Sustavi s jednim stupnjem slobode}
+\subsection{Model sustava s jednim stupnjem slobode}
+Modeli sustava s jednim stupnjem slobode su posmični okviri, a možemo ih shvatiti
+kao idealizaciju jednokatnice. Posmični okviri se sastoje od štapova, koncentrirane
+mase i viskoznog prigušivača, pri čemu je ukupna krutost sustava sadržana u krutosti
+štapova, ukupna masa sustava u koncentriranoj masi i ukupno prigušenje u viskoznom
+prigušivaču. Nadalje, vrijedi pretpostavaka o vertikalnoj i horizontalnoj
+nestišljivosti štapova, tj. štapovi su nepromjenjive dužine.
+\par
+\begin{figure}[H]
+    \begin{subfigure}[b]{0.5\textwidth}\label{fig:priguseni-sustav-sdf}
+        \centering
+        \input{sdf/skice/priguseni-sustav-sdf}
+        \caption{Posmični okvir s prigušenjem}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}\label{fig:priguseni-ekvivalentni-sustav-sdf}
+        \centering
+        \input{sdf/skice/priguseni-ekvivalentni-sustav-sdf}
+        \caption{Ekvivalentni model s prigušenjem}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}[b]{0.5\textwidth}\label{fig:nepriguseni-sustav-sdf}
+        \centering
+        \input{sdf/skice/nepriguseni-sustav-sdf}
+        \caption{Posmični okvir bez prigušenja}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}\label{fig:nepriguseni-ekvivalentni-sustav-sdf}
+        \centering
+        \input{sdf/skice/nepriguseni-ekvivalentni-sustav-sdf}
+        \caption{Ekvivalentni model bez prigušenja}
+    \end{subfigure}
+    \caption{Idealizirani sustav s jednim stupnjem slobode}
+\end{figure}
+
+Primjetimo da navedeni sustav s pogleda statike predstavlja ravninski problem s tri
+stupnja slobode (dvije rotacije u zglobovima te translacija), stoga ga je potrebno
+svesti na sustav s jednim stupnjem slobode za potrebe dinamičkog proračuna. Drugim
+riječima, potrebno je ukupnu krutost sustava izraziti kao lateralnu krutost.
+Postupak svođenja sustava s tri stupnja slobode na sustav s jednim stupnjem slobode
+naziva se \textit{statička kondenzacija} koju u ovom radu nećemo razmatrati.
+\newpage
+
+\subsection{Jednadžba gibanja modela pri sinusnoj pobudi}
+Dijagram sila za sustav s prigušenjem na koji djeluje sila pobude $p(t)$ prikazan je
+na slijedećoj slici:
+
+\begin{figure}[H]
+    \input{sdf/skice/sile-priguseni-ekvivalentni-sustav-sdf}
+    \label{fig:sile-priguseni-ekvivalentni-sustav-sdf}
+    \caption{Dijagram sila ekvivalentnog modela prigušenog linearnog sustava s jednim stupnjem slobode}
+\end{figure}
+
+Prema drugom Newtonovom aksiomu vrijedi:
+\begin{align}
+    \Sigma F = ma = m\ddot{u}\notag\\
+        p(t) - F_S - F_D = m\ddot{u} \notag\\
+        m\ddot{u} + F_S + F_D = p(t) \label{eq:newton}
+\end{align}
+
+Gdje je:\\
+\begin{table}[H]
+\begin{tabular}{c l}
+	$F_S$ & unutarnja sila \\
+	$F_D$ & sila prigušenja \\
+	$m$   & masa \\
+        $a,\ddot{u}$   & ubrzanje\\
+\end{tabular}
+\end{table}
+
+Unutarnju silu možemo zapisati kao:
+\begin{equation}
+	F_S = k \cdot u \label{eq:hooke}
+\end{equation}
+
+A silu prigušenja kao:
+\begin{equation}
+	F_D = c \cdot v = c \cdot \dot{u} \label{eq:prigusenje}
+\end{equation}
+
+Gdje je:\\
+\begin{table}[H]
+\begin{tabular}{c l}
+	$k$ & krutost \\
+	$c$ & koeficijent viskoznog prigušenja \\
+	$u$ & pomak \\
+	$\dot{u},v$ & brzina \\
+\end{tabular}
+\end{table}
+
+Uvrštavanjem \eqref{eq:hooke} i \eqref{eq:prigusenje} u \eqref{eq:newton} dobijemo:
+\begin{equation}
+	m\ddot{u} + c\dot{u} + ku = p(t) \label{eq:jednadzba_opcenita_pobuda}
+\end{equation}
+
+Sila pobude $p(t)$ je sinusna sila $p_0sin(\omega t)$, pri čemu je $p_0$ amplituda, a
+$\omega$ frekvencija, stoga jednadžba pod \eqref{eq:jednadzba_opcenita_pobuda}
+postaje:
+\begin{equation}
+	m\ddot{u} + c\dot{u} + ku = p_0sin(\omega t)
+\label{eq:jednadzba_sinusna_pobuda}
+\end{equation} 
+
+
+Jednadžba pod \eqref{eq:jednadzba_sinusna_pobuda} jest nehomogena linearna
+diferencijalna jednadžba drugog reda, a riještiti ćemo ju primjenom Laplaceove
+transformacije\footnote{Iako postupkom dugotrajnija (u ovom
+slučaju), metoda Laplaceove transformacije nam pruža jedinstven uvid u međudjelovanje sustava
+i pobude.}.
+\par
+
+Transformiranjem jednadžbe \eqref{eq:jednadzba_sinusna_pobuda} dobijemo 
+slijedeću algebarsku jednadžbu u frekvencijskoj domeni:
+\begin{equation}\label{eq:transformat_diferencijalna}
+        m(s^2U(s)-su(0)-\dot{u}(0))+
+	c(sU(s)-u(0))+
+	kU(s) = 
+        P(s)
+\end{equation}
+Gdje je $P(s)$ transformat funkcije $p(t)=p_0\sin(\omega t)$.
+Sređivanjem \eqref{eq:transformat_diferencijalna} dobijemo: 
+\begin{equation}\label{eq:transformat_diferencijalna_sredjeno}
+    U(s)\left(ms^2+cs+k\right)-msu(0)-m\dot{u}-cu(0) = P(s)
+\end{equation}
+
+Jednadžbu \eqref{eq:transformat_diferencijalna_sredjeno} možemo rastaviti na više logičnih
+cijelina:
+\begin{alignat}{2}
+    &\text{Dinamička krutost} & Z(s)&=ms^2+cs+k\label{eq:din_krutost}\\
+    &\text{Prijenosna funkcija sustava}\quad & H(s)&=\frac{1}{Z(s)}=\frac{1}{ms^2+cs+k}\label{eq:prijenosna}\\
+    &\text{Pobuda početnim uvjetima}\quad & W(s)&=(ms+c)u(0)+m\dot{u}\label{eq:pobuda_pocetni}\\
+    &\text{Pobuda sinusnom silom} & P(s)&=p_0\frac{\omega}{s^2+\omega^2}\label{eq:pobuda_sinusna}
+\end{alignat}
+
+Uvrštavanjem \eqref{eq:prijenosna},\eqref{eq:pobuda_pocetnim_uvjetima} u 
+\eqref{eq:transformat_diferencijalna_sredjeno} dobijemo:
+\begin{equation*}
+	\frac{U(s)}{H(s)}=W(s)+P(s)
+\end{equation*}
+
+Množenjem prijenosnom funkcijom sustava ($H(s)$) dobijemo:
+\begin{equation}
+	U(s)=\underbrace{H(s)W(s)}_{\substack{\text{konvolucija u}\\\text{vremenskoj
+	domeni}}}
+	+ 
+	\underbrace{H(s)P(s)}_{\substack{\text{konvolucija u}\\\text{vremenskoj domeni}}}
+\end{equation}
+
+Pri čemu je:
+\begin{table}[H]
+\begin{tabular}{c l}
+	$H(s)\cdot W(s)$ & odziv na pobudu početnim uvjetima u frekvencijskoj domeni\\
+	$H(s)\cdot P(s)$ & odziv na pobudu sinusnom silom u frekvencijskoj domeni\\
+\end{tabular}
+\end{table}
+
+\newpage
+Da bi bilo lakše naći inverze odziva u frekvencijskoj domeni potrebno je funkciju  
+$H(s)$ prikazati u tabličnom obliku\footnote{postupak svođenja prijenosne funkcije
+sustava na tablični oblik prikazan je u slijedećem pogavlju}.
+
+\begin{equation}\label{eq:pfs_tablicni_oblik}
+    H(s) = \frac{\omega_n^2}{\omega_D}
+           \frac{1}{k}
+           \frac{\omega_D}{(s+\sigma)^2+\omega_D^2}
+\end{equation}
+
+Gdje je:\\
+\begin{table}[H]
+    \begin{tabular}{r l}
+        $\sigma=\zeta\omega_n$ & stupanj prigušenja\\
+        $\omega_D=\omega_n\sqrt{1-\zeta^2}$ & vlastita frekvencija prigušenog titranja\\
+        $\omega_n=\sqrt{k/m}$ & prirodna frekvencija oscilatora\\
+        $\zeta=c/c_{kr}$ & koeficijent relativnog prigušenja\\
+        $c_{kr}=2m\omega_n$ & kritično prigušenje
+    \end{tabular}
+\end{table}
+
+Pobuda početnim uvjetima zadana je preko jednadžbe:
+\begin{equation}
+    \begin{split}
+        H(s)W(s)=\frac{u_0}{\omega_D}&\left(
+        \frac{s+\sigma}{(s+\sigma)^2+\omega_D^2} +
+	\sigma\frac{\omega_D}{(s+\sigma)^2+\omega_D^2}\right)\\
+        &+ \frac{\dot{u}(0)}{\omega_D}\frac{\omega_D}{(s+\sigma)^2+\omega_D}
+    \end{split}
+\end{equation}
+
+Odziv u vremenskoj domeni se određuje pronalaskom inversa $\ltr$ transformacije
+funkcije odziva u frekvencijskoj domeni.
+\begin{equation}
+	u(t)=\ltr^{-1}\{U(s)\}=\ltr^{-1}\{W(s)H(s)\}+\frac{p_0}{k}\ltr^{-1}\{H(s)P(s)\}
+	\label{eq:inverz_prvi_korak}
+\end{equation}
+
+Funkcija $H(s)W(s)$ svedena je na tablični oblik stoga je moguće izravno naći inverz
+Laplaceove transformacije koji glasi:
+\begin{equation}
+	\ltr^{-1}\{H(s)W(s)\} = e^{-\sigma t}\left[
+		u(0)cos(\omega_Dt)+\left(
+			\sigma\frac{u(0)}{\omega_D}+\frac{\dot{u}(0)}{\omega_D}
+			\right)sin(\omega_Dt)\right] \label{eq:pobuda_pocetnim_uvjetima}
+\end{equation}
+
+Funkciju $H(s)P(s)$ nije moguće svesti na tablični oblik, pa je potrebno odrediti
+konvoluciju funkcija $h(t)$ i $p(t)$. Funkcija funkcija $H(s)$ odgovara funkciji 
+$h(t)$ u vremenskoj domeni, a funkcija $P(s)$ funkciji $p(t)$, stoga:
+\begin{align}
+        h(t)&=\ltr^{-1}\{H(s)\}=\frac{1}{k}\frac{\omega_n^2}{\omega}e^{-\sigma t}sin(\omega_Dt)\label{eq:pfs_vremenska_domena}\\
+	p(t)&=\ltr^{-1}\{P(s)\}=p_0\sin(\omega t) \label{eq:pobuda_vremenska_domena}
+\end{align}
+
+Konvoluciju funkcija određujemo preko konvolucijskog integrala:
+\begin{align}\label{eq:konvolucijski_integral}
+	(h*p)(t)&=\int_0^th(\tau)p(t-\tau)d\tau \notag\\
+		&=\frac{p_0}{k}\frac{\omega_n^2}{\omega}
+		\int_0^te^{-\sigma\tau}sin(\tau)sin(t-\tau)d\tau
+\end{align}
+
+Ukupni odziv je suma odziva na pobudu početnim uvjetima i odziva na pobudu
+harmonijskom silom odnosno:
+\begin{equation}
+    \begin{split}
+    u(t)&=\underbrace{e^{-\sigma t}\left[
+		u(0)cos(\omega_Dt)+\left(
+                        \sigma\frac{u(0)}{\omega_D}+\frac{\dot{u}(0)}{\omega_D}
+                        \right)sin(\omega_Dt) \right]}_{\text{\textbf{pobuda
+                    početnim uvjetima (prolazni dio odziva)}}}\\
+                    &+\underbrace{
+                        \frac{p_0}{k}
+                        \frac{\omega_n^2}{\omega_D}
+                        \int_0^te^{-\sigma\tau}\sin(\tau)\sin(t-\tau)d\tau
+                    }_{\text{\textbf{pobuda sinusnom silom}}}
+    \end{split}
+    \label{eq:inverz_drugi_korak}
+\end{equation}
+
+Postupak određivanja i sređivanja rješenja konvolucijskog integrala iz
+\eqref{eq:konvolucijski_integral} je dugotrajan pa je u nastavku prikazano samo konačno 
+rješenje.
+\begin{equation}
+	\begin{split}
+	(p*h)(t)&=\underbrace{
+			Csin(\omega t)+Dcos(\omega t)
+		}_{\text{\textbf{prisilni dio odziva}}}\\
+		&-
+		\underbrace{
+			e^{-\sigma t}
+				\left(
+				Dcos(\omega_D t) +
+					\left(
+						\frac{D\sigma}{\omega_D}+\frac{C\omega}{\omega_D}
+					\right)
+				sin(\omega_Dt)
+				\right)
+		}_{\text{\textbf{prolazni dio odziva}}}
+	\end{split}
+    \label{eq:konvolucijski_integral_rjesenje}
+\end{equation}
+
+Gdje je:
+\begin{align}
+    C &= \frac{p_0}{k}\frac{1-(\omega/\omega_n)^2}
+            {[1-(\omega/\omega_n)^2]^2+[2\zeta\omega/\omega_n]^2}\label{eq:koef_C}\\
+    D &= \frac{p_0}{k}\frac{-2\zeta\omega/\omega_n}
+            {[1-(\omega/\omega_n)^2]^2+[2\zeta\omega/\omega_n]^2]}\label{eq:koef_D}
+\end{align}
+
+Iz \eqref{eq:konvolucijski_integral_rjesenje} i \eqref{eq:inverz_drugi_korak} možemo
+zaključiti da će se prolazni dio odziva pojaviti i u slučaju homogenih i u slučaju
+nehomogenih početnih uvjeta (prisutan i kod pobude početnim uvjetima i kod pobude
+silom), a ovisi o karakteristikama sustava,
+te se smanjuje eksponencijalno u ovisnosti o vremenu. Nakon
+što prolazni dio odziva isčezne preostaje samo prisilni dio odziva, a pojavljuje se
+neovisno o početnim uvjetima. Karakteristike prisilnog dijela odziva ponajviše ovise
+o frekvenciji i amplitudi pobude, a zatim i o karakteristikama sustava (o prigušenju
+te prirodnoj frekvenciji sustava). Karakteristike prisilnog dijela odziva detaljnije će se
+razmatrati u slijedećim poglavljima.
+\par
+
+Uvrštavanjem \eqref{eq:konvolucijski_integral_rjesenje} u
+\eqref{eq:inverz_drugi_korak}, te sređivanjem dobijemo ukupno rješenje
+diferencijalne jednadžbe \eqref{eq:jednadzba_sinusna_pobuda} koje glasi:
+\begin{equation}\label{eq:inverz_treci_korak}
+	u(t)=\underbrace{
+		e^{-\sigma t}(Acos(\omega_D t)+Bsin(\omega_Dt)
+		}_{\text{\textbf{prolazni dio odziva}}}
+		+
+	     \underbrace{
+		Csin(\omega t) + Dcos(\omega t)
+		     }_{\text{\textbf{prisilni dio odziva}}}
+\end{equation}
+\newpage
+
+Gdje je:
+\begin{align}
+    A &= u(0)-D\label{eq:koef_A}\\
+    B &= \frac{u(0)\sigma}{\omega_D}+
+         \frac{\dot{u}(0)}{\omega_D}-
+         \frac{D\sigma}{\omega_D}-
+         \frac{C\omega}{\omega_D}\label{eq:koef_B}
+\end{align}
+
+Graf odziva prigušenog sustava s jednim stupnjem slobode za homogene početne
+uvjete $u(0)=0$ i $\dot{u}(0)=0$ prikazan je na slijedećoj slici.
+\begin{figure}[H]
+    \input{./sdf/grafovi/odziv-priguseno}
+    \label{fig:odziv-priguseno}
+    \caption{Odziv prigušenog sustava na pobudu sinusnom silom za
+    $\omega/\omega_n=0.2$ i $\zeta=0.05$}
+\end{figure}
+
+Neprigušeni sustav možemo shvatiti kao poseban slučaj prigušenog sustava za slučaj
+$c=0$ odnosno $\zeta=0$, pa diferencijalna jednadžba sustava postaje:
+\begin{equation}\label{eq:jednadzba_gibanja_nepriguseni_nesredjeno}
+	m\ddot{u}+ku=p(t)
+\end{equation}
+\begin{figure}[H]
+    \input{sdf/skice/sile-nepriguseni-ekvivalentni-sustav-sdf}
+    \label{sile-nepriguseni-ekvivalentni-sustav-sdf}
+    \caption{Dijagram sila linearnog neprigušenog sustava s jednim stupnjem slobode}
+\end{figure}
+
+Rješenje jednadžbe gibanja možemo odrediti iz \eqref{eq:inverz_treci_korak}
+određivanjem koeficijenata $A$, $B$, $C$ i $D$ za $\zeta = 0$.
+\begin{align}
+    A &= u(0) \label{eq:np_koef_A}\\
+    B &= \frac{\dot{u}(0)}{\omega_n}-\frac{\omega/\omega_n}{1-(\omega/\omega_n)^2}\label{eq:np_koef_B}\\
+    C &= \frac{p_0}{k}\frac{1}{1-(\omega/\omega_n)^2}\label{eq:np_koef_C}\\
+    D &= 0\label{eq:np_koef_D}\\
+    \sigma &= \omega_n\zeta=\omega_n\cdot 0=0\label{eq:np_sigma}\\
+    \omega_D &= \omega_n\sqrt{1-\zeta^2}=\omega_n\sqrt{1-0}=\omega_n\label{eq:np_omega_D}
+\end{align}
+
+Uvrštavanjem \eqref{eq:np_koef_A}, \eqref{eq:np_koef_B}, \eqref{eq:np_koef_C},
+\eqref{eq:np_koef_D}, \eqref{eq:np_sigma} i \eqref{eq:np_omega_D} u  \eqref{eq:inverz_treci_korak}
+dobijemo rješenje diferencijalne jednadžbe pod
+\eqref{eq:jednadzba_gibanja_nepriguseni_nesredjeno} 
+koje glasi:
+\begin{equation}
+	u(t)=\underbrace{
+            u(0)cos(\omega_n t)
+	\left[
+		\frac{\dot{u}(0)}{\omega_n}-\frac{\omega/\omega_n}{1-(\omega/\omega_n)^2}
+        \right]sin(\omega_n t)\\
+	}_{\text{\textbf{prolazni dio odziva}}}
+        +
+	\underbrace{
+		\frac{1}{1-(\omega/\omega_n)^2} sin(\omega t)
+	}_{\text{\textbf{prisilni dio odziva}}}
+\end{equation}
+
+\begin{figure}[H]
+    \input{./sdf/grafovi/odziv-nepriguseno}
+    \label{fig:odziv-nepriguseno}
+    \caption{Odziv neprigusenog sustava za homogene početne uvjete i
+    $\omega/\omega_n=0.2$}
+\end{figure}
+\newpage
+
+\subsection{Statički pomak}
+Zanemarivanjem ubrzanja u diferencijalnoj jednadžbi pod
+\eqref{eq:jednadzba_gibanja_nepriguseni_nesredjeno} dobijemo:
+\begin{equation}\label{eq:vremenska_funkcija_statickog_pomaka}
+	u(t)=\frac{p_0}{k}sin(\omega t)
+\end{equation}
+
+Navedena jednadžba predstavlja \textit{vremensku funkciju statičkog pomaka}. Pomak
+nazivamo statičkim jer se zanemaruje dinamički utjecaj sile pobude (pretpostavlja se
+spora promjena opterećenja).
+Vremenska funkcija statičkog pomaka, preko Hookeovog zakona, stavlja u odnos silu 
+pobude ($p_0sin(\omega t)$) i pomak sustava $u(t)$. Zanemarivanjem funkcije sinus, dobijemo
+amplitudu statičkog pomaka koja je definirana slijedećom jednadžbom:
+\begin{equation}
+	(u_{st})_0 = \frac{p_0}{k}
+\end{equation}
+
+\subsection{Frekvencijske funkcije odziva}
+\subsubsection{Izvod}
+Ponašanje sustava opisano je diferencijalnom jednadžbom drugog reda (u vremenskoj
+domeni) koja nakon $\ltr$-transformacija postaje algebarska jednadžba u $s$ domeni.
+Transformat odziva na sinusnu silu uz homogene početne uvjete glasi:
+\begin{equation}
+    U(s) = P(s)\cdot H(s) 
+\end{equation}
+
+Funkcija $H(s)$ naziva se prijenosnom funkcijom sustava, a definirana je kao
+kvocjent odziva i pobude u $s$ domeni.
+\begin{equation} \label{eq:PrijenosnaFunkcijaSustava}
+    H(s)=\frac{U(s)}{P(s)} = \frac{1}{ms^2+cs+k}%\frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2}
+\end{equation}
+
+Prijenosna funkcija sustava obično sadrži dvije skupine karakterističnih točaka:
+\begin{enumerate}
+    \item polovi - nultočke nazivniku
+    \item nule - nultočke brojnika
+\end{enumerate}
+
+Polovi predstavljaju točke u kojima prijenosna funkcija sustava divergira tj
+($H(s)\to\infty$), a nule su točke u kojima vrijednost prijenosne funkcije iznosi
+nula. Polovi i nule za polinom drugog stupnja mogu biti:
+\begin{enumerate}
+    \item dva različita realna broja
+    \item jedan dvostruki realni broj
+    \item jedan par kompleksno konjugiranih brojeva
+\end{enumerate}
+
+Uočimo da za slučaj prijenosne funkcije sustava pod
+\eqref{eq:PrijenosnaFunkcijaSustava} nema nula, a polovi su jedan par kompleksno
+konjugiranih brojeva (polovi su dobiveni izjednačavanjem polinoma u nazivniku s
+nulom):
+\begin{equation}
+    p_{1,2} = -\sigma\pm\omega_Di
+\end{equation}
+
+Realni dio pola prikazuje stupanj prigušenja  a
+imaginarni dio prirodnu frekvenciju prigušenog titranja. Prijenosna funkcija
+zapisana preko polova glasi:
+\begin{equation}
+    H(s)=\frac{1}{(s-p_1)(s-p_2)}
+%         \frac{\omega_n}{(s+\sigma+\omega_Di)(s+\sigma-\omega_Di)}=
+%         \frac{\omega_n}{(s+\sigma)^2+\omega_D^2}
+\end{equation}
+
+Raspisivanjem dobijemo:
+\begin{equation}
+    H(s)=\frac{1}{(s+\sigma+\omega_Di)(s+\sigma-\omega_Di)}\frac{\omega_n^2}{k}
+\end{equation}
+
+I konačno tablični oblik dobijemo množenjem s $\omega_D/\omega_D$
+\begin{equation}
+    H(s)=\frac{1}{k}\frac{\omega_n^2}{\omega_D}\frac{\omega_D}{(s+\sigma^2)+\omega_D^2}
+\end{equation}
+
+Poseban slučaj prijenosne funkcije sustava, za slučaj $s=\omega i$, naziva se
+\textit{frekvencijska funkcija odziva} i glasi:
+\begin{equation} \label{eq:frf_nesredjeno}
+    H(\omega i) = \frac{H(\omega i)}{P(\omega i)}
+                = \frac{1}{-\omega^2 m + i\omega c + k}\frac{1/k}{1/k}
+                = \frac{1}{k}\frac{1}{1-(\omega/\omega_n)^2+2\zeta(\omega/\omega_n)i}
+\end{equation}
+
+Član $1/k$ možemo zanemariti jer je uračunat u amplitudu statičkog pomaka $(u_{st})_0=p_0/k$,
+pa je konačni oblik frekvencijske funkcije odziva:
+\begin{equation}\label{eq:frf_sredjeno}
+    H(\omega) = \frac{1}{\left(1-(\omega/\omega_n)^2\right)+\left(2\zeta\omega/\omega_n\right)i}
+\end{equation}
+
+Frekvencijska funkcija odziva $H(\omega)$ je funkcija argumenta $\omega$, odnosno promjenom
+frekvencije pobude, mjenja se i njezina vrijednost, te je redovito je kompleksna.
+Jednadžbu pod \eqref{eq:frf_sredjeno} možemo rastaviti na realni i imaginarni dio.
+Rastav na realni i imaginarni dio prikazan je u nastavku.
+\begin{alignat}{2}
+    &\text{Realni dio} & H_r &= \frac{1-(\omega/\omega_n)^2}{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}
+        \label{eq:realni_dio_frf}\\
+    &\text{Imaginarni dio}\quad & H_i &=\frac{2\zeta(\omega/\omega_n)}{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}
+        \label{eq:imaginarni_dio_frf}
+\end{alignat}
+
+Jednadžba pod \eqref{eq:frf_sredjeno} zapisana preko realnog i imaginarnog dijela
+glasi:
+\begin{equation}\label{eq:frf_pravokutni}
+    \begin{split}
+        H(\omega) &= H_r - H_ii  \\
+              &= \frac{1-(\omega/\omega_n)^2}{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}
+              -\frac{2\zeta(\omega/\omega_n)}{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}i
+    \end{split}
+\end{equation}
+
+Funkciju \eqref{eq:frf_sredjeno} se može prikazati i u trigonometrijskom obliku.
+Općenito, kompleksni broj se prikazuje u trigonometrijskom obliku na slijedeći
+način:
+\begin{equation}\label{eq:trig_zapis_kompleksni_br}
+    R=|R|e^{i\phi} = |R|(\cos(\phi)+i\sin(\phi))
+\end{equation}
+Gdje je $|R|$ norma kompleksnog broja, a $\phi$ kut kojega kompleksni vektor zatvara
+s realnom osi.
+Stoga je očito da je za navedeni prikaz potrebno je odrediti magnitudu (normu) kompleksnog
+vektora frekvencijske funkcije odziva te kut koji zatvara s realnom osi. Magnituda je 
+zadana Pitagorinim poučkom, dakle:
+\begin{equation}\label{eq:magnitudniSpektar}
+    |H(\omega)|=\sqrt{(H_r^2+H_i^2)}
+               =\frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta(\omega/\omega_n))^2}}
+\end{equation}
+
+Kut koji kompleksni vektor zatvara s realnom osi moguće je odrediti slijedećom
+jednadžbom:
+\begin{equation}
+        \phi(\omega)=\left|\arctan\left(\frac{2\zeta(\omega/\omega_n)}
+                      {1-(\omega/\omega_n)^2}\right)\right|\label{eq:fazniSpektar}
+\end{equation}
+
+Prikazana u trigonometrijskom obliku, frekvencijsku funkciju odziva potrebno je
+rastaviti na magnitudni spektar koji je definiran jednadžbom \eqref{eq:magnitudniSpektar} i
+na fazni spektar koji je definiran jednadžbom \eqref{eq:fazniSpektar}.
+\textbf{Napomena:} jednadžba \eqref{eq:fazniSpektar} stavljena je u apsolutnu
+vrijednost zato što će se negativni predzak (kašnjenje) ili pozitivni predznak
+uračunati naknadno, no više o tome u slijedećem poglavlju.
+
+\subsubsection{Zapis prisilnog dijela odziva}
+Prisilni dio odziva definiran definiran je jednadžbom prikazanom u nastavku:
+\begin{equation}\label{eq:samo_prisilni}
+    u(t)=C\sin(\omega t) + D\cos(\omega t)
+\end{equation}
+
+Prisilni odziv pod \eqref{eq:samo_prisilni} možemo zapisati u obliku $u_0\sin(\omega t
+- \phi)$ 
+korištenjem slijedećeg trigonometrijskog identiteta:
+\begin{equation}\label{eq:prisilni_dio_odziva}
+    u_0\sin(\omega t - \phi) = C\sin(\omega t) + D\cos(\omega t)
+\end{equation}
+
+Gdje je:
+\begin{alignat}{2}
+    &\text{Amplituda dinamičkog pomaka} & u_0 &= \sqrt{C^2+D^2}\label{eq:u_0-izvod-prvo}\\
+    &\text{Kašnjenje u fazi} & \phi &= \arctan{-\frac{D}{C}}\label{eq:fi-izvod}
+\end{alignat}
+
+Raspisivanjem formule pod \eqref{eq:u_0-izvod-prvo} dobijemo:
+\begin{equation}\label{eq:u_0-izvod-raspisano}
+    u_0 = \frac{p_0}{k}\frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}
+        = \frac{(u_{st})_0}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}
+\end{equation}
+
+Definiramo dinamički koeficijent pomaka ili koeficijent povećanja pomaka ($R_d$) kao omjer
+amplitude dinamičkog i statičkog pomaka.
+\begin{equation}\label{eq:R_d-izvod-konacno}
+    R_d = \frac{u_0}{(u_{st})_0}=\frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}
+\end{equation}
+
+Fazni kut $\phi$ dobijemo raspisivanjem izraza pod \eqref{eq:fi-izvod} te dobijemo:
+\begin{equation}\label{eq:fi-izvod-konacno}
+    \phi = \arctan{\frac{2\zeta(\omega/\omega_n)}{1-(\omega/\omega_n)^2}}
+\end{equation}
+
+Uvrštavanjem \eqref{eq:R_d-izvod-konacno} i \eqref{eq:fi-izvod-konacno} u
+\eqref{eq:prisilni_dio_odziva} dobijemo:
+\begin{equation}
+    u(t) = \frac{p_0}{k}R_d\sin(\omega t - \phi) = (u_{st})_0R_d\sin(\omega t - \phi)
+\end{equation}
+
+Uočimo da je jednadžba pod \eqref{eq:R_d-izvod-konacno} ista kao i jednadžba
+magnitudnog spektra frekvencijske funkcije odziva. Isto tako, uočimo i da je jednadžba
+pod \eqref{eq:fi-izvod-konacno} ista kao i jednadžba faznog spektra frekvencijske
+funkcije odziva. Nadalje, prisilni dio odziva je sinusoida isto kao i pobuda.
+\par
+ 
+Stoga možemo reći da frekvencijska funkcija odziva definira odnos između pobude i
+odziva. Taj odnos je kompleksan jer je opisan magnitudnim i faznim spektrom
+kompleksne funkcije definirane u $s$ domeni. Drugim riječima, frekvencijska funkcija
+odziva nas upućuje na slijedeća svojstva (prisilnog) odziva:
+\begin{enumerate}
+    \item Frekvencija odziva biti će jednaka frekvenciji pobude.
+    \item Amplituda odziva biti će skalirana amplituda statičkog pomaka. Prisjetimo
+        se da je amplituda statičkog pomaka u izravnoj vezi sa amplitudom sile pobude.
+    \item Odziv će zaostajati u fazi za pobudom. 
+\end{enumerate}
+
+Skaliranje amplitude statičkog pomaka $(u_{st})_0$ definirano je \textit{dinamičkim
+koeficijentom} $R_d$. Navedeni koeficijent je konkretna vrijednost magnitudnog
+spektra frekvencijske funkcije odziva za određenu frekvenciju $\omega$. Analogno
+tome, kašnjenje u fazi definirano je faznim kutom koji je konkretna vrijednost
+faznog spektra frekvencijske funkcije odziva.
+
+\subsubsection{Alternativno zapis prisilnog dijela odziva(Za ovo i nisam baš
+siguran)}
+Odziv na pobudu sinusnom silom može se odrediti konvolucijom prijenosne funkcije i
+funkcije pobude u vremenskoj domeni. Zadana je pobuda sinusnom silom oblika:
+\begin{equation}\label{eq:pobuda_sinusnom_silom}
+    p(t)=p_0e^{\alpha t} \sin(\omega t)
+\end{equation}
+
+Jednadžbu \eqref{eq:pobuda_sinusnom_silom} možemo zapisati u eksponencijalnom
+obliku:
+\begin{equation}\label{eq:pobuda_sinusnom_silom_eksponencijalni}
+    p(t)=-\frac{1}{2}p_0i(e^{(\alpha+i\omega)t}-e^{(\alpha-i\omega)t})
+\end{equation}
+
+Uvodimo:
+\begin{align}
+    s  &= \alpha + i\omega \label{eq:s_normalno}\\
+    s^* &= \alpha - i\omega \label{eq:s_konjugirano}
+\end{align}
+Uvrštavanjem \eqref{eq:s_normalno} i \eqref{eq:s_konjugirano} u
+\eqref{eq:pobuda_sinusnom_silom_eksponencijalni} dobijemo:
+\begin{equation}\label{eq:pobuda_sinusnom_silom_konacno}
+    p(t) = -\frac{1}{2}p_0(e^{st}-e^{s^*t})
+\end{equation}
+
+Prijenosna funkcija sustava (s izlučenim članom $1/k$) zadana je u obliku $1/k
+h(t)$. Izračun odziva je prikazan u nastavku:
+\[
+    u(t) = \frac{1}{k}(h*p)(t) 
+         = \frac{1}{k}\int_0^\infty h(t-\tau)p(\tau)d\tau
+\]
+
+Uvodi se supstitucija $\lambda=t-\tau$.
+\[
+    u(t) = \frac{1}{k}\int_0^\infty h(\lambda)p(t-\lambda)d\lambda
+         = \frac{1}{k}\int_0^\infty h(\lambda)\left[
+             -\frac{1}{2}p_0i\left(e^{st-s\lambda}-e^{s^*t-s^*\lambda}\right)
+             \right]d\lambda
+\]
+Raspisivanjem i sređivanjem dobijemo:
+\begin{equation}\label{eq:prisilni_transformacija_prijenosne}
+    u(t) = -\frac{1}{2}\frac{p_0}{k}i \left[
+                e^{st}
+                \underbrace{
+                    \int_0^\infty h(\lambda)e^{-s\lambda}d\lambda
+                }_{\text{\textbf{$I)$}}}
+                -e^{s^*t}
+                \underbrace{
+                    \int_0^\infty h(\lambda)e^{-s^*\lambda}d\lambda
+                }_{\text{\textbf{$II)$}}}
+        \right]
+\end{equation}
+Uočimo da integrali označeni s $I)\text{ i } II)$ predstavljaju Laplaceovu
+transformaciju prijenosne funkcije sustava pa izraz pod \eqref{eq:prisilni_transformacija_prijenosne}
+postaje:
+\begin{equation}\label{eq:prisilni_transformacija_prijenosne_kk}
+    u(t)=-\frac{1}{2}\frac{p_0}{k}i(e^{st}H(s)-e^{s^*t}H(s))
+\end{equation}
+
+Varijabla $s^*$ je kompleksno konjugirana varijabla $s$, pa je funkcija
+$H(s^*)$ kompleksno konjugirana funkcija $H(s)$. odnosno:
+\begin{equation}\label{eq:prijenosne_odnos}
+    H(s^*)=H^*(s) 
+\end{equation}
+
+Korištenjem \eqref{eq:prijenosne_odnos} jednadžba \eqref{eq:prisilni_transformacija_prijenosne_kk}
+postaje:
+\begin{equation}\label{eq:prisilni_transformacija_prijenosne_hk}
+    u(t)=-\frac{1}{2}\frac{p_0}{k}i (e^{st}H(s)-e^{s^*t}H^*(s))
+\end{equation}
+
+Poseban slučaj je za $\alpha = 0$ odnoso $s=i\omega \text{ i } s^*=-i\omega$. Tada
+prijenosne funckije sustava postaju frekvencijske funkcije odziva, a izraz pod
+\eqref{eq:prisilni_transformacija_prijenosne_hk} glasi:
+
+\begin{equation}\label{eq:prisilni_transformacija_frf}
+    u(t) = -\frac{1}{2}\frac{p_0}{k}i(e^{i\omega t}H(\omega i) - e^{-i\omega t}H^*(i\omega))
+\end{equation}
+
+Frekvencijska funkcija odziva $H(\omega i)$ zadana je jednadžbom \eqref{eq:frf_pravokutni}.
+Možemo uočiti da je njezin imaginarni dio negativan, što znači da je imaginarni dio
+funkcije $H^*(\omega i)$ pozitivan.
+\begin{figure}[H]
+    \input{./sdf/skice/frf-gauss}
+    \caption{Shematski prikaz funkcija $H(\omega i) \text{ i }H^*(\omega i)$ u
+    Gaussovoj ravnini}
+    \label{fig:frf-gauss}
+\end{figure}
+
+Modul funkija $H(\omega)$ i $H^*(\omega)$ je isti a definiran je jednadžbom
+\eqref{eq:magnitudniSpektar} a fazni kut jednadžbom \eqref{eq:fazniSpektar}. Sa
+slike \ref{fig:frf-gauss} vidljivo je da je kut $\phi$ što ga zatvara $H(\omega)$ s
+realnom osi negativan, a kut što ga zatvara $H^*(\omega)$ s realnom osi pozitivan.
+Trigonometrijski zapisi funkcija $H(\omega) \text{ i } H^*(\omega)$ dati su u
+nastavku.
+\begin{align}
+    H(\omega) &= |H(\omega)|e^{-i\phi} \label{eq:trig_zapis}\\
+    H^*(\omega) &= |H(\omega)|e^{i\phi} \label{eq:trik_zapis_hk}\\ %hk- h-kompleksno konjugiran
+\end{align}
+
+Uvrštavanjem \eqref{eq:trig_zapis} i \eqref{eq:trig_zapis_kk} u \eqref{eq:prisilni_transformacija_prijenosne_hk}
+dobijemo:
+\begin{equation}
+    u(t)=-\frac{1}{2}\frac{p_0}{k}i|H(\omega)|(e^{i\omega t}e^{-i\phi}-e^{-i\omega t}e^{i\phi})
+        =-\frac{1}{2}\frac{p_0}{k}i|H(\omega)|(2i\sin(\omega t -\phi))
+\end{equation}
+
+Te konačno:
+\begin{equation}\label{eq:prisilni_alternativno_rjesenje}
+    u(t)=\frac{p_0}{k}|H(\omega)|\sin(\omega t - \phi)
+\end{equation}
+Jednadžba \eqref{eq:prisilni_alternativno_rjesenje} predstavlja prisilni dio odziva.
+
+Definiramo dinamički koeficijent pomaka ili koeficijent povećanja pomaka ($R_d$) kao omjer
+amplitude dinamičkog i statičkog pomaka.
+\begin{equation}\label{eq:R_d-izvod-konacno}
+    R_d = \frac{u_0}{(u_{st})_0}=\frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}
+\end{equation}
+
+Uočimo da su jednadžbe \eqref{eq:R_d-izvod-konacno} i \eqref{eq:frf_sredjeno} iste,
+odnosno funkcija ovisnost dinamičkog faktora $R_d$ o omjeru frekvencija
+$\omega/\omega_n$ odgovara magnitudnom spektru frekvencijske funkcije odziva. Stoga
+jednadžbu pod \eqref{eq:prisilni_alternativno_rjesenje} možemo zapisati kao:
+\begin{equation}\label{eq:prisilni_alternativno_rjesenje_Rd}
+    u(t)=\frac{p_0}{k}R_d\sin(\omega t - \phi)
+\end{equation}
+
+Iz \eqref{eq:prisilni_alternativno_rjesenje} i \eqref{eq:prisilni_alternativno_rjesenje_Rd}
+možemo definirati fizikalnu interpretaciju frekvencijske funkcije odziva.
+Dakle, frekvencijska funkcija odziva definira odnos između pobude i
+odziva. Taj odnos je kompleksan jer je opisan magnitudnim i faznim spektrom
+kompleksne funkcije definirane u $s$ domeni. Drugim riječima, frekvencijska funkcija
+odziva nas upućuje na slijedeća svojstva (prisilnog) odziva:
+\begin{enumerate}
+    \item Frekvencija odziva biti će jednaka frekvenciji pobude ($\omega$).
+    \item Amplituda odziva biti će skalirana amplituda statičkog pomaka. Prisjetimo
+        se da je amplituda statičkog pomaka u izravnoj vezi sa amplitudom sile pobude.
+    \item Odziv će zaostajati u fazi za pobudom. 
+\end{enumerate}
+
+Skaliranje amplitude statičkog pomaka $(u_{st})_0$ definirano je \textit{dinamičkim
+koeficijentom} $R_d$. Navedeni koeficijent je konkretna vrijednost magnitudnog
+spektra frekvencijske funkcije odziva za određenu frekvenciju $\omega$. Analogno
+tome, kašnjenje u fazi definirano je faznim kutom koji je konkretna vrijednost
+faznog spektra frekvencijske funkcije odziva.
+
+
+\subsubsection{Grafički prikaz frekvencijske funkcije odziva}
+Zbog toga što frekvencijska funkcija odziva definira uvećanje amplitude statičkog
+pomaka i fazno zaostajanje odziva za pobudom od posebnog su nam interesa fazni i
+magnitudni spektar frekvencijske funkcije odziva (polarni zapis).
+\par
+
+Za konstantan $\omega_n$ vrijednosti funkcija definiranih jednadžbama 
+\eqref{eq:magnitudniSpektar} i \eqref{eq:fazniSpektar} biti će za omjer
+$\omega/\omega_n$, stoga taj omjer možemo postaviti i kao argument navedenih
+funkcija. 
+\begin{equation}\label{eq:magnitudniSpektarZaOmjer}
+    \left|H\left(\frac{\omega}{\omega_n}\right)\right|=
+        \frac{1}{\sqrt{((1-(\omega/\omega_n)^2)^2+(2\zeta(\omega/\omega_n))^2}}
+\end{equation}
+
+\begin{equation}\label{eq:fazniSpektarZaOmjer}
+    \phi\left(\frac{\omega}{\omega_n}\right)=
+        \arctan\left(\frac{2\zeta(\omega/\omega_n)}{1-(\omega/\omega_n)}\right)
+\end{equation}
+
+\begin{figure}[H]
+    \begin{subfigure}{1\textwidth}
+        \input{./sdf/grafovi/rd-priguseno}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}{1\textwidth}
+        \input{./sdf/grafovi/fi-priguseno}
+    \end{subfigure}
+    \caption{Magnitudni i fazni spektar Frekvencijske funkcije odziva za različite vrijednosti $\zeta$}
+    \label{fig:frf-priguseno}
+\end{figure}
+
+Magnitudni spektar frekvencijske funkcije odziva prikazuje funkcijsku ovisnost
+dinamičkog koeficijenta $R_d$ o omjeru frekvencije pobude i prirodne frekvencije za
+određeno prigušenje. Analogno tome fazni spektar frekvencijske funkcije odziva
+prikazuje ovisnost faznog kuta (kašnjenje u fazi za pobudom) o omjeru frekvencija 
+$\omega/\omega_n$ za određeni faktor relativnog prigušenja.
+\par
+
+Za neprigušeno titranje funkcije faznog i magnitudnog spektra prikazane su u
+nastavku.
+\begin{equation}\label{eq:fazniSpektarNepriguseno}
+    \phi\left(\frac{\omega}{\omega_n}\right)=
+        \arctan\left(\frac{0}{1-(\omega/\omega_n)}\right)
+\end{equation}
+\begin{equation}\label{eq:magnitudniSpektarNepriguseno}
+    R_d=\left|H\left(\frac{\omega}{\omega_n}\right)\right|=
+        \frac{1}{\sqrt{((1-(\omega/\omega_n)^2)^2+(2\cdot 0(\omega/\omega_n))^2}} =
+        \frac{1}{|1-(\omega/\omega_n)^2|}
+\end{equation}
+\newpage
+
+Iz formule \eqref{eq:fazniSpektarNepriguseno} očito je da za neprigušeno titranje
+postoje tri vrijednosti faznog kuta koje ovise o izrazu u nazivniku. Vrijednosti
+faznog kuta prikazane su u nastavku:
+\[
+    \phi = \begin{dcases*}
+            0\degree   & za $1-(\omega/\omega_n)^2 > 0$\\ % & $\omega < \omega_n$\\
+            90\degree  & za $1-(\omega/\omega_n)^2 = 0$\\ % & $\omega = \omega_n$\\
+            180\degree & za $1-(\omega/\omega_n)^2 < 0$\\ % & $\omega > \omega_n$\\
+        \end{dcases*}
+\]
+
+\begin{figure}[H]
+    \begin{subfigure}{1\textwidth}
+        \input{sdf/grafovi/rd-nepriguseno}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}{1\textwidth}
+        \input{sdf/grafovi/fi-nepriguseno}
+    \end{subfigure}
+    \caption{Magnitudni i fazni spektar frekvencijske funkcije odziva za neprigušeni
+    sustav}
+    \label{fig:frf-nepriguseno}
+\end{figure}
+
+Analizirajući krivulje sa \eqref{fig:frf-priguseno} i \eqref{fig:frf-nepriguseno} 
+navedene grafove možemo podijeliti na tri područja:
+\begin{enumerate}
+    \item Područje kontrolirano krustošću - za slučaj spore promjene opterećenja
+        ($\omega/\omega_n<<1$ - lijevo na grafu) utjecaj prigušenja je neznatan
+        (krivulje za različita prigušenja su jako bliske) a dinamički utjecaj je mali, 
+        tj. $R_d \approx 1$ što znači da je amplituda prisilnog odziva približno jednaka
+        amplitudi statičkog pomaka, pa amplitudu prisilnog odziva možemo
+        aproksimirati slijedećom jednadžbom:
+        \begin{equation}\label{eq:frf_prvi_sektor}
+            u_0\simeq(u_{st})_0=\frac{p_0}{k}
+        \end{equation}
+        Fazni kut je približno $0\degree$ pa su pobuda i odziv u fazi.
+
+    \item Područje kontrolirano prigušenjem - Za slučaj $\omega/\omega_n\simeq 1$,
+        izražen razmak između krivulja nalaže najeveći utjecaj prigušenja na
+        vrijednost dinamičkog faktora, a samim time i na ukupnu amplitudu prisilnog
+        odziva. Dinamički faktor $R_d$, u navedenom intervalu, postiže najveće
+        vrijednosti a u slučaju $\zeta=0$ $R_d$ je neograničen (teži u beskonačno). 
+        Dominantni član izraza \eqref{eq:magnitudniSpektarZaOmjer} je
+        $2\zeta(\frac{\omega}{\omega_n})$, a aproksimacija amplitude prisilnog
+        odziva glasi: 
+        \begin{equation}\label{eq:frf_rezonanca}
+            u_0=\frac{(u_{st})_0}{2\zeta}=\frac{p_0}{c\omega_n}
+        \end{equation}
+
+        Fazni kut za sva prigušenja iznosi 90\degree. 
+
+    \item Područje kontrolirano masom - Za slučaj brze promjene opterećenja
+        $\omega/\omega_n>>1$ utjecaj prigušenja je zanemariv jer su krivulje vrlo
+        bliske. Dinamički faktor $R_d$ teži u nulu, što znači da je ukupna amplituda
+        prisilnog odziva manja od amplitude statičkog pomaka. Dominantni član jednadžbe 
+        \eqref{eq:magnitudniSpektar} jest $(\omega/\omega_n)^4$ što znači
+        da jednadžbu pod \eqref{eq:magnitudniSpektarZaOmjer} možemo aproksimirati na 
+        slijedeći način:
+        \[
+            H(\omega/\omega_n)\simeq \frac{\omega_n^2}{\omega^2}
+        \]
+
+        Prema tome, amplituda prisilnog odziva glasi:
+        \begin{equation}\label{eq:frf_treci_sektor}
+            u_0=(u_{st})_0\left(\frac{\omega_n}{\omega}\right)^2=\frac{p_0}{m\omega^2}
+        \end{equation}
+        
+        U ovom slučaju ($\omega/\omega_n >> 1$), fazni kut je približno 180\degree,
+        što znači da su pobuda i odziv izvan faze
+\end{enumerate}
+
+
+\subsection{Dinamički koeficijenti odziva}
+U prethodnim poglavljima, prisilni dio odziva je prikazan kao vremenska funkcija pomaka
+pri čemu je njegova amplituda jednaka statičkom pomaku skaliranom dinamičkim
+koeficijentom pomaka $R_d$. Osim vremenskom funkcijom pomaka, odziv sustava potrebno
+je opisati i vremenskim funkcijama brzine i ubrzanja.
+
+Deriviranjem vremenske funkcije pomaka po vremenu dobijemo vremensku funkciju brzine:
+    \begin{align}
+        \frac{\dot{u}(t)}{(u_{st})_0} &= 
+            \omega R_d\cos(\omega t - \phi)\frac{\omega_n}{\omega_n}\notag\\
+        \frac{\dot{u}(t)}{\omega_n p_0/k} &= 
+            \frac{\omega}{\omega_n}R_d\cos(\omega t-\phi)\label{eq:derivacijaFaktorPomaka}\\
+        \frac{\dot{u}(t)}{p_0/\sqrt{km}} &=
+            R_v\cos(\omega t-\phi)\label{eq:dinamickiFaktorBrzine}
+    \end{align}
+Gdje je:
+\begin{table}[H]
+    \begin{tabular}{r l}
+        $R_v$ & Dinamički koeficijent brzine\\
+    \end{tabular}
+\end{table}
+
+Iz jednadžbi pod \eqref{eq:derivacijaFaktorPomaka} i \eqref{eq:dinamickiFaktorBrzine}
+slijedi relacija:
+\begin{equation}\label{eq:R_v}
+    \frac{\dot{u}(0)}{p_0/\sqrt{km}}=R_v=\left(\frac{\omega}{\omega_n}\right)R_d
+\end{equation}
+
+Analogno tome, dobije se i dinamički faktor ubrzanja koji glasi:
+\begin{equation}\label{eq:R_a}
+    \frac{\ddot{u}(t)}{p_0/m}=-R_a=-\frac{\omega}{\omega_n}R_v
+        =-\left(\frac{\omega}{\omega_n}\right)^2R_d
+\end{equation}
+
+Gdje je:
+\begin{table}[H]
+    \begin{tabular}{r l}
+        $R_a$ & Dinamički koeficijent ubrzanja\\
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \input{./sdf/grafovi/rd-rv-ra}
+    \caption{Dinamički faktori pomaka, brzine i ubrzanja za različite vrijednosti
+    $\zeta$}
+    \label{fig:rd-rv-ra}
+\end{figure}
+
+%Sa slike \ref{fig:rd-rv-ra} vidljivo je da prigušenje na sva tri koeficijenta najviše
+%utječe u okolini točke $\omega/\omega_n=1$. Isto tako vidljivo je da je maksimum
+%dinamičkog faktora pomaka pomaknut u lijevo od vertikalnog pravca koji prolazi
+%točkom $\omega/\omega_n=1$, a maksimum dinamičkog faktora ubrzanja u desno. 
+%Maksimum dinamičkog faktora brzine pada na pravac $\omega/\omega_n=1$. Poslijedica
+%toga je da se rezonantne frekvencije sustava na pomak, brzinu i ubrzanje razlikuju.
+%Rezonantne frekvencije biti će razmatrane detaljnije u slijedećim poglavljima.
+
+Iz \eqref{eq:R_v} i \eqref{eq:R_a} slijedi da su dinamički koeficijenti pomaka,
+brzine i ubrzanja u odnosu. Navedeni odnos je prikazan je slijedećom jednadžbom.
+\begin{equation}\label{eq:R_d-R_v-R_a}
+    \frac{R_a}{\omega/\omega_n}=R_v=\frac{\omega}{\omega_n}R_d 
+\end{equation}
+Iz navedene jednadžbe slijedi da je poznavanjem jedne od veličina $R_d, R_v 
+\text{ ili } R_a$ moguće dobiti preostale dvije. Zbog toga što postoji odnos
+između dinamičkih koeficijenata pomaka, brzine i ubrzanja opisan jednadžbom 
+\eqref{eq:R_d-R_v-R_a}, moguće je sve tri navedene veličine prikazati u jednom
+grafu.
+
+Takav graf se sastoji od četiri logaritamske skale:
+\begin{enumerate}
+    \item horizontalne logaritamske skale koja prikazuje omjer frekvencije pobude i 
+        prirodne frekvencije sustava 
+    \item vertikalne logaritamske skale koja prikazuje \textit{dinamički koeficijent brzine
+        $R_d$}
+    \item modificirane logaritamske skale nagnute pod kutem od $+45\degree$ koja prikazuje
+        \textit{dinamički koeficijent ubrzanja $R_a$}
+    \item modificirane logaritamske skale nagnute pod kutem od $-45\degree$ koja prikazuje
+        \textit{dinamički koeficijent pomaka $R_d$}
+\end{enumerate}
+
+\begin{figure}[H]
+    \input{./sdf/grafovi/dva-spektar}
+    \label{fig:dva-spektar}
+    \caption{Dinamički faktori pomaka, brzine i ubrzanja u logaritamskom mjerilu}
+\end{figure}
+
+\subsubsection{Rezonanca}
+Rezonanca je pojava koja se javlja prilikom pobude rezonantnom frekvencijom.
+Rezonantna frekvencija je ona frekvencija pobude za koju će dinamički koeficijent
+odziva biti maksimalan. 
+\par
+
+\subsubsection{Rezonanca sustava s prigušenjem}
+Razmatranjem krivulja frekvencijskih funkcija odziva sa slike 
+\ref{fig:rd-rv-ra}, možemo uočiti da jedino maksimumi krivulja $R_v$ padaju na 
+vertikalni pravac $\omega/\omega_n=1$. Isto tako, vidljivo je da maksimalni $R_d$
+pada ulijevo od navedenog pravca a maksimalni $R_a$ udesno. To znači da će se 
+rezonantne frekvencije dinamičkih faktora ($R_d$, $R_v$ i $R_a$) međusobno razlikovati 
+te da će rezonantne frekvencije dinamičkih faktora $R_d$ i $R_a$ biti različite od
+prirodne frekvencije sustava.
+
+Rezonantne frekvencije za pojedini spektar možemo odrediti deriviranjem frekvencijske 
+funkcije odziva po $\omega/\omega_n$ te izjednačavanjem prve derivacije s nulom.
+\[
+    \begin{aligned}
+        R_d &= \frac{1}{\sqrt{(1-(\omega/\omega_n)^2) + (2\zeta(\omega/\omega_n))^2}}\\
+        \text{Uvodi se supstitucija } x=\omega/\omega_n\\
+        R_d &= \frac{1}{\sqrt{(1-x^2)+(2\zeta x)^2}}
+        \text{Deriviranjem po x dobijemo:}\\
+        \frac{dR_d}{dx}=-\frac{2x^3+(4\zeta^2-2)x}{\sqrt{((1-x^2)^2+(2\zeta x)^2)^3}}
+        \text{Lokalni ekstrem (maksimum) dobijemo izjednačavanjem prve derivacije s
+        nulom, odnosno:}\\
+        -\frac{2x^3+(4\zeta^2-2)x}{\sqrt{((1-x^2)^2+(2\zeta x)^2)^3}} = 0
+    \end{aligned}
+\]
+
+Da bi razlomak bio jednak nula izraz u brojniku mora biti jednak nula.
+Izjednačavanjem brojnika s nulom dobijemo slijedeću jednadžbu:
+\[
+    \begin{aligned}
+        2x^3+(4\zeta^2-2)x &= 0\\
+        x^2 &= 1-2\zeta^2\\
+        x &= \sqrt{1-2\zeta^2} \quad \text{ Uz } \zeta < \frac{1}{\sqrt{2}}
+    \end{aligned}
+\]
+Uvrštavanjem $\omega/\omega_n$ dobijemo izraz za rezonantnu frekvenciju pomaka:
+\begin{equation}\label{eq:rezonantna_frekvencija_pomak}
+    \omega=\omega_n\sqrt{1-2\zeta^2}
+\end{equation}
+Analogno tome dobiju se izrazi za rezonantne frekvencije brzine i ubrzanja.
+\begin{align}
+    \text{Rezonantna frekvencija pomaka}\quad & \omega = \omega_n\sqrt{1-\zeta^2}\label{eq:rd_rezonanca}\\
+    \text{Rezonantna frekvencija brzine}\quad & \omega = \omega_n\label{eq:rv_rezonanca}\\
+    \text{Rezonantna frekvencija ubrzanja}\quad & \omega = \frac{\omega_n}{\sqrt{1-2\zeta^2}}\label{eq:ra_rezonanca}
+\end{align}
+
+Zbog jednostavnosti, karakteristike odziva prigušenog sustava s jednim stupnjem
+slobode u rezonanci, razmotriti ćemo za slučaj $\omega = \omega_n$ uz
+homogene početne uvjete. Iako se rezonantna frekvencija pomaka ne podudara s 
+prirodnom frekvencijom sustava, navedene vrijednosti su vrlo bliske za mali $\zeta$. 
+Vremenska funkcija pomaka prigušenog sustava prikazana jednadžbom \eqref{eq:inverz_treci_korak}
+
+Uz homogene početne uvjete i za $\omega=\omega_n$, koeficijenti $A,B,C,\text{ i }D$
+glase:
+\begin{align}
+    C &= 0 \label{eq:rez_koef_C}\\
+    D &= -\frac{(u_{st})_0}{2\zeta}\label{eq:rez_koef_D}\\
+    A &= -D = \frac{(u_{st})_0}{2\zeta}\label{eq:rez_koef_A}\\
+    B &= -\frac{D\sigma}{\omega_D}-\frac{C\omega}{\omega_D}=
+          \frac{(u_{st})_0}{2\sqrt{1-\zeta^2}}\label{eq:rez_koef_B}
+\end{align}
+Uvrštavanjem \eqref{eq:rez_koef_A}, \eqref{eq:rez_koef_B}, \eqref{eq:rez_koef_C} i \eqref{eq:koef_D}
+u \eqref{eq:inverz_treci_korak} te sređivanjem dobijemo:
+\begin{equation}\label{eq:rezonancaPrigušenoPomak}
+    u(t)=\frac{(u_{st})_0}{2\zeta}\left[
+        e^{-\sigma t} \left(
+            \cos(\omega_D t)+\frac{\zeta}{\sqrt{1-\zeta^2}}\sin(\omega_D t)
+            \right)
+        -\cos(\omega_n t)
+        \right]
+\end{equation}
+Iz navedene jednadžbe proizlazi da je amplituda odziva ograničena na vrijednost
+(uočimo da je odziv sustava kontroliran prigušenjem):
+\begin{equation}\label{eq:rezonanca_amplituda}
+    u_0=\frac{(u_{st})_0}{2\zeta}
+\end{equation}
+Za malu vrijednost $\zeta$, vrijedi $\omega_n\approx\omega_D$ te je član
+$\sin(\omega_Dt) \approx 0$. Stoga jednadžba pod \eqref{eq:rezonancaPrigušenoPomak}
+postaje:
+\begin{equation}\label{eq:rezonancaOdzivAproksimacija}
+    u(t)\simeq\underbrace{
+        \frac{(u_{st})_0}{2\zeta}[(e^{-\sigma t}-1)
+        }_{\text{Krivulja ovojnice}}
+        \cos(\omega_nt)]
+\end{equation}
+
+Iz jednadžbe \eqref{eq:rezonancaOdzivAproksimacija} može se zaključiti da i za
+slučaj rezonance postoji prolazni i prisilni dio odziva, a ukupni odziv je razlika
+između prolaznog i prisilnog djela. Prolazni dio odziva opisan je jednadžbom
+\[
+    e^{-\sigma t} \cos(\omega_n t)
+\]
+a prisilni:
+\[
+    \cos(\omega_n t)
+\]
+Za $t=0$ prolazni dio je maksimalan te je ukupni odziv jednak nuli. U ovisnosti o
+vremenu, prolazni dio se smanjuje eksponencijalno prema zakonu $e^{-\sigma t}$. Kako
+se prolazni dio smanjuje a prisilni ostaje isti ($(u_{st})_0/2\zeta$) tako raste
+njihova razlika. Rastom razlike dolazi do rasta amplitude odziva, te isčezavanjem
+prolaznog dijela preostaje samo prisilni te se dostiže maksimalna amplituda koja je
+jednaka ($(u_{st})_0/2\zeta$). Bitno je za naglasiti da u teoretskom modelu
+prolazni dio odziva isčezava tek za $t=\infty$, tj. asimptotski se približava nuli,
+ali u realnosti prolazni dio odziva je zanemariv nakon određenog vremena. Shematski
+prikaz dostizanja prisilnog stanja prikazan je na slijedećoj slici:
+\begin{figure}[H]
+    \input{sdf/grafovi/rezonanca-priguseno} 
+    \caption{Odziv prigušenog sustava na pobudu rezonantnom frekvencijom}
+    \label{fig:rezonanca-priguseno}
+\end{figure}
+
+O prigušenju u rezonanci ovise slijedeći parametari odziva:
+\begin{itemize}
+    \item brzina dostizanje ustaljenog stanja (maksimalne amplitude) - brzina dostizanja 
+        ustaljenog stanja raste proporcionalno s prigušenjem (veće prigušenje $\to$ strmija krivulja
+        ovojnice $\to$ brže dostizanje ustaljenog stanja).
+
+    \item vrijednost maksimalne amplitude - obrnuto proporcionalna od vrijednosti
+        prigušenja, definirana izrazom \eqref{eq:rezonanca_amplituda}. 
+        (veće prigušenje, manja maksimalna amplituda, vidljivo i u frekvencijskim funkcijama odziva)
+\end{itemize}
+
+Određivanje broja titraja koji je potreban za dostizanje ustaljenog stanja vrši
+se pomoću funkcije koja opisuje krivulju ovojnice. Pretpostavka je da ekstrem
+nastupa nakon $j$ titraja ($j$ je prirodni broj), a vrijeme nastupa minimuma je
+$t=2\pi j/\omega$. 
+\begin{equation}\label{eq:prirastEkstremaPriguseno}
+    u\left(\frac{2\pi j}{\omega_n}\right) \approx
+        u_0(e^{-\zeta\omega_n\frac{2\pi j}{\omega_n}}-1)\cos\left(\omega_n\frac{2\pi
+        j}{\omega_n}\right)
+\end{equation}
+Gdje je:
+\begin{table}[H]
+    \begin{tabular}{c c}
+        $j$ & redni broj titraja\\
+        $u_0=(u_{st})_0/2\zeta$ & maksimalna amplituda\\
+    \end{tabular}
+\end{table}
+Kako se radi o ekstremnoj vrijednosti, funkcija kosinus iznosi $\pm 1$ pa jednadžba
+pod \eqref{eq:prirastEkstremaPriguseno} glasi:
+\begin{equation}\label{eq:MiniMaxPriguseno}
+     u\left(\frac{2\pi j}{\omega_n}\right) = u_j = 
+        \pm u_0(e^{-2\pi\zeta j}-1)
+\end{equation}
+
+Za maksimume jednadžba pod \eqref{eq:MiniMaxPriguseno} postaje
+\begin{equation}
+    |u_j| = -u_0(e^{-2\pi\zeta j} -1) = u_0(1-e^{-2\pi\zeta j})
+\end{equation}
+
+Za relativne vrijednosti\footnote{Postotci od maksimalne amplitude}:
+\begin{equation}
+    u[j] = \frac{|u_j|}{u_0}=1-e^{-2j\zeta\pi}
+\end{equation}
+Izraz ima smisla samo za diskretne vrijednosti argumenta $j$, odnosno za $j \in
+\mathbb{N}$.
+
+\par
+\begin{minipage}[b][][l]{0.1\textwidth}
+\begin{table}[H]
+    \begin{tabular}{c | c}
+       \hline
+        $\zeta$ & $j$\\
+        \hline
+        $0.01$ & $48$\\
+        \hline
+        $0.02$ & $24$\\
+        \hline
+        $0.05$ & $10$\\
+        \hline
+        $0.1$ & $5$\\
+        \hline
+        $0.2$ & $3$\\
+        \hline
+    \end{tabular}
+    \caption{Očitanje s grafa}
+    \label{table:prirast-rezonanca-priguseno}
+\end{table}
+\end{minipage}
+\hfill
+\begin{minipage}[b][][r]{0.8\textwidth}
+\begin{figure}[H]
+    \input{sdf/grafovi/prirast-rezonanca-priguseno}
+    \label{fig:prirast-rezonanca-priguseno}
+    \caption{Ovisnost amplitude odziva o broju titraja u rezonanci}
+\end{figure}
+\end{minipage}
+\vspace{6pt}
+
+Uočimo da je uz slabije prigušenje potrebno više titraja za dostizanje ustaljenog
+stanja odnosno maksimalne amplitude. Očitanja vrijednosti sa grafa prikazana su u
+\ref{table:prirast-rezonanca-priguseno}.
+
+\subsubsection{Rezonanca sustava bez prigušenja}
+Za sustav bez prigušenja, rezonantne frekvencije za $R_d$, $R_v$ i $R_a$ jednake su
+prirodnoj frekvenciji sustava što se dobije uvrštavanjem $\zeta = 0$ u \eqref{eq:rd_rezonanca} i 
+\eqref{eq:ra_rezonanca}. 
+\par
+
+Primjetimo da je maksimalni dinamički koeficijent $R_d$ (za $\omega/\omega_n = 1$) 
+neograničen, tj $R_d\to \infty$ što se vidi i u jednadžbi \eqref{eq:fazniSpektarNepriguseno} 
+te na grafu \ref{fig:frf-nepriguseno}. U slijedećoj jednadžbi prikazana je vremenska 
+funkcija pomaka sustava za homogene početne uvjete:
+\begin{equation}
+    u(t)=\frac{p_0}{k}\frac{1}{1-(\omega/\omega_n)}
+            \left(\sin(\omega t) - \frac{\omega}{\omega_n}\sin(\omega_n t)\right)
+\end{equation}
+
+Uočimo da za $\omega = \omega_n$ navedena jednadžba više ne vrijedi (djeljenje s
+nulom). Novu jednadžbu možemo odrediti na slijedeći način:
+\begin{equation}\label{eq:limes}
+    \lim_{\omega\to\omega_n}{u(t)} = 
+        \frac{p}{k}\frac{1}{1-(\omega/\omega_n)^2}
+            \left(\sin(\omega t) - \frac{\omega}{\omega_n}\sin(\omega_n t)\right)
+\end{equation}
+
+Navedeni limes je oblika $\frac{0}{0}$, pa ga je moguće rješiti L'Hopitalovim
+pravilom. Deriviranjem funkcije po $\omega$ dobijemo:
+\begin{equation}\label{eq:lhopitalovo_limes}
+    \lim_{\omega\to\omega_n}\frac{d}{d\omega}u(t)=
+    \lim_{\omega\to\omega_n} \left[
+        \frac{p_0}{k}\frac{1}{-2(\omega/\omega_n)}
+            \left(t\cos(\omega t) - \frac{1}{\omega}\sin(\omega_n t)\right)
+           \right]
+\end{equation}
+Uvrštavanjem $\omega=\omega_n$ dobijemo:
+\begin{equation}\label{eq:odziv_rezonanca}
+    u(t)=-\frac{1}{2}\frac{p_0}{k}(\omega_n\cos(\omega_n t)-\sin(\omega_nt))
+\end{equation}
+
+Iz navedene jednadžbe vidljivo je da usprkos neograničenom dinamičkom faktoru
+neizmjerno velika amplituda ne nastupa trenutno, već dolazi do njezinog 
+postupnog rasta. Djeljenjem izraza \eqref{eq:odziv_rezonanca} statičkim pomakom i
+uvrštavanjem $\omega_n=\frac{2\pi}{T_n}$ dobijemo:
+\begin{equation}\label{eq:rezonanca_period}
+    \frac{u(t)}{(u_{st})_0}=-\frac{1}{2}
+        \left(\frac{2\pi t}{T_n}
+                \cos\left(\frac{2\pi t}{T_n}\right)
+                -
+                \sin\left(\frac{2\pi t}{T_n}\right)
+        \right)
+\end{equation}
+Gdje je:
+\begin{table}[H]
+    \begin{tabular} {r l}
+        $T_n$ & period titranja\\
+    \end{tabular}
+\end{table}
+
+Iz prethodne jednadžbe slijedi da ekstremi nastupaju svaki poluperiod ($T_n/2$), pri
+čemu prvo nastupa maksimum a zatim minimum. Vrijeme nastupa ekstrema za određeni
+redni broj titraja prikazuju slijedeće jednadžbe:
+\begin{itemize}
+    \item za maksimum: $t=(i-\frac{1}{2})T_n$
+    \item za minimum: $t=jT_n$
+\end{itemize}
+Gdje je:
+\begin{table}[H]
+    \begin{tabular} {r l}
+        $t$ & vrijeme nastupa ekstrema\\
+        $i$ & redni broj titraja\\
+    \end{tabular}
+\end{table}
+Iznos ekstrema određujemo uvrštavanjem vremena nastupa ekstrema u jednadžbu
+\eqref{eq:rezonanca_period} te slijedi:
+\begin{enumerate}
+    \item iznos maksimuma za j-ti titraj: $u_j=(u_{st})_0\pi(j-\frac{1}{2})$
+    \item iznos minimuma za j-ti titraj: $u_j=-(u_{st})_0\pi\cdot j$ 
+\end{enumerate}
+
+Prirast maksimuma određujemo razlikom između iznosa maksimuma trenutnog i slijedećeg
+titraja što prikazuje slijedeća jednadžba:
+\begin{equation}\label{eq:prirast_maksimuma}
+    \begin{split}
+        |u_{j+1}|-|u_j| &=(u_{st})_0\pi((j+1)-\frac{1}{2})-(u_{st})_0\pi(j-\frac{1}{2})\\
+        |u_{j+1}|-|u_j| &= \frac{p_0}{k}\pi
+    \end{split}
+\end{equation}
+
+Analogno tome određuje se i prirast minimuma koji glasi:
+\begin{equation}\label{eq:prirast_minimuma}
+    \begin{split}
+        u_{j+1}-u_j &= -(u_{st})_0\pi(j+1)-(-(u_{st})_0\pi j)\\
+        u_{j+1}-u_j &= -\frac{p_0}{k}\pi
+    \end{split}
+\end{equation}
+
+Uočimo da su prirasti ekstrema linearni, stoga krivulju ovojnice čine pravaci čiji
+su koeficjenti smjera prikazani u nastavku:
+\begin{equation}\label{eq:koef_smjera_envelopa}
+    k_{1,2}=\pm\frac{1}{2}\frac{p_0}{k}\omega_n
+\end{equation}
+
+\begin{figure}[H]
+    \input{sdf/grafovi/rezonanca-nepriguseno}
+    \label{rezonanca-nepriguseno}
+    \caption{Rezonanca neprigusenog sustava}
+\end{figure}
+
+\subsubsection{Analiza područja rezonance}
+Osim rezonantne frekvencije potrebno je odrediti i pojas polovice snage vrha
+frekvencijske funkcije odziva, koji je prikazan na slici \ref{fig:hpb}. Pojas polovice
+snage vrha frekvencijske funkcije odziva bitan je iz dva razloga:
+\begin{enumerate}
+    \item osim pobude rezonantnom frekvencijom, opasne su i pobude frekvencijama iz
+        njezinog okoliša. Navedeni okoliš definiran je pojasom polovice snage.
+    \item Zbog praktične primjene - pojas polovice snage koristi se u pokusima
+        za određivanje stupnja prigušenja konstrukcija
+\end{enumerate}
+\begin{figure}[H]
+    \input{./sdf/grafovi/hpb}
+    \caption{Definicija pojasa polovice snage}
+    \label{fig:hpb}
+\end{figure}
+Dinamički faktor pomaka $R_d$ za odziv dvostruko manje snage od odziva maksimalnog
+dinamičkog faktora računa se prema slijedećoj relaciji:
+\begin{equation}\label{eq:hpb}
+    R_d = \frac{1}{\sqrt{2}}R_d^{max}
+\end{equation}
+
+Sa slike je vidljivo da je dinamički faktor $R_d$ iz \eqref{eq:hpb} definiran za
+dvije vrijednosti frekvencije pobude: $\omega_a$ i $\omega_b$. Raspisivanjem
+jednadžbe pod \eqref{eq:hpb} dobijemo:
+
+\begin{equation}\label{eq:hpb_izvod_1}
+        \frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}=
+            \frac{1}{\sqrt{2}}\frac{1}{2\zeta\sqrt{1-\zeta^2}}\\
+\end{equation}
+
+Kvadriranjem \eqref{eq:hpb_izvod_1} dobijemo:
+\begin{equation}\label{eq:hpb_izvod_2}
+    \left(1-\left(\frac{\omega}{\omega_n}\right)^2\right)^2
+    +\left(2\zeta\frac{\omega}{\omega_n}\right)^2 =
+    8\zeta^2(1-\zeta^2)
+\end{equation}
+
+Raspisivanjem i grupiranjem po $\omega/\omega_n$ dobijemo:
+\begin{equation}\label{eq:hpb_izvod_3}
+    \left(\frac{\omega}{\omega_n}\right)^4
+    -2(1-2\zeta^2)\left(\frac{\omega}{\omega_n}\right)^2
+    +1-8\zeta^2(1-\zeta^2)=0
+\end{equation}
+
+Izraz \eqref{eq:hpb_izvod_3} je kvadratna jednadžba, a njezinim rješavanjem (po
+$\omega/\omega_n$) dobijemo:
+\begin{equation}\label{eq:hpb_kvadratna_1}
+    \left(\frac{\omega}{\omega_n}\right)^2 = 
+        (1-2\zeta^2)\pm 2\zeta\sqrt{1-\zeta^2}
+\end{equation}
+
+Za $\zeta^2 \approx 0$ izraz \eqref{eq:hpb_kvadratna_1} postaje:
+\begin{equation}
+    \left(\frac{\omega}{\omega_n}\right)^2 \approx
+        1 \pm 2\zeta
+\end{equation}
+
+Odnosno:
+\begin{equation}\label{eq:hpb_kvadratna_2}
+    \left(\frac{\omega}{\omega_n}\right)\approx
+        \sqrt{1 \pm 2\zeta}
+\end{equation}
+Jednadžba \eqref{hpb_kvadratna_2}, nakon aproksimacije korijena s prva dva člana Taylorovog
+reda glasi:
+\begin{equation}\label{eq:hpb_kvadratna_konacno}
+    \frac{\omega}{\omega_n} = 1 \pm \zeta
+\end{equation}
+
+Frekvencije $\omega_a$ i $\omega_b$ dobiju se iz \eqref{eq:hpb_kvadratna_konacno}:
+\begin{align}
+    \omega_a &= (1-\zeta)\omega_n\\
+    \omega_b &= (1+\zeta)\omega_n\\
+\end{align}
+
+Oduzimanjem $\omega_b-\omega_a$ dobijemo:
+\begin{equation}\label{eq:hpb_zeta_omega}
+        2\zeta = \frac{\omega_b-\omega_a}{\omega_n}
+\end{equation}
+
+Te konačno, dijeljenjem brojnika i nazivnika s $2\pi$:
+\begin{equation}\label{eq:hpb_zeta_f}
+    \zeta\approx\frac{f_b-f_a}{2f_n}
+\end{equation}
+
+Gdje je $f=\omega/2\pi$ kružna frekvencija. Jednadžbe pod \eqref{eq:hpb_zeta_omega}
+i \eqref{eq:hpb_zeta_f} bitne su jer omogućuju određivanje koeficijenta relativnog prigušenja
+$\zeta$ bez potrebe za poznavanjem intenziteta sile pobude. 
+
+\subsection{Praktična primjena matematičkog modela}
+Definiranjem matematičkog modela prigušenog sustava s jednim stupnjem slobode,
+pobuđenog sinusnom silom postavljeni su temelji za eksperimentalno određivanje
+stupnja prigušenja i prirodne frekvencije. Stupnanj prigušenja jest veličina od
+izuzetne praktične važnosti, a nije ga moguće odrediti teoretski iz projektnih
+parametara, već se mora odrediti eksperimentalno. %Isto tako izmjerena vrijednost prirodne
+%frekvencije jest stvarno svojstvo konstrukcije, s kojim se uspoređuje teoretski
+%određena prirodna frekvencija. 
+Ispitivanje koje će biti razmatrano u ovome radu naziva se \textit{rezonancijski
+pokus}.
+
+%Matematički model prigušenog sustava s jednim stupnjem slobode, pobuđen sinusnom
+%silom koristi se priklikom određivanja stupnja prigušenja i prirodne frekvencije 
+%realnih konstrukcija. Stupanj prigušenja je veličina od izuzetne važnosti koju nije
+%moguće odrediti analitički, nego ju je potrebno odrediti ispitivanjima. 
+
+Ispitivanja se provode \textit{vibracijskim uređajem}. Vibracijski uređaj se sastoji
+od dvije košare sa utezima na uspravnoj osovini koje rotiraju u suprotnim smjerovima
+konstantnom kutnom brzinom $\omega$. Osovina je pričvršćena za metalnu ploču koja se
+kruto povezuje s građevinom. 
+
+\begin{figure}[H]
+        \begin{subfigure}[b][][r]{0.45\textwidth}
+        \input{./sdf/skice/vibracijski-t0}
+        \caption{}
+        \label{fig:vibracijski-t0}
+    \end{subfigure}
+    \begin{subfigure}[b][][l]{0.45\textwidth}
+        \input{./sdf/skice/vibracijski-t}
+        \caption{}
+        \label{fig:vibracijski-t}
+    \end{subfigure}
+    \caption{Shematski prikaz vibracijskog uređaja: 
+            (\subref{fig:vibracijski-t0}) u inicijalnom položaju;
+            (\subref{fig:vibracijski-t}) položaj nakon vremena t}
+    \label{fig:vibracijski}
+\end{figure}
+
+Sila pobude građevine jest ukupna centrifugalna sila vibracijskog uređaja, koja je 
+jednaka je sumi centrifugalnih sila pojedinih masa.
+Horizontalne komponente su jednakog intenziteta ali suprotnog smjera pa se
+poništavaju, stoga sila pobude je jednaka sumi vertikalnih komponenti, odnosno:
+\begin{equation}
+    p(t)=(m_ee\omega^2)\sin(\omega t)
+\end{equation}
+
+Odziv sustava s jednim stupnjem slobode na pobudu vibracijskim uređajem opisan je
+slijedećom diferencijalnom jednadžbom:
+\begin{equation}
+    m\ddot{u}+c\dot{u}+ku=(m_ee\omega^2)\sin(\omega t)
+\end{equation}
+
+Amplituda prisilnog pomaka glasi (iz \eqref{eq:prisilni_alternativno_rjesenje_Rd}):
+\begin{equation}
+    u_0=\frac{m_ee}{k}\omega^2R_d = \frac{m_ee}{m}\left(\frac{\omega}{\omega_n}\right)^2R_d
+\end{equation}
+
+Amplituda prisilnog ubrzanja (iz \eqref{eq:R_a}
+\begin{equation}
+    \ddot{u}_0=\frac{m_ee}{m}\omega^2R_a=\frac{m_ee\omega_n^2}{m}\left(\frac{\omega}{\omega_n}\right)^2R_a
+\end{equation}
+
+\begin{figure}[H]
+    \input{./sdf/grafovi/ra-vibracijski}
+    \caption{Amplituda ubrzanja u ovisnosti o omjeru frekvencija}
+    \label{fig:ra-vibracijski}
+\end{figure}
+
+Na grafu sa slike \ref{fig:ra-vibracijski} vidljivo je da daljnjim porastom frekvencije pobude (iznad prirodne
+frekvencije) amplituda prisilnog ubrzanja raste. Navedeni rast se događa jer je
+amplituda pobude proporcionalna s $\omega^2$. 
+\par
+
+Za određivanje stupnja prigušenja i prirodne frekvencije vrši se
+\textit{rezonancijski pokus}, a temelji se na slijedećoj relaciji (iz \eqref{eq:frf_rezonanca})
+\begin{equation}\label{eq:rezonancijski_pokus}
+    \zeta = \frac{1}{2}\frac{(u_{st})_0}{(u_0)_{\omega=\omega_n}}
+\end{equation}
+Potrebno je eksperimentalno odrediti amplitudu statičkog pomaka i prirodnu frekvenciju. 
+%U eksperimentima se redovito mjeri amplituda ubrzanja a amplitudu pomaka možemo
+%dobiti slijedećom relacijom:
+%\begin{equation}
+%    u_0=\frac{\ddot{u}_0}{\omega^2}
+%\end{equation}
+
+Prirodna frekvencija se određuje na slijedeći način:
+\begin{enumerate}
+    \item pobuđivanje konstrukcije vibracijskim uređajem namještenim na
+        određenu frekvenciju $\omega$.
+    \item očitavanje faznog kuta. Ako je fazni kut $\phi = 90\degree$, tada je
+        prirodna frekvencija $\omega_n$ jednaka frekvenciji pobude $\omega$.
+    \item nakon što isčezne prolazni dio odziva, očitava se amplituda prisilnog ubrzanja
+\end{enumerate}
+
+Amplitudu prisilnog pomaka možemo dobiti iz amplitude prisilnog ubrzanja korištenjem
+slijedeće formule:
+\begin{equation}
+    u_0=\frac{(\ddot{u}_0)_{\omega=\omega_n}}{(\omega^2)_{\omega=\omega_n}} \quad
+    \text{ jer je } \quad
+    \ddot{u}(t) = -u_0\omega\sin(\omega t -\phi), \quad
+\end{equation}
+
+Da bi bilo moguće odrediti prigušenje sustava prema formuli \eqref{eq:rezonancijski_pokus} 
+potrebno je odrediti amplitudu statičkog pomaka $(u_{st})_0=p_{0,max}/k$, gdje je
+$p_{0,max}$ amplituda pobude u rezonanci. Amplituda statičkog pomaka se
+\textbf{mora} odrediti pokusom, a ne izračunati prema relaciji $p_0/k$ zato što $k$
+nije eksperimentalno određen.Vibracijskim uređajem je vrlo teško (ili
+nemoguće) prouzročiti veliku \textbf{statičku} silu pobude. Dva su pristupa rješavanju
+navedenog problema:
+\begin{enumerate}
+    \item Sporim rotiranjem velikih masa - Nije najbolje rješenje jer je sila pobude
+        proporcionalna s kvadratom kutne brzine rotacije utega. Stoga i za velike mase 
+        utega amplituda sile pobude je relativno mala.
+    \item Povlačenjem konstrukcije užetom silom koja je jednaka amplitudi sile
+        pobude vibracijskim uređajem $p_{0,max}$.
+\end{enumerate}
+
+Osim rezonancijskim pokusom, prigušenje i prirodnu frekvenciju moguće je
+odrediti \textbf{frekvencijskim krivuljama odziva}. Postupak je slijedeći:
+\begin{enumerate}
+    \item pobuđivanje konstrukcije vibracijskim uređajem namještenim na određenu
+        frekvenciju
+    \item određivanje amplitude \textbf{prisilnog} dijela 
+    \item namještanje vibracijskog uređaja na drugu frekvenciju, te ponavljanje
+        postupka\footnote{Frekvencije vibracijskog uređaja nalaze se u širem spektru 
+        frekvencija, koji uključuje rezonantnu frekvenciju i frekvencije iz njezine 
+        okoline (i lijevo i desno).} 
+\end{enumerate}
+
+Frekvencijska krivulja odziva iscrtava se iz izmjerenih podataka. Frekvencijske
+funkcije odziva mogu prikazivati slijedeće ovisnosti:
+\begin{enumerate}
+    \item ovisnost amplituda ubrzanja o frekvencijskom omjeru - izravno iz
+        izmjerenih podataka. Bitno je za naglasiti da je navedena krivulja
+        proporcionalna s $\omega^2$.
+
+    \item ovisnost dinamičkog faktora ubrzanja o frekvencijskom omjeru (konstantna
+        amplituda pobude) - dijeljenjem izmjerenih podataka s $\omega^2$ 
+
+    \item ovisnost dinamičkog faktora pomaka o frekvencijskom omjeru (konstantna
+        amplituda pobude) - dijeljenjem izmjerenih podataka s $\omega^4$.
+\end{enumerate}
+
+Stupanj prigušenja i prirodna frekvencija može se odrediti iz bilo koje od navedenih
+krivulja. Prirodna frekvencija jednaka je frekvenciji sile pobude u rezonanci.
+Stupanj prigušenja određuje se iz \textit{pojasa polovice snage} jednadžbom
+\eqref{eq:hpb_zeta_f}, što znači da je potrebno odrediti amplitudu odziva pri
+rezonanci te frekvencije za koje je amplituda odziva jednaka $r_{res}/\sqrt{2}$.
+\begin{figure}[H]
+    \input{./sdf/grafovi/frf-pokus}
+    \caption{Frekvencijska funkcija odziva konstruirana pomoću mjerenih podataka}
+    \label{fig:frf-poku}
+\end{figure}

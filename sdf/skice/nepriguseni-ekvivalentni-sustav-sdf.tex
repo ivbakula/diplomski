@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+	%podloga
+	\draw[white, pattern=north east lines, pattern color=black] (0, 0)
+	rectangle (-0.5, 2.2);
+	\draw[thick] (0,0) -- (0, 2.2);
+
+	\draw[white, pattern=north east lines, pattern color=black] (0, 0) 
+	rectangle (5, -0.5);
+	\draw[thick] (0,0) -- (5,0);
+	
+	\draw[white, pattern=north east lines, pattern color=black] (0, 0)
+	rectangle (-0.5, -0.5);
+
+	%uteg
+	\filldraw[fill=gray] (1.5, 2) rectangle (3.5, 0.25);
+
+	%kotaci
+	\filldraw[fill=gray] (2, 0.125) circle (0.125);
+	\filldraw[fill=gray] (3, 0.125) circle (0.125);
+
+	%opruga
+	\draw[thick, decoration={aspect=0.3, segment length=2mm,amplitude=3mm,coil},decorate] (0,1) -- (1.5, 1);
+
+	\node[draw=none, fill=none] at (0.75, 1.75) {\textbf{\large{$k$}}}; 
+	\node[draw=none, fill=none] at (2.5,   2.2) {\textbf{\large{$m$}}};
+
+\end{tikzpicture}

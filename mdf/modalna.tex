@@ -1,0 +1,91 @@
+\section{Modalna analiza}
+Modalna analiza je postupak određivanja osnovnih dinamičkih parametara linearnog
+sustava s ciljem definiranja matematičkog modela ponašanja sustava pod utjecajem
+dinamičkih sila. Modalna analiza temelji se na \textit{principu superpozicije},
+odnosno na činjenici da se ukupni odziv sustava može zapisati kao linearna
+kombinacija odziva pojedinih modova.
+\par
+
+Razmotrimo jednadžbu gibanja sustava s više stupnjeva slobode pobuđenog proizvoljnom
+silom:
+\begin{equation}\label{eq:mdof_jdn_gibanja_opca_pobuda}
+    \mm\vtor{u}{:} + \kk\vtor{u}{} = \vtor{p(t)}{}
+\end{equation}
+
+Klasično rješenje jednadžbe gibanja \eqref{eq:mdof_jdn_gibanja_opca_pobuda}
+prikazano je u poglavlju ~\ref{mdof_prisilne} na primjeru sustava s dva stupnja 
+slobode pobuđenog harmonijskom silom. Za sustave s više od dva stupnja slobode ili
+za složenije sile pobude, rješavanje jednadžbe gibanja na klasični način može biti
+izuzetno teško ili nemoguće. U takvim slučajevima, jednadžba gibanja se rješava
+postupcima modalne analize.
+\par
+
+Iz poglavlja ~\ref{slobodne_oscilacije} znamo da je rješenje jednadžbe gibanja
+slobodnog titranja sustava s više stupnjeva slobode linearna kombinacija
+odziva svih pojedinih modova odnosno:
+\begin{equation}\label{eq:mdf_ukupno_rjesenje}
+    u(t)=\sum_{r=1}^N\mm\psi_rq_r(t)
+\end{equation}
+
+Uvrštavanjem \eqref{eq:mdf_ukupno_rjesenje} u \eqref{eq:mdof_jdn_gibanja_opca_pobuda} 
+dobijemo:
+\begin{equation}\label{eq:mdf_modalna_1}
+    \sum_{r=1}^N\mm\psi_r\ddot{q}_r(t) + \sum_{r=1}^N\kk\psi_rq_r(t)=p(t)
+\end{equation}
+
+Množenjem jednadžbe \eqref{eq:mdf_modalna_1} s $\psi_n^T$ dobijemo:
+\begin{equation}\label{eq:mdf_modalna_2}
+    \sum_{r=1}^N\psi_n^T\mm\psi_r\ddot{q}_r(t)+\sum_{r=1}^N\psi_n^T\kk\psi_rq_r(t)=\psi_n^Tp(t)
+\end{equation}
+
+Zbog svojstva ortogonalnosti, isčezavaju svi članovi sumacija osim $n$-tog člana, pa
+preostaje:
+\begin{equation}\label{eq:mdf_modalna_jednadzba_nesredjeno}
+    \psi_n^T\,\mm\,\psi_n\,\ddot{q}_n(t)\;+\;\psi_n^T\,\kk\,\psi_n\,q_r(t)=\psi_n^T\,p(t)
+\end{equation}
+
+Koristeći relacije iz \eqref{eq:modalna_masa} i \eqref{eq:modalna_krutost} jednadžba
+\eqref{eq:mdf_modalna_jednadzba_nesredjeno} poprima slijedeći oblik:
+\begin{equation}\label{eq:mdf_modalna_jednadzba_sredjeno}
+    M_n\ddot{q}_n(t)+K_nq_n(t)=P_n(t)
+\end{equation}
+
+Gdje su $M_n$, $K_n$ i $P_n$ poopćena masa, krutost i opterećenje $n$-tog moda.
+
+Postupkom, prikazanim u jednadžbama \eqref{eq:mdf_ukupno_rjesenje},
+\eqref{eq:mdf_modalna_1}, \eqref{eq:mdf_modalna_2},
+\eqref{eq:mdf_modalna_jednadzba_nesredjeno}, jednadžbu gibanja sustava predstavljenu
+sustavom diferencijalnih jednadžbi sveli smo na skup međusobno neovisnih
+diferencijalnih jednadžbi. Drugim riječima, sustav od $N$ stupnjeva slobode razložen
+je na $N$ međusobno neovisnih podsustava s jednim stupnjem slobode (princip superpozicije), 
+pri čemu $n$-ti podsustav prikazuje odziv sustava u $n$-tom modu. Podsustave 
+nazivamo \textit{poopćeni sustav za n-ti mod}. "Jednadžba gibanja" 
+poopćenog sustava za $n$-ti oblik titranja predstavljena je diferencijalnom jednadžbom
+\eqref{eq:mdf_modalna_jednadzba_sredjeno} čije rješenje predstavlja modalnu 
+koordinatu $n$-tog moda $q_n(t)$.
+\par
+
+Odziv $n$-tog moda je:
+\begin{equation}\label{eq:mdf_odziv_ntog_moda}
+    u_n(t)=\psi_nq_n(t)
+\end{equation}
+
+Da bismo odredili ukupni odziv sustava s $N$-stupnjeva slobode, potrebno je riješiti
+$N$ modalnih jednadžbi, oblika definiranog pod \eqref{eq:mdf_modalna_jednadzba_sredjeno}.
+Matrični zapis sustava modalnih jednadžbi prikazan je u nastavku.
+\begin{equation}\label{eq:sustav_modalnih_jednadzbi}
+    \M\vtor{q}{:} + \K\vtor{q}{}=\vtor{P(t)}{}
+\end{equation}
+
+Gdje je $\M$ matrica modalnih masa, $\K$ matrica modalnih krutosti, $\vtor{P(t)}{}$
+vektor poopćenih opterećenja. Iz \eqref{eq:modalna_masa_matrica} i
+\eqref{eq:modalna_krutost_matrica} znamo da su matrice $\M$ i $\K$ dijagonalne što
+znači da je \eqref{eq:sustav_modalnih_jednadzbi} sustav međusobno neovisnih jednadžbi.
+Rješenjem navedenog sustava, dobijemo funkcije modalnih koordinata za sve modove
+sustava, a ukupni odziv definirano je linearnom kombinacijom (princip superpozicije) 
+odziva svakog pojedinog moda. Odziv pojedinog moda definiran je
+\eqref{eq:mdf_odziv_ntog_moda}, a ukupni odziv je:
+
+\begin{equation}\label{eq:mdf_modalna_ukupno_rjesenje}
+    u(t)=\sum_{n=1}^Nu_n(t)=\sum_{n=1}^N\psi_nq_n(t)
+\end{equation}
