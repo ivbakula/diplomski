@@ -1,0 +1,121 @@
+\section{Frekvencijske funkcije odziva}
+\subsection{Izvod}
+Ponašanje sustava opisano je diferencijalnom jednadžbom drugog reda (u vremenskoj
+domeni) koja nakon $\ltr$-transformacija postaje algebarska jednadžba u $s$ domeni.
+Transformat odziva na sinusnu silu uz homogene početne uvjete glasi:
+\begin{equation}
+    U(s) = P(s)\cdot H(s) 
+\end{equation}
+
+Funkcija $H(s)$ naziva se prijenosnom funkcijom sustava, a definirana je kao
+kvocjent odziva i pobude u $s$ domeni.
+\begin{equation} \label{eq:PrijenosnaFunkcijaSustava}
+    H(s)=\frac{U(s)}{P(s)} = \frac{1}{ms^2+cs+k}%\frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2}
+\end{equation}
+
+Prijenosna funkcija sustava obično sadrži dvije skupine karakterističnih točaka:
+\begin{enumerate}
+    \item polovi - nultočke nazivniku
+    \item nule - nultočke brojnika
+\end{enumerate}
+
+Polovi predstavljaju točke u kojima prijenosna funkcija sustava divergira tj
+($H(s)\to\infty$), a nule su točke u kojima vrijednost prijenosne funkcije iznosi
+nula. Polovi i nule za polinom drugog stupnja mogu biti:
+\begin{enumerate}
+    \item dva različita realna broja
+    \item jedan dvostruki realni broj
+    \item jedan par kompleksno konjugiranih brojeva
+\end{enumerate}
+
+Uočimo da za slučaj prijenosne funkcije sustava pod
+\eqref{eq:PrijenosnaFunkcijaSustava} nema nula, a polovi su jedan par kompleksno
+konjugiranih brojeva (polovi su dobiveni izjednačavanjem polinoma u nazivniku s
+nulom):
+\begin{equation}
+    p_{1,2} = -\sigma\pm\omega_Di
+\end{equation}
+
+Realni dio pola prikazuje stupanj prigušenja  a
+imaginarni dio prirodnu frekvenciju prigušenog titranja. Prijenosna funkcija
+zapisana preko polova glasi:
+\begin{equation}
+    H(s)=\frac{1}{(s-p_1)(s-p_2)}
+%         \frac{\omega_n}{(s+\sigma+\omega_Di)(s+\sigma-\omega_Di)}=
+%         \frac{\omega_n}{(s+\sigma)^2+\omega_D^2}
+\end{equation}
+
+Raspisivanjem dobijemo:
+\begin{equation}
+    H(s)=\frac{1}{(s+\sigma+\omega_Di)(s+\sigma-\omega_Di)}\frac{\omega_n^2}{k}
+\end{equation}
+
+I konačno tablični oblik dobijemo množenjem s $\omega_D/\omega_D$
+\begin{equation}
+    H(s)=\frac{1}{k}\frac{\omega_n^2}{\omega_D}\frac{\omega_D}{(s+\sigma^2)+\omega_D^2}
+\end{equation}
+
+Poseban slučaj prijenosne funkcije sustava, za slučaj $s=\omega i$, naziva se
+\textit{frekvencijska funkcija odziva} i glasi:
+\begin{equation} \label{eq:frf_nesredjeno}
+    H(\omega i) = \frac{H(\omega i)}{P(\omega i)}
+                = \frac{1}{-\omega^2 m + i\omega c + k}\frac{1/k}{1/k}
+                = \frac{1}{k}\frac{1}{1-(\omega/\omega_n)^2+2\zeta(\omega/\omega_n)i}
+\end{equation}
+
+Član $1/k$ možemo zanemariti jer je uračunat u amplitudu statičkog pomaka $(u_{st})_0=p_0/k$,
+pa je konačni oblik frekvencijske funkcije odziva:
+\begin{equation}\label{eq:frf_sredjeno}
+    H(\omega) = \frac{1}{\left(1-(\omega/\omega_n)^2\right)+\left(2\zeta\omega/\omega_n\right)i}
+\end{equation}
+
+Frekvencijska funkcija odziva $H(\omega)$ je funkcija argumenta $\omega$, odnosno promjenom
+frekvencije pobude, mjenja se i njezina vrijednost, te je redovito je kompleksna.
+Jednadžbu pod \eqref{eq:frf_sredjeno} možemo rastaviti na realni i imaginarni dio.
+Rastav na realni i imaginarni dio prikazan je u nastavku.
+\begin{alignat}{2}
+    &\text{Realni dio} & H_r &= \frac{1-(\omega/\omega_n)^2}{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}
+        \label{eq:realni_dio_frf}\\
+    &\text{Imaginarni dio}\quad & H_i &=\frac{2\zeta(\omega/\omega_n)}{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}
+        \label{eq:imaginarni_dio_frf}
+\end{alignat}
+
+Jednadžba pod \eqref{eq:frf_sredjeno} zapisana preko realnog i imaginarnog dijela
+glasi:
+\begin{equation}\label{eq:frf_pravokutni}
+    \begin{split}
+        H(\omega) &= H_r - H_ii  \\
+              &= \frac{1-(\omega/\omega_n)^2}{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}
+              -\frac{2\zeta(\omega/\omega_n)}{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}i
+    \end{split}
+\end{equation}
+
+Funkciju \eqref{eq:frf_sredjeno} se može prikazati i u trigonometrijskom obliku.
+Općenito, kompleksni broj se prikazuje u trigonometrijskom obliku na slijedeći
+način:
+\begin{equation}\label{eq:trig_zapis_kompleksni_br}
+    R=|R|e^{i\phi} = |R|(\cos(\phi)+i\sin(\phi))
+\end{equation}
+Gdje je $|R|$ norma kompleksnog broja, a $\phi$ kut kojega kompleksni vektor zatvara
+s realnom osi.
+Stoga je očito da je za navedeni prikaz potrebno je odrediti magnitudu (normu) kompleksnog
+vektora frekvencijske funkcije odziva te kut koji zatvara s realnom osi. Magnituda je 
+zadana Pitagorinim poučkom, dakle:
+\begin{equation}\label{eq:magnitudniSpektar}
+    |H(\omega)|=\sqrt{(H_r^2+H_i^2)}
+               =\frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta(\omega/\omega_n))^2}}
+\end{equation}
+
+Kut koji kompleksni vektor zatvara s realnom osi moguće je odrediti slijedećom
+jednadžbom:
+\begin{equation}
+        \phi(\omega)=\left|\arctan\left(\frac{2\zeta(\omega/\omega_n)}
+                      {1-(\omega/\omega_n)^2}\right)\right|\label{eq:fazniSpektar}
+\end{equation}
+
+Prikazana u trigonometrijskom obliku, frekvencijsku funkciju odziva potrebno je
+rastaviti na magnitudni spektar koji je definiran jednadžbom \eqref{eq:magnitudniSpektar} i
+na fazni spektar koji je definiran jednadžbom \eqref{eq:fazniSpektar}.
+\textbf{Napomena:} jednadžba \eqref{eq:fazniSpektar} stavljena je u apsolutnu
+vrijednost zato što će se negativni predzak (kašnjenje) ili pozitivni predznak
+uračunati naknadno, no više o tome u slijedećem poglavlju.

@@ -17,6 +17,7 @@
 \RequirePackage{mathtools}
 \RequirePackage{titlesec}
 \RequirePackage{xstring}
+\RequirePackage{gensymb} %stupnjevi
 %\RequirePackage{newtxtext,newtxmath} 
 
 % za slike i oznacavanje

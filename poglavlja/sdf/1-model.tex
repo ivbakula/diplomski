@@ -1,0 +1,43 @@
+\section{Model sustava s jednim stupnjem slobode}
+Modeli sustava s jednim stupnjem slobode su posmični okviri, a možemo ih shvatiti
+kao idealizaciju jednokatnice. Posmični okviri se sastoje od štapova, koncentrirane
+mase i viskoznog prigušivača, pri čemu je ukupna krutost sustava sadržana u krutosti
+štapova, ukupna masa sustava u koncentriranoj masi i ukupno prigušenje u viskoznom
+prigušivaču. Nadalje, vrijedi pretpostavaka o vertikalnoj i horizontalnoj
+nestišljivosti štapova, tj. štapovi su nepromjenjive dužine.
+\par
+\begin{figure}[H]
+    \begin{subfigure}[b]{0.5\textwidth}\label{fig:priguseni-sustav-sdf}
+        \centering
+        \input{skice/sdf/priguseni-sustav-sdf}
+        \caption{Posmični okvir s prigušenjem}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}\label{fig:priguseni-ekvivalentni-sustav-sdf}
+        \centering
+        \input{skice/sdf/priguseni-ekvivalentni-sustav-sdf}
+        \caption{Ekvivalentni model s prigušenjem}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}[b]{0.5\textwidth}\label{fig:nepriguseni-sustav-sdf}
+        \centering
+        \input{skice/sdf/nepriguseni-sustav-sdf}
+        \caption{Posmični okvir bez prigušenja}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}\label{fig:nepriguseni-ekvivalentni-sustav-sdf}
+        \centering
+        \input{skice/sdf/nepriguseni-ekvivalentni-sustav-sdf}
+        \caption{Ekvivalentni model bez prigušenja}
+    \end{subfigure}
+    \caption{Idealizirani sustav s jednim stupnjem slobode}
+\end{figure}
+
+Primjetimo da navedeni sustav s pogleda statike predstavlja ravninski problem s tri
+stupnja slobode (dvije rotacije u zglobovima te translacija), stoga ga je potrebno
+svesti na sustav s jednim stupnjem slobode za potrebe dinamičkog proračuna. Drugim
+riječima, potrebno je ukupnu krutost sustava izraziti kao lateralnu krutost.
+Postupak svođenja sustava s tri stupnja slobode na sustav s jednim stupnjem slobode
+naziva se \textit{statička kondenzacija} koju u ovom radu nećemo razmatrati.
+\newpage
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.8.31)  7 SEP 2020 03:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.8.31)  7 SEP 2020 17:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -271,6 +271,9 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \decimalpart=\count270
 )
 Package: xstring 2019/02/06 v1.83 String manipulations (CT)
+)
+(/usr/share/texmf-dist/tex/latex/was/gensymb.sty
+Package: gensymb 2003/07/02 v1.0 (WaS)
 )
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
@@ -674,20 +677,20 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 (/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
 )))) (./test.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -745,6 +748,17 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+\symgns@font=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
+(Font)                  TS1/cmr/m/n --> TS1/cmr/b/n on input line 21.
+Package gensymb Info: Math companion symbols declared on input line 21.
+LaTeX Info: Redefining \degree on input line 21.
+LaTeX Info: Redefining \celsius on input line 21.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
+erthousand on input line 21.
+LaTeX Info: Redefining \ohm on input line 21.
+Package gensymb Info: Using \textohm for \ohm on input line 21.
+Package gensymb Info: Using \textmu for \micro on input line 21.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
@@ -753,11 +767,11 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 56.
+ on input line 21.
 
 \AtBeginShipoutBox=\box67
 Poglavlje 1.
-(./jdn_gibanja.tex
+(./1-jednadzba_gibanja.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -769,32 +783,36 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]) (./ortogonalnost.
-tex [4]) (./normiranje.tex [5]) (./odziv_sinusna.tex [6]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]) (./2-ortogonalnos
+t_modova.tex [4])
+(./3-normiranje_modova.tex [5]) (./4-odziv_sinusna_sila.tex [6]
 Overfull \hbox (7.00554pt too wide) in paragraph at lines 22--27
 []\OT1/cmr/m/n/12 Primjetimo da je kom-ple-men-tarno rje^^Tsenje (rje^^Tsenje j
 ed-nad^^Tzbe []) za-pravo rje^^Tsenje
  []
 
-[7] [8] [9] [10] [11]) (./modalna.tex [12]) [13] (./test.aux) ) 
+[7] [8] [9] [10] [11]) (./5-modalna_analiza.tex [12]) [13] (./test.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 26977 strings out of 480478
- 665503 string characters out of 5905959
- 1093532 words of memory out of 5000000
- 42527 multiletter control sequences out of 15000+600000
- 542736 words of font info for 64 fonts, out of 8000000 for 9000
+ 27044 strings out of 480478
+ 666471 string characters out of 5905959
+ 1093776 words of memory out of 5000000
+ 42583 multiletter control sequences out of 15000+600000
+ 545104 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,23n,102p,723b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
-share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on test.pdf (13 pages, 158575 bytes).
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)

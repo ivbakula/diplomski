@@ -1,0 +1,211 @@
+\subsection{Zapis prisilnog dijela odziva}
+Prisilni dio odziva definiran definiran je jednadžbom prikazanom u nastavku:
+\begin{equation}\label{eq:samo_prisilni}
+    u(t)=C\sin(\omega t) + D\cos(\omega t)
+\end{equation}
+
+Prisilni odziv pod \eqref{eq:samo_prisilni} možemo zapisati u obliku $u_0\sin(\omega t
+- \phi)$ 
+korištenjem slijedećeg trigonometrijskog identiteta:
+\begin{equation}\label{eq:prisilni_dio_odziva}
+    u_0\sin(\omega t - \phi) = C\sin(\omega t) + D\cos(\omega t)
+\end{equation}
+
+Gdje je:
+\begin{alignat}{2}
+    &\text{Amplituda dinamičkog pomaka} & u_0 &= \sqrt{C^2+D^2}\label{eq:u_0-izvod-prvo}\\
+    &\text{Kašnjenje u fazi} & \phi &= \arctan{-\frac{D}{C}}\label{eq:fi-izvod}
+\end{alignat}
+
+Raspisivanjem formule pod \eqref{eq:u_0-izvod-prvo} dobijemo:
+\begin{equation}\label{eq:u_0-izvod-raspisano}
+    u_0 = \frac{p_0}{k}\frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}
+        = \frac{(u_{st})_0}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}
+\end{equation}
+
+Definiramo dinamički koeficijent pomaka ili koeficijent povećanja pomaka ($R_d$) kao omjer
+amplitude dinamičkog i statičkog pomaka.
+\begin{equation}\label{eq:R_d-izvod-konacno}
+    R_d = \frac{u_0}{(u_{st})_0}=\frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}
+\end{equation}
+
+Fazni kut $\phi$ dobijemo raspisivanjem izraza pod \eqref{eq:fi-izvod} te dobijemo:
+\begin{equation}\label{eq:fi-izvod-konacno}
+    \phi = \arctan{\frac{2\zeta(\omega/\omega_n)}{1-(\omega/\omega_n)^2}}
+\end{equation}
+
+Uvrštavanjem \eqref{eq:R_d-izvod-konacno} i \eqref{eq:fi-izvod-konacno} u
+\eqref{eq:prisilni_dio_odziva} dobijemo:
+\begin{equation}
+    u(t) = \frac{p_0}{k}R_d\sin(\omega t - \phi) = (u_{st})_0R_d\sin(\omega t - \phi)
+\end{equation}
+
+Uočimo da je jednadžba pod \eqref{eq:R_d-izvod-konacno} ista kao i jednadžba
+magnitudnog spektra frekvencijske funkcije odziva. Isto tako, uočimo i da je jednadžba
+pod \eqref{eq:fi-izvod-konacno} ista kao i jednadžba faznog spektra frekvencijske
+funkcije odziva. Nadalje, prisilni dio odziva je sinusoida isto kao i pobuda.
+\par
+ 
+Stoga možemo reći da frekvencijska funkcija odziva definira odnos između pobude i
+odziva. Taj odnos je kompleksan jer je opisan magnitudnim i faznim spektrom
+kompleksne funkcije definirane u $s$ domeni. Drugim riječima, frekvencijska funkcija
+odziva nas upućuje na slijedeća svojstva (prisilnog) odziva:
+\begin{enumerate}
+    \item Frekvencija odziva biti će jednaka frekvenciji pobude.
+    \item Amplituda odziva biti će skalirana amplituda statičkog pomaka. Prisjetimo
+        se da je amplituda statičkog pomaka u izravnoj vezi sa amplitudom sile pobude.
+    \item Odziv će zaostajati u fazi za pobudom. 
+\end{enumerate}
+
+Skaliranje amplitude statičkog pomaka $(u_{st})_0$ definirano je \textit{dinamičkim
+koeficijentom} $R_d$. Navedeni koeficijent je konkretna vrijednost magnitudnog
+spektra frekvencijske funkcije odziva za određenu frekvenciju $\omega$. Analogno
+tome, kašnjenje u fazi definirano je faznim kutom koji je konkretna vrijednost
+faznog spektra frekvencijske funkcije odziva.
+
+\subsubsection{Alternativno zapis prisilnog dijela odziva(Za ovo i nisam baš
+siguran)}
+Odziv na pobudu sinusnom silom može se odrediti konvolucijom prijenosne funkcije i
+funkcije pobude u vremenskoj domeni. Zadana je pobuda sinusnom silom oblika:
+\begin{equation}\label{eq:pobuda_sinusnom_silom}
+    p(t)=p_0e^{\alpha t} \sin(\omega t)
+\end{equation}
+
+Jednadžbu \eqref{eq:pobuda_sinusnom_silom} možemo zapisati u eksponencijalnom
+obliku:
+\begin{equation}\label{eq:pobuda_sinusnom_silom_eksponencijalni}
+    p(t)=-\frac{1}{2}p_0i(e^{(\alpha+i\omega)t}-e^{(\alpha-i\omega)t})
+\end{equation}
+
+Uvodimo:
+\begin{align}
+    s  &= \alpha + i\omega \label{eq:s_normalno}\\
+    s^* &= \alpha - i\omega \label{eq:s_konjugirano}
+\end{align}
+Uvrštavanjem \eqref{eq:s_normalno} i \eqref{eq:s_konjugirano} u
+\eqref{eq:pobuda_sinusnom_silom_eksponencijalni} dobijemo:
+\begin{equation}\label{eq:pobuda_sinusnom_silom_konacno}
+    p(t) = -\frac{1}{2}p_0(e^{st}-e^{s^*t})
+\end{equation}
+
+Prijenosna funkcija sustava (s izlučenim članom $1/k$) zadana je u obliku $1/k
+h(t)$. Izračun odziva je prikazan u nastavku:
+\[
+    u(t) = \frac{1}{k}(h*p)(t) 
+         = \frac{1}{k}\int_0^\infty h(t-\tau)p(\tau)d\tau
+\]
+
+Uvodi se supstitucija $\lambda=t-\tau$.
+\[
+    u(t) = \frac{1}{k}\int_0^\infty h(\lambda)p(t-\lambda)d\lambda
+         = \frac{1}{k}\int_0^\infty h(\lambda)\left[
+             -\frac{1}{2}p_0i\left(e^{st-s\lambda}-e^{s^*t-s^*\lambda}\right)
+             \right]d\lambda
+\]
+Raspisivanjem i sređivanjem dobijemo:
+\begin{equation}\label{eq:prisilni_transformacija_prijenosne}
+    u(t) = -\frac{1}{2}\frac{p_0}{k}i \left[
+                e^{st}
+                \underbrace{
+                    \int_0^\infty h(\lambda)e^{-s\lambda}d\lambda
+                }_{\text{\textbf{$I)$}}}
+                -e^{s^*t}
+                \underbrace{
+                    \int_0^\infty h(\lambda)e^{-s^*\lambda}d\lambda
+                }_{\text{\textbf{$II)$}}}
+        \right]
+\end{equation}
+Uočimo da integrali označeni s $I)\text{ i } II)$ predstavljaju Laplaceovu
+transformaciju prijenosne funkcije sustava pa izraz pod \eqref{eq:prisilni_transformacija_prijenosne}
+postaje:
+\begin{equation}\label{eq:prisilni_transformacija_prijenosne_kk}
+    u(t)=-\frac{1}{2}\frac{p_0}{k}i(e^{st}H(s)-e^{s^*t}H(s))
+\end{equation}
+
+Varijabla $s^*$ je kompleksno konjugirana varijabla $s$, pa je funkcija
+$H(s^*)$ kompleksno konjugirana funkcija $H(s)$. odnosno:
+\begin{equation}\label{eq:prijenosne_odnos}
+    H(s^*)=H^*(s) 
+\end{equation}
+
+Korištenjem \eqref{eq:prijenosne_odnos} jednadžba \eqref{eq:prisilni_transformacija_prijenosne_kk}
+postaje:
+\begin{equation}\label{eq:prisilni_transformacija_prijenosne_hk}
+    u(t)=-\frac{1}{2}\frac{p_0}{k}i (e^{st}H(s)-e^{s^*t}H^*(s))
+\end{equation}
+
+Poseban slučaj je za $\alpha = 0$ odnoso $s=i\omega \text{ i } s^*=-i\omega$. Tada
+prijenosne funckije sustava postaju frekvencijske funkcije odziva, a izraz pod
+\eqref{eq:prisilni_transformacija_prijenosne_hk} glasi:
+
+\begin{equation}\label{eq:prisilni_transformacija_frf}
+    u(t) = -\frac{1}{2}\frac{p_0}{k}i(e^{i\omega t}H(\omega i) - e^{-i\omega t}H^*(i\omega))
+\end{equation}
+
+Frekvencijska funkcija odziva $H(\omega i)$ zadana je jednadžbom \eqref{eq:frf_pravokutni}.
+Možemo uočiti da je njezin imaginarni dio negativan, što znači da je imaginarni dio
+funkcije $H^*(\omega i)$ pozitivan.
+\begin{figure}[H]
+    \input{./skice/sdf/frf-gauss}
+    \caption{Shematski prikaz funkcija $H(\omega i) \text{ i }H^*(\omega i)$ u
+    Gaussovoj ravnini}
+    \label{fig:frf-gauss}
+\end{figure}
+
+Modul funkija $H(\omega)$ i $H^*(\omega)$ je isti a definiran je jednadžbom
+\eqref{eq:magnitudniSpektar} a fazni kut jednadžbom \eqref{eq:fazniSpektar}. Sa
+slike \ref{fig:frf-gauss} vidljivo je da je kut $\phi$ što ga zatvara $H(\omega)$ s
+realnom osi negativan, a kut što ga zatvara $H^*(\omega)$ s realnom osi pozitivan.
+Trigonometrijski zapisi funkcija $H(\omega) \text{ i } H^*(\omega)$ dati su u
+nastavku.
+\begin{align}
+    H(\omega) &= |H(\omega)|e^{-i\phi} \label{eq:trig_zapis}\\
+    H^*(\omega) &= |H(\omega)|e^{i\phi} \label{eq:trik_zapis_hk}\\ %hk- h-kompleksno konjugiran
+\end{align}
+
+Uvrštavanjem \eqref{eq:trig_zapis} i \eqref{eq:trig_zapis_kk} u \eqref{eq:prisilni_transformacija_prijenosne_hk}
+dobijemo:
+\begin{equation}
+    u(t)=-\frac{1}{2}\frac{p_0}{k}i|H(\omega)|(e^{i\omega t}e^{-i\phi}-e^{-i\omega t}e^{i\phi})
+        =-\frac{1}{2}\frac{p_0}{k}i|H(\omega)|(2i\sin(\omega t -\phi))
+\end{equation}
+
+Te konačno:
+\begin{equation}\label{eq:prisilni_alternativno_rjesenje}
+    u(t)=\frac{p_0}{k}|H(\omega)|\sin(\omega t - \phi)
+\end{equation}
+Jednadžba \eqref{eq:prisilni_alternativno_rjesenje} predstavlja prisilni dio odziva.
+
+Definiramo dinamički koeficijent pomaka ili koeficijent povećanja pomaka ($R_d$) kao omjer
+amplitude dinamičkog i statičkog pomaka.
+\begin{equation}\label{eq:R_d-izvod-konacno}
+    R_d = \frac{u_0}{(u_{st})_0}=\frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}
+\end{equation}
+
+Uočimo da su jednadžbe \eqref{eq:R_d-izvod-konacno} i \eqref{eq:frf_sredjeno} iste,
+odnosno funkcija ovisnost dinamičkog faktora $R_d$ o omjeru frekvencija
+$\omega/\omega_n$ odgovara magnitudnom spektru frekvencijske funkcije odziva. Stoga
+jednadžbu pod \eqref{eq:prisilni_alternativno_rjesenje} možemo zapisati kao:
+\begin{equation}\label{eq:prisilni_alternativno_rjesenje_Rd}
+    u(t)=\frac{p_0}{k}R_d\sin(\omega t - \phi)
+\end{equation}
+
+Iz \eqref{eq:prisilni_alternativno_rjesenje} i \eqref{eq:prisilni_alternativno_rjesenje_Rd}
+možemo definirati fizikalnu interpretaciju frekvencijske funkcije odziva.
+Dakle, frekvencijska funkcija odziva definira odnos između pobude i
+odziva. Taj odnos je kompleksan jer je opisan magnitudnim i faznim spektrom
+kompleksne funkcije definirane u $s$ domeni. Drugim riječima, frekvencijska funkcija
+odziva nas upućuje na slijedeća svojstva (prisilnog) odziva:
+\begin{enumerate}
+    \item Frekvencija odziva biti će jednaka frekvenciji pobude ($\omega$).
+    \item Amplituda odziva biti će skalirana amplituda statičkog pomaka. Prisjetimo
+        se da je amplituda statičkog pomaka u izravnoj vezi sa amplitudom sile pobude.
+    \item Odziv će zaostajati u fazi za pobudom. 
+\end{enumerate}
+
+Skaliranje amplitude statičkog pomaka $(u_{st})_0$ definirano je \textit{dinamičkim
+koeficijentom} $R_d$. Navedeni koeficijent je konkretna vrijednost magnitudnog
+spektra frekvencijske funkcije odziva za određenu frekvenciju $\omega$. Analogno
+tome, kašnjenje u fazi definirano je faznim kutom koji je konkretna vrijednost
+faznog spektra frekvencijske funkcije odziva.
+

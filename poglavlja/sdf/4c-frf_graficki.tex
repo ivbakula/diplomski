@@ -1,0 +1,211 @@
+\subsection{Grafički prikaz frekvencijske funkcije odziva}
+Zbog toga što frekvencijska funkcija odziva definira uvećanje amplitude statičkog
+pomaka i fazno zaostajanje odziva za pobudom od posebnog su nam interesa fazni i
+magnitudni spektar frekvencijske funkcije odziva (polarni zapis).
+\par
+
+Za konstantan $\omega_n$ vrijednosti funkcija definiranih jednadžbama 
+\eqref{eq:magnitudniSpektar} i \eqref{eq:fazniSpektar} biti će za omjer
+$\omega/\omega_n$, stoga taj omjer možemo postaviti i kao argument navedenih
+funkcija. 
+\begin{equation}\label{eq:magnitudniSpektarZaOmjer}
+    \left|H\left(\frac{\omega}{\omega_n}\right)\right|=
+        \frac{1}{\sqrt{((1-(\omega/\omega_n)^2)^2+(2\zeta(\omega/\omega_n))^2}}
+\end{equation}
+
+\begin{equation}\label{eq:fazniSpektarZaOmjer}
+    \phi\left(\frac{\omega}{\omega_n}\right)=
+        \arctan\left(\frac{2\zeta(\omega/\omega_n)}{1-(\omega/\omega_n)}\right)
+\end{equation}
+
+\begin{figure}[H]
+    \begin{subfigure}{1\textwidth}
+        \input{./grafovi/sdf/rd-priguseno}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}{1\textwidth}
+        \input{./grafovi/sdf/fi-priguseno}
+    \end{subfigure}
+    \caption{Magnitudni i fazni spektar Frekvencijske funkcije odziva za različite vrijednosti $\zeta$}
+    \label{fig:frf-priguseno}
+\end{figure}
+
+Magnitudni spektar frekvencijske funkcije odziva prikazuje funkcijsku ovisnost
+dinamičkog koeficijenta $R_d$ o omjeru frekvencije pobude i prirodne frekvencije za
+određeno prigušenje. Analogno tome fazni spektar frekvencijske funkcije odziva
+prikazuje ovisnost faznog kuta (kašnjenje u fazi za pobudom) o omjeru frekvencija 
+$\omega/\omega_n$ za određeni faktor relativnog prigušenja.
+\par
+
+Za neprigušeno titranje funkcije faznog i magnitudnog spektra prikazane su u
+nastavku.
+\begin{equation}\label{eq:fazniSpektarNepriguseno}
+    \phi\left(\frac{\omega}{\omega_n}\right)=
+        \arctan\left(\frac{0}{1-(\omega/\omega_n)}\right)
+\end{equation}
+\begin{equation}\label{eq:magnitudniSpektarNepriguseno}
+    R_d=\left|H\left(\frac{\omega}{\omega_n}\right)\right|=
+        \frac{1}{\sqrt{((1-(\omega/\omega_n)^2)^2+(2\cdot 0(\omega/\omega_n))^2}} =
+        \frac{1}{|1-(\omega/\omega_n)^2|}
+\end{equation}
+\newpage
+
+Iz formule \eqref{eq:fazniSpektarNepriguseno} očito je da za neprigušeno titranje
+postoje tri vrijednosti faznog kuta koje ovise o izrazu u nazivniku. Vrijednosti
+faznog kuta prikazane su u nastavku:
+\[
+    \phi = \begin{dcases*}
+            0\degree   & za $1-(\omega/\omega_n)^2 > 0$\\ % & $\omega < \omega_n$\\
+            90\degree  & za $1-(\omega/\omega_n)^2 = 0$\\ % & $\omega = \omega_n$\\
+            180\degree & za $1-(\omega/\omega_n)^2 < 0$\\ % & $\omega > \omega_n$\\
+        \end{dcases*}
+\]
+
+\begin{figure}[H]
+    \begin{subfigure}{1\textwidth}
+        \input{grafovi/sdf/rd-nepriguseno}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}{1\textwidth}
+        \input{grafovi/sdf/fi-nepriguseno}
+    \end{subfigure}
+    \caption{Magnitudni i fazni spektar frekvencijske funkcije odziva za neprigušeni
+    sustav}
+    \label{fig:frf-nepriguseno}
+\end{figure}
+
+Analizirajući krivulje sa \eqref{fig:frf-priguseno} i \eqref{fig:frf-nepriguseno} 
+navedene grafove možemo podijeliti na tri područja:
+\begin{enumerate}
+    \item Područje kontrolirano krustošću - za slučaj spore promjene opterećenja
+        ($\omega/\omega_n<<1$ - lijevo na grafu) utjecaj prigušenja je neznatan
+        (krivulje za različita prigušenja su jako bliske) a dinamički utjecaj je mali, 
+        tj. $R_d \approx 1$ što znači da je amplituda prisilnog odziva približno jednaka
+        amplitudi statičkog pomaka, pa amplitudu prisilnog odziva možemo
+        aproksimirati slijedećom jednadžbom:
+        \begin{equation}\label{eq:frf_prvi_sektor}
+            u_0\simeq(u_{st})_0=\frac{p_0}{k}
+        \end{equation}
+        Fazni kut je približno $0\degree$ pa su pobuda i odziv u fazi.
+
+    \item Područje kontrolirano prigušenjem - Za slučaj $\omega/\omega_n\simeq 1$,
+        izražen razmak između krivulja nalaže najeveći utjecaj prigušenja na
+        vrijednost dinamičkog faktora, a samim time i na ukupnu amplitudu prisilnog
+        odziva. Dinamički faktor $R_d$, u navedenom intervalu, postiže najveće
+        vrijednosti a u slučaju $\zeta=0$ $R_d$ je neograničen (teži u beskonačno). 
+        Dominantni član izraza \eqref{eq:magnitudniSpektarZaOmjer} je
+        $2\zeta(\frac{\omega}{\omega_n})$, a aproksimacija amplitude prisilnog
+        odziva glasi: 
+        \begin{equation}\label{eq:frf_rezonanca}
+            u_0=\frac{(u_{st})_0}{2\zeta}=\frac{p_0}{c\omega_n}
+        \end{equation}
+
+        Fazni kut za sva prigušenja iznosi 90\degree. 
+
+    \item Područje kontrolirano masom - Za slučaj brze promjene opterećenja
+        $\omega/\omega_n>>1$ utjecaj prigušenja je zanemariv jer su krivulje vrlo
+        bliske. Dinamički faktor $R_d$ teži u nulu, što znači da je ukupna amplituda
+        prisilnog odziva manja od amplitude statičkog pomaka. Dominantni član jednadžbe 
+        \eqref{eq:magnitudniSpektar} jest $(\omega/\omega_n)^4$ što znači
+        da jednadžbu pod \eqref{eq:magnitudniSpektarZaOmjer} možemo aproksimirati na 
+        slijedeći način:
+        \[
+            H(\omega/\omega_n)\simeq \frac{\omega_n^2}{\omega^2}
+        \]
+
+        Prema tome, amplituda prisilnog odziva glasi:
+        \begin{equation}\label{eq:frf_treci_sektor}
+            u_0=(u_{st})_0\left(\frac{\omega_n}{\omega}\right)^2=\frac{p_0}{m\omega^2}
+        \end{equation}
+        
+        U ovom slučaju ($\omega/\omega_n >> 1$), fazni kut je približno 180\degree,
+        što znači da su pobuda i odziv izvan faze
+\end{enumerate}
+
+
+\subsection{Dinamički koeficijenti odziva}
+U prethodnim poglavljima, prisilni dio odziva je prikazan kao vremenska funkcija pomaka
+pri čemu je njegova amplituda jednaka statičkom pomaku skaliranom dinamičkim
+koeficijentom pomaka $R_d$. Osim vremenskom funkcijom pomaka, odziv sustava potrebno
+je opisati i vremenskim funkcijama brzine i ubrzanja.
+
+Deriviranjem vremenske funkcije pomaka po vremenu dobijemo vremensku funkciju brzine:
+    \begin{align}
+        \frac{\dot{u}(t)}{(u_{st})_0} &= 
+            \omega R_d\cos(\omega t - \phi)\frac{\omega_n}{\omega_n}\notag\\
+        \frac{\dot{u}(t)}{\omega_n p_0/k} &= 
+            \frac{\omega}{\omega_n}R_d\cos(\omega t-\phi)\label{eq:derivacijaFaktorPomaka}\\
+        \frac{\dot{u}(t)}{p_0/\sqrt{km}} &=
+            R_v\cos(\omega t-\phi)\label{eq:dinamickiFaktorBrzine}
+    \end{align}
+Gdje je:
+\begin{table}[H]
+    \begin{tabular}{r l}
+        $R_v$ & Dinamički koeficijent brzine\\
+    \end{tabular}
+\end{table}
+
+Iz jednadžbi pod \eqref{eq:derivacijaFaktorPomaka} i \eqref{eq:dinamickiFaktorBrzine}
+slijedi relacija:
+\begin{equation}\label{eq:R_v}
+    \frac{\dot{u}(0)}{p_0/\sqrt{km}}=R_v=\left(\frac{\omega}{\omega_n}\right)R_d
+\end{equation}
+
+Analogno tome, dobije se i dinamički faktor ubrzanja koji glasi:
+\begin{equation}\label{eq:R_a}
+    \frac{\ddot{u}(t)}{p_0/m}=-R_a=-\frac{\omega}{\omega_n}R_v
+        =-\left(\frac{\omega}{\omega_n}\right)^2R_d
+\end{equation}
+
+Gdje je:
+\begin{table}[H]
+    \begin{tabular}{r l}
+        $R_a$ & Dinamički koeficijent ubrzanja\\
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \input{./grafovi/sdf/rd-rv-ra}
+    \caption{Dinamički faktori pomaka, brzine i ubrzanja za različite vrijednosti
+    $\zeta$}
+    \label{fig:rd-rv-ra}
+\end{figure}
+
+%Sa slike \ref{fig:rd-rv-ra} vidljivo je da prigušenje na sva tri koeficijenta najviše
+%utječe u okolini točke $\omega/\omega_n=1$. Isto tako vidljivo je da je maksimum
+%dinamičkog faktora pomaka pomaknut u lijevo od vertikalnog pravca koji prolazi
+%točkom $\omega/\omega_n=1$, a maksimum dinamičkog faktora ubrzanja u desno. 
+%Maksimum dinamičkog faktora brzine pada na pravac $\omega/\omega_n=1$. Poslijedica
+%toga je da se rezonantne frekvencije sustava na pomak, brzinu i ubrzanje razlikuju.
+%Rezonantne frekvencije biti će razmatrane detaljnije u slijedećim poglavljima.
+
+Iz \eqref{eq:R_v} i \eqref{eq:R_a} slijedi da su dinamički koeficijenti pomaka,
+brzine i ubrzanja u odnosu. Navedeni odnos je prikazan je slijedećom jednadžbom.
+\begin{equation}\label{eq:R_d-R_v-R_a}
+    \frac{R_a}{\omega/\omega_n}=R_v=\frac{\omega}{\omega_n}R_d 
+\end{equation}
+Iz navedene jednadžbe slijedi da je poznavanjem jedne od veličina $R_d, R_v 
+\text{ ili } R_a$ moguće dobiti preostale dvije. Zbog toga što postoji odnos
+između dinamičkih koeficijenata pomaka, brzine i ubrzanja opisan jednadžbom 
+\eqref{eq:R_d-R_v-R_a}, moguće je sve tri navedene veličine prikazati u jednom
+grafu.
+
+Takav graf se sastoji od četiri logaritamske skale:
+\begin{enumerate}
+    \item horizontalne logaritamske skale koja prikazuje omjer frekvencije pobude i 
+        prirodne frekvencije sustava 
+    \item vertikalne logaritamske skale koja prikazuje \textit{dinamički koeficijent brzine
+        $R_d$}
+    \item modificirane logaritamske skale nagnute pod kutem od $+45\degree$ koja prikazuje
+        \textit{dinamički koeficijent ubrzanja $R_a$}
+    \item modificirane logaritamske skale nagnute pod kutem od $-45\degree$ koja prikazuje
+        \textit{dinamički koeficijent pomaka $R_d$}
+\end{enumerate}
+
+\begin{figure}[H]
+    \input{./grafovi/sdf/dva-spektar}
+    \label{fig:dva-spektar}
+    \caption{Dinamički faktori pomaka, brzine i ubrzanja u logaritamskom mjerilu}
+\end{figure}
+
+

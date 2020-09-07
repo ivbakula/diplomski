@@ -1,0 +1,89 @@
+\subsection{Analiza područja rezonance}
+Osim rezonantne frekvencije potrebno je odrediti i pojas polovice snage vrha
+frekvencijske funkcije odziva, koji je prikazan na slici \ref{fig:hpb}. Pojas polovice
+snage vrha frekvencijske funkcije odziva bitan je iz dva razloga:
+\begin{enumerate}
+    \item osim pobude rezonantnom frekvencijom, opasne su i pobude frekvencijama iz
+        njezinog okoliša. Navedeni okoliš definiran je pojasom polovice snage.
+    \item Zbog praktične primjene - pojas polovice snage koristi se u pokusima
+        za određivanje stupnja prigušenja konstrukcija
+\end{enumerate}
+\begin{figure}[H]
+    \input{./grafovi/sdf/hpb}
+    \caption{Definicija pojasa polovice snage}
+    \label{fig:hpb}
+\end{figure}
+Dinamički faktor pomaka $R_d$ za odziv dvostruko manje snage od odziva maksimalnog
+dinamičkog faktora računa se prema slijedećoj relaciji:
+\begin{equation}\label{eq:hpb}
+    R_d = \frac{1}{\sqrt{2}}R_d^{max}
+\end{equation}
+
+Sa slike je vidljivo da je dinamički faktor $R_d$ iz \eqref{eq:hpb} definiran za
+dvije vrijednosti frekvencije pobude: $\omega_a$ i $\omega_b$. Raspisivanjem
+jednadžbe pod \eqref{eq:hpb} dobijemo:
+
+\begin{equation}\label{eq:hpb_izvod_1}
+        \frac{1}{\sqrt{(1-(\omega/\omega_n)^2)^2+(2\zeta\omega/\omega_n)^2}}=
+            \frac{1}{\sqrt{2}}\frac{1}{2\zeta\sqrt{1-\zeta^2}}\\
+\end{equation}
+
+Kvadriranjem \eqref{eq:hpb_izvod_1} dobijemo:
+\begin{equation}\label{eq:hpb_izvod_2}
+    \left(1-\left(\frac{\omega}{\omega_n}\right)^2\right)^2
+    +\left(2\zeta\frac{\omega}{\omega_n}\right)^2 =
+    8\zeta^2(1-\zeta^2)
+\end{equation}
+
+Raspisivanjem i grupiranjem po $\omega/\omega_n$ dobijemo:
+\begin{equation}\label{eq:hpb_izvod_3}
+    \left(\frac{\omega}{\omega_n}\right)^4
+    -2(1-2\zeta^2)\left(\frac{\omega}{\omega_n}\right)^2
+    +1-8\zeta^2(1-\zeta^2)=0
+\end{equation}
+
+Izraz \eqref{eq:hpb_izvod_3} je kvadratna jednadžba, a njezinim rješavanjem (po
+$\omega/\omega_n$) dobijemo:
+\begin{equation}\label{eq:hpb_kvadratna_1}
+    \left(\frac{\omega}{\omega_n}\right)^2 = 
+        (1-2\zeta^2)\pm 2\zeta\sqrt{1-\zeta^2}
+\end{equation}
+
+Za $\zeta^2 \approx 0$ izraz \eqref{eq:hpb_kvadratna_1} postaje:
+\begin{equation}
+    \left(\frac{\omega}{\omega_n}\right)^2 \approx
+        1 \pm 2\zeta
+\end{equation}
+
+Odnosno:
+\begin{equation}\label{eq:hpb_kvadratna_2}
+    \left(\frac{\omega}{\omega_n}\right)\approx
+        \sqrt{1 \pm 2\zeta}
+\end{equation}
+Jednadžba \eqref{hpb_kvadratna_2}, nakon aproksimacije korijena s prva dva člana Taylorovog
+reda glasi:
+\begin{equation}\label{eq:hpb_kvadratna_konacno}
+    \frac{\omega}{\omega_n} = 1 \pm \zeta
+\end{equation}
+
+Frekvencije $\omega_a$ i $\omega_b$ dobiju se iz \eqref{eq:hpb_kvadratna_konacno}:
+\begin{align}
+    \omega_a &= (1-\zeta)\omega_n\\
+    \omega_b &= (1+\zeta)\omega_n\\
+\end{align}
+
+Oduzimanjem $\omega_b-\omega_a$ dobijemo:
+\begin{equation}\label{eq:hpb_zeta_omega}
+        2\zeta = \frac{\omega_b-\omega_a}{\omega_n}
+\end{equation}
+
+Te konačno, dijeljenjem brojnika i nazivnika s $2\pi$:
+\begin{equation}\label{eq:hpb_zeta_f}
+    \zeta\approx\frac{f_b-f_a}{2f_n}
+\end{equation}
+
+Gdje je $f=\omega/2\pi$ kružna frekvencija. Jednadžbe pod \eqref{eq:hpb_zeta_omega}
+i \eqref{eq:hpb_zeta_f} bitne su jer omogućuju određivanje koeficijenta relativnog prigušenja
+$\zeta$ bez potrebe za poznavanjem intenziteta sile pobude. 
+
+
