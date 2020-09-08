@@ -1,0 +1,64 @@
+\documentclass{rgn}
+\usetikzlibrary{arrows,decorations.markings}
+\usetikzlibrary{shapes, arrows, positioning}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathmorphing,patterns}
+\pgfplotsset{width=15cm, compat=1.15}
+
+\DeclareBibliographyCategory{cited}%so we can access all non-cited as own category
+    \AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
+
+%strelice
+\tikzset{strelica1/.style={decoration={markings,mark=at position 1 with %
+    {\arrow[scale=2,>=latex']{>}}},postaction={decorate}}}
+
+\tikzset{strelica0/.style={decoration={markings,mark=at position 0 with %
+    {\arrow[scale=2,>=latex']{<}}},postaction={decorate}}}
+
+%naredbe
+\newcommand{\ltr}{\mathcal{L}}	%operator laplaceove transformacije
+\newcommand\ffrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand\vtor[2]{
+    \IfEqCase{#2}{%
+        {}{\{#1\}}%
+        {.}{\{\dot{#1}\}}%
+        {:}{\{\ddot{#1}\}}%
+    }%
+}
+\newcommand\mm{\mathbf{m}}
+\newcommand\kk{\mathbf{k}}
+\newcommand\ppsi{\mathbf{\Psi}}
+\newcommand\oomega{\mathbf{\Omega}}
+\newcommand\K{\mathbf{K}}
+\newcommand\M{\mathbf{M}}
+
+\begin{document}
+\frontmatter
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
+\mainmatter
+\chapter{Sustavi s jednim stupnjem slobode}
+%    \input{./poglavlja/sdf/1-model}
+%    \input{./poglavlja/sdf/2-jednadzba_gibanja.tex}
+%    \input{./poglavlja/sdf/3-staticki_pomak}
+%    \input{./poglavlja/sdf/4a-frf_izvod}
+%    \input{./poglavlja/sdf/4b-frf_prisilni_odziv}
+%    \input{./poglavlja/sdf/4c-frf_graficki}
+%    \input{./poglavlja/sdf/5a-rezonanca_priguseno}
+%    \input{./poglavlja/sdf/5b-rezonanca_nepriguseno}
+%    \input{./poglavlja/sdf/5c-podrucje_rezonance}
+%    \input{./poglavlja/sdf/6-prakticna_primjena}
+%\chapter{Sustavi s više stupnjeva slobode}
+%    \input{./poglavlja/mdf/1-jednadzba_gibanja}
+%    \input{./poglavlja/mdf/2-ortogonalnost_modova}
+%    \input{./poglavlja/mdf/3-normiranje_modova}
+%    \input{./poglavlja/mdf/4-odziv_sinusna_sila}
+%    \input{./poglavlja/mdf/5-modalna_analiza}
+\nocite{*}
+
+\printbibliography
+\end{document}
