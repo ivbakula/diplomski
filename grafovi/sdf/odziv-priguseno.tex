@@ -1,7 +1,7 @@
 \begin{tikzpicture}[scale=0.8]
     \begin{axis} [
         height=9cm,
-        axis lines = center,
+%        axis lines = center,
         xlabel=t,ylabel=$u(t)/(u_{st})_0$,
         ylabel near ticks, ylabel style={anchor=south},
         xmin = 0, xmax = 5.5,
@@ -23,6 +23,6 @@
             thick,
         ] {sin(2*deg(x))+0.7*exp(-0.05*10*x)*sin(10*deg(x))};
         \addlegendentry{Prolazni odziv}
-
+    \draw[thick] (0,0)--(5.5,0);
     \end{axis}
 \end{tikzpicture}
