@@ -5,9 +5,6 @@
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \pgfplotsset{width=15cm, compat=1.15}
 
-\DeclareBibliographyCategory{cited}%so we can access all non-cited as own category
-    \AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
-
 %strelice
 \tikzset{strelica1/.style={decoration={markings,mark=at position 1 with %
     {\arrow[scale=2,>=latex']{>}}},postaction={decorate}}}
