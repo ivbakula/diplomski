@@ -3,10 +3,25 @@ Dijagram sila za sustav s prigušenjem na koji djeluje sila pobude $p(t)$ prikaz
 na slijedećoj slici:
 
 \begin{figure}[H]
-    \input{skice/sdf/sile-priguseni-ekvivalentni-sustav-sdf}
-    \label{fig:sile-priguseni-ekvivalentni-sustav-sdf}
-    \caption{Dijagram sila ekvivalentnog modela prigušenog linearnog sustava s jednim stupnjem slobode}
+    \begin{subfigure}[b][][l]{0.5\textwidth}
+        \input{skice/sdf/sile-priguseni-ekvivalentni-sustav-sdf}
+        \caption{}
+        \label{fig:sile-priguseni-ekvivalentni-sustav-sdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b][][r]{0.5\textwidth}
+        \input{skice/sdf/sile-nepriguseni-ekvivalentni-sustav-sdf}
+        \caption{}
+        \label{fig:sile-nepriguseni-ekvivalentni-sustav-sdf}
+    \end{subfigure}
+    \caption{Dijagram sila;
+        (\subref{fig:sile-priguseni-ekvivalentni-sustav-sdf})
+            prigušenog sustava; 
+    (\subref{fig:sile-nepriguseni-ekvivalentni-sustav-sdf})
+            neprigušenog sustava}
+    \label{fig:dijagrami_sila}
 \end{figure}
+
 
 Prema drugom Newtonovom aksiomu vrijedi:
 \begin{align}
@@ -233,7 +248,7 @@ neovisno o početnim uvjetima. Karakteristike prisilnog dijela odziva ponajviše
 o frekvenciji i amplitudi pobude, a zatim i o karakteristikama sustava (o prigušenju
 te prirodnoj frekvenciji sustava). Karakteristike prisilnog dijela odziva detaljnije će se
 razmatrati u slijedećim poglavljima.
-\par
+\newpage
 
 Uvrštavanjem \eqref{eq:konvolucijski_integral_rjesenje} u
 \eqref{eq:inverz_drugi_korak}, te sređivanjem dobijemo ukupno rješenje
@@ -247,7 +262,6 @@ diferencijalne jednadžbe \eqref{eq:jednadzba_sinusna_pobuda} koje glasi:
 		Csin(\omega t) + Dcos(\omega t)
 		     }_{\text{\textbf{prisilni dio odziva}}}
 \end{equation}
-\newpage
 
 Gdje je:
 \begin{align}
@@ -266,17 +280,13 @@ uvjete $u(0)=0$ i $\dot{u}(0)=0$ prikazan je na slijedećoj slici.
     \caption{Odziv prigušenog sustava na pobudu sinusnom silom za
     $\omega/\omega_n=0.2$ i $\zeta=0.05$}
 \end{figure}
+\newpage
 
 Neprigušeni sustav možemo shvatiti kao poseban slučaj prigušenog sustava za slučaj
 $c=0$ odnosno $\zeta=0$, pa diferencijalna jednadžba sustava postaje:
 \begin{equation}\label{eq:jednadzba_gibanja_nepriguseni_nesredjeno}
 	m\ddot{u}+ku=p(t)
 \end{equation}
-\begin{figure}[H]
-    \input{skice/sdf/sile-nepriguseni-ekvivalentni-sustav-sdf}
-    \label{sile-nepriguseni-ekvivalentni-sustav-sdf}
-    \caption{Dijagram sila linearnog neprigušenog sustava s jednim stupnjem slobode}
-\end{figure}
 
 Rješenje jednadžbe gibanja možemo odrediti iz \eqref{eq:inverz_treci_korak}
 određivanjem koeficijenata $A$, $B$, $C$ i $D$ za $\zeta = 0$.

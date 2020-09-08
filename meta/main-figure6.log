@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.8.31)  8 SEP 2020 17:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.8.31)  8 SEP 2020 19:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1327,154 +1327,163 @@ LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (./skice/sdf/sile-priguseni-ekvivalentni-sustav-sdf.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
+) (./skice/sdf/sile-nepriguseni-ekvivalentni-sustav-sdf.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 18--26
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--46
-
+Overfull \hbox (1.79993pt too wide) in paragraph at lines 6--21
+[][]  [] 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 48.
+(Font)              scaled to size 12.0pt on input line 21.
 
-LaTeX Warning: Reference `eq:hooke' on page 2 undefined on input line 48.
-
-
-LaTeX Warning: Reference `eq:prigusenje' on page 2 undefined on input line 48.
+LaTeX Warning: Reference `sub@fig:sile-priguseni-ekvivalentni-sustav-sdf' on pa
+ge 2 undefined on input line 21.
 
 
-LaTeX Warning: Reference `eq:newton' on page 2 undefined on input line 48.
+LaTeX Warning: Reference `sub@fig:sile-nepriguseni-ekvivalentni-sustav-sdf' on 
+page 2 undefined on input line 21.
+
+
+LaTeX Warning: Reference `sub@fig:sile-priguseni-ekvivalentni-sustav-sdf' on pa
+ge 2 undefined on input line 21.
+
+
+LaTeX Warning: Reference `sub@fig:sile-nepriguseni-ekvivalentni-sustav-sdf' on 
+page 2 undefined on input line 21.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--41
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--61
+
+ []
+
+
+LaTeX Warning: Reference `eq:hooke' on page 2 undefined on input line 63.
+
+
+LaTeX Warning: Reference `eq:prigusenje' on page 2 undefined on input line 63.
+
+
+LaTeX Warning: Reference `eq:newton' on page 2 undefined on input line 63.
 
 
 LaTeX Warning: Reference `eq:jednadzba_opcenita_pobuda' on page 2 undefined on 
-input line 54.
+input line 69.
 
 
 LaTeX Warning: Reference `eq:jednadzba_sinusna_pobuda' on page 3 undefined on i
-nput line 62.
+nput line 77.
 
 LaTeX Font Info:    Trying to load font information for T1+ntxsups on input lin
-e 64.
+e 79.
 (/usr/share/texmf-dist/tex/latex/newtx/t1ntxsups.fd
 File: t1ntxsups.fd 2015/01/17 v1.0
 )
 LaTeX Font Info:    Font shape `T1/ntxsups/m/n' will be
-(Font)              scaled to size 12.0pt on input line 64.
+(Font)              scaled to size 12.0pt on input line 79.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 66.
+(Font)              scaled to size 10.0pt on input line 81.
 LaTeX Font Info:    Font shape `T1/ntxsups/m/n' will be
-(Font)              scaled to size 10.0pt on input line 66.
+(Font)              scaled to size 10.0pt on input line 81.
 
 LaTeX Warning: Reference `eq:jednadzba_sinusna_pobuda' on page 3 undefined on i
-nput line 69.
+nput line 84.
 
 
 LaTeX Warning: Reference `eq:transformat_diferencijalna' on page 3 undefined on
- input line 78.
+ input line 93.
 
 
 LaTeX Warning: Reference `eq:transformat_diferencijalna_sredjeno' on page 3 und
-efined on input line 83.
+efined on input line 98.
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 90.
+(Font)              scaled to size 8.8pt on input line 105.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 90.
+(Font)              scaled to size 6.6pt on input line 105.
 
-LaTeX Warning: Reference `eq:prijenosna' on page 3 undefined on input line 92.
+LaTeX Warning: Reference `eq:prijenosna' on page 3 undefined on input line 107.
+
 
 
 LaTeX Warning: Reference `eq:pobuda_pocetnim_uvjetima' on page 3 undefined on i
-nput line 92.
+nput line 107.
 
 
 LaTeX Warning: Reference `eq:transformat_diferencijalna_sredjeno' on page 3 und
-efined on input line 93.
+efined on input line 108.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--134
+Underfull \hbox (badness 10000) in paragraph at lines 140--149
 
  []
 
 
 LaTeX Warning: Reference `eq:konvolucijski_integral' on page 5 undefined on inp
-ut line 196.
+ut line 211.
 
 
 LaTeX Warning: Reference `eq:konvolucijski_integral_rjesenje' on page 5 undefin
-ed on input line 226.
+ed on input line 241.
 
 
 LaTeX Warning: Reference `eq:inverz_drugi_korak' on page 5 undefined on input l
-ine 226.
+ine 241.
 
 
-LaTeX Warning: Reference `eq:konvolucijski_integral_rjesenje' on page 5 undefin
-ed on input line 238.
+LaTeX Warning: Reference `eq:konvolucijski_integral_rjesenje' on page 6 undefin
+ed on input line 253.
 
 
-LaTeX Warning: Reference `eq:inverz_drugi_korak' on page 5 undefined on input l
-ine 239.
+LaTeX Warning: Reference `eq:inverz_drugi_korak' on page 6 undefined on input l
+ine 254.
 
 
-LaTeX Warning: Reference `eq:jednadzba_sinusna_pobuda' on page 5 undefined on i
-nput line 240.
+LaTeX Warning: Reference `eq:jednadzba_sinusna_pobuda' on page 6 undefined on i
+nput line 255.
 
-(./grafovi/sdf/odziv-priguseno.tex
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-) (./skice/sdf/sile-nepriguseni-ekvivalentni-sustav-sdf.tex
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 27.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.5pt on input line 27.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.9pt on input line 27.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 27.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.5pt on input line 27.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.9pt on input line 27.
-[6
+(./grafovi/sdf/odziv-priguseno.tex [6
 
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
 
-LaTeX Warning: Reference `eq:inverz_treci_korak' on page 6 undefined on input l
-ine 281.
+LaTeX Warning: Reference `eq:inverz_treci_korak' on page 7 undefined on input l
+ine 291.
 
 
-LaTeX Warning: Reference `eq:np_koef_A' on page 6 undefined on input line 292.
+LaTeX Warning: Reference `eq:np_koef_A' on page 7 undefined on input line 302.
 
 
-LaTeX Warning: Reference `eq:np_koef_B' on page 6 undefined on input line 292.
+LaTeX Warning: Reference `eq:np_koef_B' on page 7 undefined on input line 302.
 
 
-LaTeX Warning: Reference `eq:np_koef_C' on page 6 undefined on input line 292.
+LaTeX Warning: Reference `eq:np_koef_C' on page 7 undefined on input line 302.
 
 
-LaTeX Warning: Reference `eq:np_koef_D' on page 6 undefined on input line 293.
+LaTeX Warning: Reference `eq:np_koef_D' on page 7 undefined on input line 303.
 
 
-LaTeX Warning: Reference `eq:np_sigma' on page 6 undefined on input line 293.
+LaTeX Warning: Reference `eq:np_sigma' on page 7 undefined on input line 303.
 
 
-LaTeX Warning: Reference `eq:np_omega_D' on page 6 undefined on input line 293.
+LaTeX Warning: Reference `eq:np_omega_D' on page 7 undefined on input line 303.
 
 
 
-LaTeX Warning: Reference `eq:inverz_treci_korak' on page 6 undefined on input l
-ine 293.
+LaTeX Warning: Reference `eq:inverz_treci_korak' on page 7 undefined on input l
+ine 303.
 
 
 LaTeX Warning: Reference `eq:jednadzba_gibanja_nepriguseni_nesredjeno' on page 
-6 undefined on input line 295.
+7 undefined on input line 305.
 
 (./grafovi/sdf/odziv-nepriguseno.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
@@ -1482,103 +1491,103 @@ isable this.
 )) (./poglavlja/sdf/3-staticki_pomak.tex
 
 LaTeX Warning: Reference `eq:jednadzba_gibanja_nepriguseni_nesredjeno' on page 
-7 undefined on input line 3.
+8 undefined on input line 3.
 
 ) (./poglavlja/sdf/4a-frf_izvod.tex
 
-LaTeX Warning: Reference `eq:PrijenosnaFunkcijaSustava' on page 7 undefined on 
+LaTeX Warning: Reference `eq:PrijenosnaFunkcijaSustava' on page 9 undefined on 
 input line 32.
 
 
-LaTeX Warning: Reference `eq:frf_sredjeno' on page 8 undefined on input line 74
-.
+LaTeX Warning: Reference `eq:frf_sredjeno' on page 10 undefined on input line 7
+4.
 
 
-LaTeX Warning: Reference `eq:frf_sredjeno' on page 8 undefined on input line 83
-.
+LaTeX Warning: Reference `eq:frf_sredjeno' on page 10 undefined on input line 8
+3.
 
 
-LaTeX Warning: Reference `eq:frf_sredjeno' on page 8 undefined on input line 93
-.
+LaTeX Warning: Reference `eq:frf_sredjeno' on page 10 undefined on input line 9
+3.
 
 
-LaTeX Warning: Reference `eq:magnitudniSpektar' on page 9 undefined on input li
-ne 117.
+LaTeX Warning: Reference `eq:magnitudniSpektar' on page 10 undefined on input l
+ine 117.
 
 
-LaTeX Warning: Reference `eq:fazniSpektar' on page 9 undefined on input line 11
-8.
+LaTeX Warning: Reference `eq:fazniSpektar' on page 10 undefined on input line 1
+18.
 
 
-LaTeX Warning: Reference `eq:fazniSpektar' on page 9 undefined on input line 11
-9.
+LaTeX Warning: Reference `eq:fazniSpektar' on page 10 undefined on input line 1
+19.
 
 ) (./poglavlja/sdf/4b-frf_prisilni_odziv.tex
 
-LaTeX Warning: Reference `eq:samo_prisilni' on page 9 undefined on input line 7
-.
+LaTeX Warning: Reference `eq:samo_prisilni' on page 12 undefined on input line 
+7.
 
 
-LaTeX Warning: Reference `eq:u_0-izvod-prvo' on page 9 undefined on input line 
-20.
+LaTeX Warning: Reference `eq:u_0-izvod-prvo' on page 12 undefined on input line
+ 20.
 
 
-LaTeX Warning: Reference `eq:fi-izvod' on page 9 undefined on input line 32.
+LaTeX Warning: Reference `eq:fi-izvod' on page 12 undefined on input line 32.
 
 
-LaTeX Warning: Reference `eq:R_d-izvod-konacno' on page 10 undefined on input l
+LaTeX Warning: Reference `eq:R_d-izvod-konacno' on page 12 undefined on input l
 ine 37.
 
 
-LaTeX Warning: Reference `eq:fi-izvod-konacno' on page 10 undefined on input li
+LaTeX Warning: Reference `eq:fi-izvod-konacno' on page 12 undefined on input li
 ne 37.
 
 
-LaTeX Warning: Reference `eq:prisilni_dio_odziva' on page 10 undefined on input
+LaTeX Warning: Reference `eq:prisilni_dio_odziva' on page 12 undefined on input
  line 38.
 
 
-LaTeX Warning: Reference `eq:R_d-izvod-konacno' on page 10 undefined on input l
+LaTeX Warning: Reference `eq:R_d-izvod-konacno' on page 12 undefined on input l
 ine 43.
 
 
-LaTeX Warning: Reference `eq:fi-izvod-konacno' on page 10 undefined on input li
+LaTeX Warning: Reference `eq:fi-izvod-konacno' on page 12 undefined on input li
 ne 45.
 
 
-LaTeX Warning: Reference `eq:pobuda_sinusnom_silom' on page 10 undefined on inp
+LaTeX Warning: Reference `eq:pobuda_sinusnom_silom' on page 13 undefined on inp
 ut line 74.
 
 
-LaTeX Warning: Reference `eq:s_normalno' on page 11 undefined on input line 85.
+LaTeX Warning: Reference `eq:s_normalno' on page 13 undefined on input line 85.
 
 
 
-LaTeX Warning: Reference `eq:s_konjugirano' on page 11 undefined on input line 
+LaTeX Warning: Reference `eq:s_konjugirano' on page 13 undefined on input line 
 85.
 
 
-LaTeX Warning: Reference `eq:pobuda_sinusnom_silom_eksponencijalni' on page 11 
+LaTeX Warning: Reference `eq:pobuda_sinusnom_silom_eksponencijalni' on page 13 
 undefined on input line 86.
 
 
-LaTeX Warning: Reference `eq:prisilni_transformacija_prijenosne' on page 11 und
+LaTeX Warning: Reference `eq:prisilni_transformacija_prijenosne' on page 13 und
 efined on input line 119.
 
 
-LaTeX Warning: Reference `eq:prijenosne_odnos' on page 11 undefined on input li
+LaTeX Warning: Reference `eq:prijenosne_odnos' on page 14 undefined on input li
 ne 131.
 
 
-LaTeX Warning: Reference `eq:prisilni_transformacija_prijenosne_kk' on page 11 
+LaTeX Warning: Reference `eq:prisilni_transformacija_prijenosne_kk' on page 14 
 undefined on input line 131.
 
 
-LaTeX Warning: Reference `eq:prisilni_transformacija_prijenosne_hk' on page 11 
+LaTeX Warning: Reference `eq:prisilni_transformacija_prijenosne_hk' on page 14 
 undefined on input line 139.
 
 
-LaTeX Warning: Reference `eq:frf_pravokutni' on page 11 undefined on input line
+LaTeX Warning: Reference `eq:frf_pravokutni' on page 14 undefined on input line
  145.
 
 (./skice/sdf/frf-gauss.tex
@@ -1586,60 +1595,60 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-LaTeX Warning: Reference `eq:magnitudniSpektar' on page 11 undefined on input l
+LaTeX Warning: Reference `eq:magnitudniSpektar' on page 14 undefined on input l
 ine 156.
 
 
-LaTeX Warning: Reference `eq:fazniSpektar' on page 11 undefined on input line 1
+LaTeX Warning: Reference `eq:fazniSpektar' on page 14 undefined on input line 1
 56.
 
 
-LaTeX Warning: Reference `fig:frf-gauss' on page 11 undefined on input line 157
+LaTeX Warning: Reference `fig:frf-gauss' on page 14 undefined on input line 157
 .
 
 
-LaTeX Warning: Reference `eq:trig_zapis' on page 12 undefined on input line 166
+LaTeX Warning: Reference `eq:trig_zapis' on page 14 undefined on input line 166
 .
 
 
-LaTeX Warning: Reference `eq:trig_zapis_kk' on page 12 undefined on input line 
+LaTeX Warning: Reference `eq:trig_zapis_kk' on page 14 undefined on input line 
 166.
 
 
-LaTeX Warning: Reference `eq:prisilni_transformacija_prijenosne_hk' on page 12 
+LaTeX Warning: Reference `eq:prisilni_transformacija_prijenosne_hk' on page 14 
 undefined on input line 166.
 
 
-LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje' on page 12 undefin
+LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje' on page 14 undefin
 ed on input line 177.
 
 
-LaTeX Warning: Reference `eq:R_d-izvod-konacno' on page 12 undefined on input l
+LaTeX Warning: Reference `eq:R_d-izvod-konacno' on page 14 undefined on input l
 ine 185.
 
 
-LaTeX Warning: Reference `eq:frf_sredjeno' on page 12 undefined on input line 1
+LaTeX Warning: Reference `eq:frf_sredjeno' on page 14 undefined on input line 1
 85.
 
 
-LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje' on page 12 undefin
+LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje' on page 14 undefin
 ed on input line 188.
 
 
-LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje' on page 12 undefin
+LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje' on page 15 undefin
 ed on input line 193.
 
 
-LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje_Rd' on page 12 unde
+LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje_Rd' on page 15 unde
 fined on input line 193.
 
 ) (./poglavlja/sdf/4c-frf_graficki.tex
 
-LaTeX Warning: Reference `eq:magnitudniSpektar' on page 13 undefined on input l
+LaTeX Warning: Reference `eq:magnitudniSpektar' on page 16 undefined on input l
 ine 8.
 
 
-LaTeX Warning: Reference `eq:fazniSpektar' on page 13 undefined on input line 8
+LaTeX Warning: Reference `eq:fazniSpektar' on page 16 undefined on input line 8
 .
 
 (./grafovi/sdf/rd-priguseno.tex
@@ -1650,7 +1659,7 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-LaTeX Warning: Reference `eq:fazniSpektarNepriguseno' on page 14 undefined on i
+LaTeX Warning: Reference `eq:fazniSpektarNepriguseno' on page 17 undefined on i
 nput line 53.
 
 (./grafovi/sdf/rd-nepriguseno.tex
@@ -1661,31 +1670,31 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-LaTeX Warning: Reference `fig:frf-priguseno' on page 14 undefined on input line
+LaTeX Warning: Reference `fig:frf-priguseno' on page 17 undefined on input line
  77.
 
 
-LaTeX Warning: Reference `fig:frf-nepriguseno' on page 14 undefined on input li
+LaTeX Warning: Reference `fig:frf-nepriguseno' on page 17 undefined on input li
 ne 77.
 
 
-LaTeX Warning: Reference `eq:magnitudniSpektarZaOmjer' on page 14 undefined on 
+LaTeX Warning: Reference `eq:magnitudniSpektarZaOmjer' on page 17 undefined on 
 input line 96.
 
 
-LaTeX Warning: Reference `eq:magnitudniSpektar' on page 14 undefined on input l
+LaTeX Warning: Reference `eq:magnitudniSpektar' on page 17 undefined on input l
 ine 109.
 
 
-LaTeX Warning: Reference `eq:magnitudniSpektarZaOmjer' on page 14 undefined on 
+LaTeX Warning: Reference `eq:magnitudniSpektarZaOmjer' on page 17 undefined on 
 input line 110.
 
 
-LaTeX Warning: Reference `eq:derivacijaFaktorPomaka' on page 15 undefined on in
+LaTeX Warning: Reference `eq:derivacijaFaktorPomaka' on page 18 undefined on in
 put line 148.
 
 
-LaTeX Warning: Reference `eq:dinamickiFaktorBrzine' on page 15 undefined on inp
+LaTeX Warning: Reference `eq:dinamickiFaktorBrzine' on page 18 undefined on inp
 ut line 148.
 
 (./grafovi/sdf/rd-rv-ra.tex
@@ -1701,13 +1710,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--170
  []
 
 
-LaTeX Warning: Reference `eq:R_v' on page 15 undefined on input line 182.
+LaTeX Warning: Reference `eq:R_v' on page 18 undefined on input line 182.
 
 
-LaTeX Warning: Reference `eq:R_a' on page 15 undefined on input line 182.
+LaTeX Warning: Reference `eq:R_a' on page 18 undefined on input line 182.
 
 
-LaTeX Warning: Reference `eq:R_d-R_v-R_a' on page 16 undefined on input line 19
+LaTeX Warning: Reference `eq:R_d-R_v-R_a' on page 19 undefined on input line 19
 0.
 
 (./grafovi/sdf/dva-spektar.tex
@@ -1715,37 +1724,37 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )) (./poglavlja/sdf/5a-rezonanca_priguseno.tex
 
-LaTeX Warning: Reference `fig:rd-rv-ra' on page 16 undefined on input line 9.
+LaTeX Warning: Reference `fig:rd-rv-ra' on page 20 undefined on input line 9.
 
 
-LaTeX Warning: Reference `eq:inverz_treci_korak' on page 17 undefined on input 
+LaTeX Warning: Reference `eq:inverz_treci_korak' on page 21 undefined on input 
 line 59.
 
 
-LaTeX Warning: Reference `eq:rez_koef_A' on page 17 undefined on input line 70.
+LaTeX Warning: Reference `eq:rez_koef_A' on page 21 undefined on input line 70.
 
 
 
-LaTeX Warning: Reference `eq:rez_koef_B' on page 17 undefined on input line 70.
+LaTeX Warning: Reference `eq:rez_koef_B' on page 21 undefined on input line 70.
 
 
 
-LaTeX Warning: Reference `eq:rez_koef_C' on page 17 undefined on input line 70.
+LaTeX Warning: Reference `eq:rez_koef_C' on page 21 undefined on input line 70.
 
 
 
-LaTeX Warning: Reference `eq:koef_D' on page 17 undefined on input line 70.
+LaTeX Warning: Reference `eq:koef_D' on page 21 undefined on input line 70.
 
 
-LaTeX Warning: Reference `eq:inverz_treci_korak' on page 17 undefined on input 
+LaTeX Warning: Reference `eq:inverz_treci_korak' on page 21 undefined on input 
 line 71.
 
 
-LaTeX Warning: Reference `eq:rezonancaPrigušenoPomak' on page 18 undefined on 
+LaTeX Warning: Reference `eq:rezonancaPrigušenoPomak' on page 21 undefined on 
 input line 86.
 
 
-LaTeX Warning: Reference `eq:rezonancaOdzivAproksimacija' on page 18 undefined 
+LaTeX Warning: Reference `eq:rezonancaOdzivAproksimacija' on page 21 undefined 
 on input line 95.
 
 (./grafovi/sdf/rezonanca-priguseno.tex
@@ -1801,15 +1810,15 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-LaTeX Warning: Reference `eq:rezonanca_amplituda' on page 19 undefined on input
+LaTeX Warning: Reference `eq:rezonanca_amplituda' on page 23 undefined on input
  line 127.
 
 
-LaTeX Warning: Reference `eq:prirastEkstremaPriguseno' on page 20 undefined on 
+LaTeX Warning: Reference `eq:prirastEkstremaPriguseno' on page 23 undefined on 
 input line 148.
 
 
-LaTeX Warning: Reference `eq:MiniMaxPriguseno' on page 20 undefined on input li
+LaTeX Warning: Reference `eq:MiniMaxPriguseno' on page 23 undefined on input li
 ne 154.
 
 
@@ -1832,32 +1841,32 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-LaTeX Warning: Reference `table:prirast-rezonanca-priguseno' on page 20 undefin
+LaTeX Warning: Reference `table:prirast-rezonanca-priguseno' on page 23 undefin
 ed on input line 200.
 
 ) (./poglavlja/sdf/5b-rezonanca_nepriguseno.tex
 
-LaTeX Warning: Reference `eq:rd_rezonanca' on page 20 undefined on input line 3
+LaTeX Warning: Reference `eq:rd_rezonanca' on page 24 undefined on input line 3
 .
 
 
-LaTeX Warning: Reference `eq:ra_rezonanca' on page 20 undefined on input line 4
+LaTeX Warning: Reference `eq:ra_rezonanca' on page 24 undefined on input line 4
 .
 
 
-LaTeX Warning: Reference `eq:fazniSpektarNepriguseno' on page 20 undefined on i
+LaTeX Warning: Reference `eq:fazniSpektarNepriguseno' on page 24 undefined on i
 nput line 8.
 
 
-LaTeX Warning: Reference `fig:frf-nepriguseno' on page 20 undefined on input li
+LaTeX Warning: Reference `fig:frf-nepriguseno' on page 24 undefined on input li
 ne 9.
 
 
-LaTeX Warning: Reference `eq:odziv_rezonanca' on page 21 undefined on input lin
+LaTeX Warning: Reference `eq:odziv_rezonanca' on page 24 undefined on input lin
 e 40.
 
 
-LaTeX Warning: Reference `eq:rezonanca_period' on page 21 undefined on input li
+LaTeX Warning: Reference `eq:rezonanca_period' on page 24 undefined on input li
 ne 72.
 
 (./grafovi/sdf/rezonanca-nepriguseno.tex
@@ -1865,44 +1874,44 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )) (./poglavlja/sdf/5c-podrucje_rezonance.tex
 
-LaTeX Warning: Reference `fig:hpb' on page 22 undefined on input line 3.
+LaTeX Warning: Reference `fig:hpb' on page 26 undefined on input line 3.
 
 (./grafovi/sdf/hpb.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-LaTeX Warning: Reference `eq:hpb' on page 22 undefined on input line 22.
+LaTeX Warning: Reference `eq:hpb' on page 26 undefined on input line 22.
 
 
-LaTeX Warning: Reference `eq:hpb' on page 22 undefined on input line 24.
+LaTeX Warning: Reference `eq:hpb' on page 26 undefined on input line 24.
 
 
-LaTeX Warning: Reference `eq:hpb_izvod_1' on page 22 undefined on input line 31
+LaTeX Warning: Reference `eq:hpb_izvod_1' on page 26 undefined on input line 31
 .
 
 
-LaTeX Warning: Reference `eq:hpb_izvod_3' on page 23 undefined on input line 45
+LaTeX Warning: Reference `eq:hpb_izvod_3' on page 26 undefined on input line 45
 .
 
 
-LaTeX Warning: Reference `eq:hpb_kvadratna_1' on page 23 undefined on input lin
+LaTeX Warning: Reference `eq:hpb_kvadratna_1' on page 26 undefined on input lin
 e 52.
 
 
-LaTeX Warning: Reference `hpb_kvadratna_2' on page 23 undefined on input line 6
+LaTeX Warning: Reference `hpb_kvadratna_2' on page 26 undefined on input line 6
 3.
 
 
-LaTeX Warning: Reference `eq:hpb_kvadratna_konacno' on page 23 undefined on inp
+LaTeX Warning: Reference `eq:hpb_kvadratna_konacno' on page 26 undefined on inp
 ut line 69.
 
 
-LaTeX Warning: Reference `eq:hpb_zeta_omega' on page 23 undefined on input line
+LaTeX Warning: Reference `eq:hpb_zeta_omega' on page 27 undefined on input line
  85.
 
 
-LaTeX Warning: Reference `eq:hpb_zeta_f' on page 23 undefined on input line 86.
+LaTeX Warning: Reference `eq:hpb_zeta_f' on page 27 undefined on input line 86.
 
 
 ) (./poglavlja/sdf/6-prakticna_primjena.tex (./skice/sdf/vibracijski-t0.tex
@@ -1913,46 +1922,46 @@ A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-LaTeX Warning: Reference `sub@fig:vibracijski-t0' on page 24 undefined on input
- line 35.
+LaTeX Warning: Reference `sub@fig:vibracijski-t0' on page 28 undefined on input
+ line 36.
 
 
-LaTeX Warning: Reference `sub@fig:vibracijski-t' on page 24 undefined on input 
-line 35.
+LaTeX Warning: Reference `sub@fig:vibracijski-t' on page 28 undefined on input 
+line 36.
 
 
-LaTeX Warning: Reference `sub@fig:vibracijski-t0' on page 24 undefined on input
- line 35.
+LaTeX Warning: Reference `sub@fig:vibracijski-t0' on page 28 undefined on input
+ line 36.
 
 
-LaTeX Warning: Reference `sub@fig:vibracijski-t' on page 24 undefined on input 
-line 35.
+LaTeX Warning: Reference `sub@fig:vibracijski-t' on page 28 undefined on input 
+line 36.
 
 
-LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje_Rd' on page 24 unde
-fined on input line 53.
+LaTeX Warning: Reference `eq:prisilni_alternativno_rjesenje_Rd' on page 28 unde
+fined on input line 54.
 
 
-LaTeX Warning: Reference `eq:R_a' on page 24 undefined on input line 58.
+LaTeX Warning: Reference `eq:R_a' on page 28 undefined on input line 59.
 
 (./grafovi/sdf/ra-vibracijski.tex
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 )
 
-LaTeX Warning: Reference `fig:ra-vibracijski' on page 24 undefined on input lin
-e 69.
+LaTeX Warning: Reference `fig:ra-vibracijski' on page 28 undefined on input lin
+e 70.
 
 
-LaTeX Warning: Reference `eq:frf_rezonanca' on page 24 undefined on input line 
-75.
+LaTeX Warning: Reference `eq:frf_rezonanca' on page 28 undefined on input line 
+76.
 
 
-LaTeX Warning: Reference `eq:rezonancijski_pokus' on page 25 undefined on input
- line 103.
+LaTeX Warning: Reference `eq:rezonancijski_pokus' on page 29 undefined on input
+ line 104.
 
 
-LaTeX Warning: Reference `eq:hpb_zeta_f' on page 26 undefined on input line 147
+LaTeX Warning: Reference `eq:hpb_zeta_f' on page 30 undefined on input line 148
 .
 
 (./grafovi/sdf/frf-pokus.tex
@@ -1968,87 +1977,99 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 6.6pt on input line 54.
 
-LaTeX Warning: Reference `eq:sustav_diferencijalnih' on page 27 undefined on in
+LaTeX Warning: Reference `eq:sustav_diferencijalnih' on page 31 undefined on in
 put line 56.
 
 
-LaTeX Warning: Reference `eq:sustav_diferencijalnih_matricno' on page 27 undefi
+LaTeX Warning: Reference `eq:sustav_diferencijalnih_matricno' on page 31 undefi
 ned on input line 56.
 
 
-LaTeX Warning: Reference `eq:jednostavna_harmonijska_funkcija' on page 27 undef
+LaTeX Warning: Reference `eq:jednostavna_harmonijska_funkcija' on page 31 undef
 ined on input line 68.
 
 
-LaTeX Warning: Reference `eq:rjesenje_opcenitog_sustava' on page 27 undefined o
+LaTeX Warning: Reference `eq:rjesenje_opcenitog_sustava' on page 31 undefined o
 n input line 78.
 
 
-LaTeX Warning: Reference `eq:rjesenje_opcenitog_sustava' on page 27 undefined o
+LaTeX Warning: Reference `eq:rjesenje_opcenitog_sustava' on page 31 undefined o
 n input line 83.
 
 
-LaTeX Warning: Reference `eq:rjesenje_opcenitog_sustava_dd' on page 27 undefine
+LaTeX Warning: Reference `eq:rjesenje_opcenitog_sustava_dd' on page 31 undefine
 d on input line 83.
 
 
-LaTeX Warning: Reference `eq:sustav_diferencijalnih_matricni_kratko' on page 27
+LaTeX Warning: Reference `eq:sustav_diferencijalnih_matricni_kratko' on page 31
  undefined on input line 84.
 
 
-LaTeX Warning: Reference `eq:vlastite_vrijednosti' on page 28 undefined on inpu
+LaTeX Warning: Reference `eq:vlastite_vrijednosti' on page 32 undefined on inpu
 t line 94.
 
 
-LaTeX Warning: Reference `eq:vlastite_vrijednosti_homogeno' on page 28 undefine
+LaTeX Warning: Reference `eq:vlastite_vrijednosti_homogeno' on page 32 undefine
 d on input line 107.
 
 
-LaTeX Warning: Reference `eq:vlastite_vrijednosti_homogeno' on page 28 undefine
+LaTeX Warning: Reference `eq:vlastite_vrijednosti_homogeno' on page 32 undefine
 d on input line 126.
 
 
-LaTeX Warning: Reference `eq:opce_rjesenje_sustava' on page 29 undefined on inp
+LaTeX Warning: Reference `eq:opce_rjesenje_sustava' on page 33 undefined on inp
 ut line 145.
 
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 14.4pt on input line 196.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.5pt on input line 196.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.9pt on input line 196.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 14.4pt on input line 196.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.5pt on input line 196.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 7.9pt on input line 196.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 14.4pt on input line 196.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.5pt on input line 196.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.9pt on input line 196.
 
-LaTeX Warning: Reference `eq:opce_rjesenje_sustava' on page 29 undefined on inp
+LaTeX Warning: Reference `eq:opce_rjesenje_sustava' on page 33 undefined on inp
 ut line 208.
 
 
-LaTeX Warning: Reference `eq:sustav_diferencijalnih_matricno' on page 29 undefi
+LaTeX Warning: Reference `eq:sustav_diferencijalnih_matricno' on page 33 undefi
 ned on input line 231.
 
 ) (./poglavlja/mdf/2-ortogonalnost_modova.tex
 
-LaTeX Warning: Reference `eq:sustav_diferencijalnih_matricni_kratko' on page 30
+LaTeX Warning: Reference `eq:sustav_diferencijalnih_matricni_kratko' on page 35
  undefined on input line 5.
 
 
-LaTeX Warning: Reference `eq:pocetni_sustav_ortogonalnost' on page 30 undefined
+LaTeX Warning: Reference `eq:pocetni_sustav_ortogonalnost' on page 35 undefined
  on input line 15.
 
 
-LaTeX Warning: Reference `eq:konacni_sustav_ortogonalnost' on page 30 undefined
+LaTeX Warning: Reference `eq:konacni_sustav_ortogonalnost' on page 35 undefined
  on input line 34.
 
 
-LaTeX Warning: Reference `eq:ortogonalnost_masa' on page 30 undefined on input 
+LaTeX Warning: Reference `eq:ortogonalnost_masa' on page 35 undefined on input 
 line 39.
 
 
-LaTeX Warning: Reference `eq:ortogonalnost_krutost' on page 30 undefined on inp
+LaTeX Warning: Reference `eq:ortogonalnost_krutost' on page 35 undefined on inp
 ut line 39.
 
 ) (./poglavlja/mdf/3-normiranje_modova.tex
 
-LaTeX Warning: Reference `eq:vlastite_vrijednosti' on page 31 undefined on inpu
+LaTeX Warning: Reference `eq:vlastite_vrijednosti' on page 36 undefined on inpu
 t line 5.
 
 
@@ -2060,181 +2081,181 @@ txsy/m/n/12 g[] \U/ntxmia/m/it/12 =
  []
 
 
-LaTeX Warning: Reference `eq:normiranje_masa' on page 32 undefined on input lin
+LaTeX Warning: Reference `eq:normiranje_masa' on page 36 undefined on input lin
 e 41.
 
 
-LaTeX Warning: Reference `eq:modalna_krutost' on page 32 undefined on input lin
+LaTeX Warning: Reference `eq:modalna_krutost' on page 36 undefined on input lin
 e 56.
 
 ) (./poglavlja/mdf/4-odziv_sinusna_sila.tex
 
-LaTeX Warning: Reference `slobodne_oscilacije' on page 32 undefined on input li
+LaTeX Warning: Reference `slobodne_oscilacije' on page 37 undefined on input li
 ne 3.
 
 
-LaTeX Warning: Reference `eq:opce_komplementarno_rjesenje' on page 32 undefined
+LaTeX Warning: Reference `eq:opce_komplementarno_rjesenje' on page 37 undefined
  on input line 22.
 
 
-LaTeX Warning: Reference `eq:opce_rjesenje_sustava' on page 33 undefined on inp
+LaTeX Warning: Reference `eq:opce_rjesenje_sustava' on page 37 undefined on inp
 ut line 30.
 
 
-LaTeX Warning: Reference `eq:partikularno_pretpostavka' on page 33 undefined on
+LaTeX Warning: Reference `eq:partikularno_pretpostavka' on page 37 undefined on
  input line 77.
 
 
-LaTeX Warning: Reference `eq:partikularno_pretpostavka' on page 33 undefined on
+LaTeX Warning: Reference `eq:partikularno_pretpostavka' on page 37 undefined on
  input line 82.
 
 
-LaTeX Warning: Reference `eq:partikularno_pretpostavka_dd' on page 33 undefined
+LaTeX Warning: Reference `eq:partikularno_pretpostavka_dd' on page 37 undefined
  on input line 82.
 
 
-LaTeX Warning: Reference `eq:jednadzba_gibanja_matricno_kratko' on page 33 unde
+LaTeX Warning: Reference `eq:jednadzba_gibanja_matricno_kratko' on page 37 unde
 fined on input line 83.
 
 
-LaTeX Warning: Reference `eq:neodredjeni_koeficijenti_1' on page 33 undefined o
+LaTeX Warning: Reference `eq:neodredjeni_koeficijenti_1' on page 37 undefined o
 n input line 92.
 
 
-LaTeX Warning: Reference `eq:neodredjeni_koeficijenti_2' on page 33 undefined o
+LaTeX Warning: Reference `eq:neodredjeni_koeficijenti_2' on page 38 undefined o
 n input line 110.
 
 
-LaTeX Warning: Reference `eq:vtor_1' on page 34 undefined on input line 149.
+LaTeX Warning: Reference `eq:vtor_1' on page 38 undefined on input line 149.
 
 
-LaTeX Warning: Reference `eq:vtor_2' on page 34 undefined on input line 149.
+LaTeX Warning: Reference `eq:vtor_2' on page 38 undefined on input line 149.
 
 
-LaTeX Warning: Reference `eq:pretpostavljeno' on page 34 undefined on input lin
+LaTeX Warning: Reference `eq:pretpostavljeno' on page 39 undefined on input lin
 e 195.
 
 
-LaTeX Warning: Reference `eq:pretpostavljeno_dd' on page 34 undefined on input 
+LaTeX Warning: Reference `eq:pretpostavljeno_dd' on page 39 undefined on input 
 line 195.
 
 
-LaTeX Warning: Reference `eq:jdn_gibanja_osnovno' on page 34 undefined on input
+LaTeX Warning: Reference `eq:jdn_gibanja_osnovno' on page 39 undefined on input
  line 196.
 
 
-LaTeX Warning: Reference `eq:jdn_gibanja_part_1' on page 35 undefined on input 
+LaTeX Warning: Reference `eq:jdn_gibanja_part_1' on page 39 undefined on input 
 line 211.
 
 
-LaTeX Warning: Reference `eq:mat_din_krutost' on page 35 undefined on input lin
+LaTeX Warning: Reference `eq:mat_din_krutost' on page 39 undefined on input lin
 e 214.
 
 
-LaTeX Warning: Reference `eq:relacija_normirani_matricno' on page 35 undefined 
+LaTeX Warning: Reference `eq:relacija_normirani_matricno' on page 39 undefined 
 on input line 227.
 
 
-LaTeX Warning: Reference `eq:normirana_krutost' on page 35 undefined on input l
+LaTeX Warning: Reference `eq:normirana_krutost' on page 39 undefined on input l
 ine 227.
 
 
-LaTeX Warning: Reference `eq:clan_frf_matrice' on page 35 undefined on input li
+LaTeX Warning: Reference `eq:clan_frf_matrice' on page 39 undefined on input li
 ne 250.
 
 
-LaTeX Warning: Reference `eq:matrica_frf' on page 36 undefined on input line 33
+LaTeX Warning: Reference `eq:matrica_frf' on page 41 undefined on input line 33
 9.
 
 
-LaTeX Warning: Reference `eq:jdn_gibanja_part_1' on page 36 undefined on input 
+LaTeX Warning: Reference `eq:jdn_gibanja_part_1' on page 41 undefined on input 
 line 339.
 
 ) (./poglavlja/mdf/5-modalna_analiza.tex
 
-LaTeX Warning: Reference `eq:mdof_jdn_gibanja_opca_pobuda' on page 37 undefined
+LaTeX Warning: Reference `eq:mdof_jdn_gibanja_opca_pobuda' on page 42 undefined
  on input line 15.
 
 
-LaTeX Warning: Reference `mdof_prisilne' on page 37 undefined on input line 16.
+LaTeX Warning: Reference `mdof_prisilne' on page 42 undefined on input line 16.
 
 
 
-LaTeX Warning: Reference `slobodne_oscilacije' on page 37 undefined on input li
+LaTeX Warning: Reference `slobodne_oscilacije' on page 42 undefined on input li
 ne 23.
 
 
-LaTeX Warning: Reference `eq:mdf_ukupno_rjesenje' on page 37 undefined on input
+LaTeX Warning: Reference `eq:mdf_ukupno_rjesenje' on page 42 undefined on input
  line 30.
 
 
-LaTeX Warning: Reference `eq:mdof_jdn_gibanja_opca_pobuda' on page 37 undefined
+LaTeX Warning: Reference `eq:mdof_jdn_gibanja_opca_pobuda' on page 42 undefined
  on input line 30.
 
 
-LaTeX Warning: Reference `eq:mdf_modalna_1' on page 38 undefined on input line 
+LaTeX Warning: Reference `eq:mdf_modalna_1' on page 42 undefined on input line 
 36.
 
 
-LaTeX Warning: Reference `eq:modalna_masa' on page 38 undefined on input line 4
+LaTeX Warning: Reference `eq:modalna_masa' on page 42 undefined on input line 4
 7.
 
 
-LaTeX Warning: Reference `eq:modalna_krutost' on page 38 undefined on input lin
+LaTeX Warning: Reference `eq:modalna_krutost' on page 42 undefined on input lin
 e 47.
 
 
-LaTeX Warning: Reference `eq:mdf_modalna_jednadzba_nesredjeno' on page 38 undef
+LaTeX Warning: Reference `eq:mdf_modalna_jednadzba_nesredjeno' on page 42 undef
 ined on input line 48.
 
 
-LaTeX Warning: Reference `eq:mdf_ukupno_rjesenje' on page 38 undefined on input
+LaTeX Warning: Reference `eq:mdf_ukupno_rjesenje' on page 42 undefined on input
  line 55.
 
 
-LaTeX Warning: Reference `eq:mdf_modalna_1' on page 38 undefined on input line 
+LaTeX Warning: Reference `eq:mdf_modalna_1' on page 42 undefined on input line 
 56.
 
 
-LaTeX Warning: Reference `eq:mdf_modalna_2' on page 38 undefined on input line 
+LaTeX Warning: Reference `eq:mdf_modalna_2' on page 42 undefined on input line 
 56.
 
 
-LaTeX Warning: Reference `eq:mdf_modalna_jednadzba_nesredjeno' on page 38 undef
+LaTeX Warning: Reference `eq:mdf_modalna_jednadzba_nesredjeno' on page 42 undef
 ined on input line 57.
 
 
-LaTeX Warning: Reference `eq:mdf_modalna_jednadzba_sredjeno' on page 38 undefin
+LaTeX Warning: Reference `eq:mdf_modalna_jednadzba_sredjeno' on page 42 undefin
 ed on input line 64.
 
 
-LaTeX Warning: Reference `eq:mdf_modalna_jednadzba_sredjeno' on page 38 undefin
+LaTeX Warning: Reference `eq:mdf_modalna_jednadzba_sredjeno' on page 43 undefin
 ed on input line 74.
 
 
-LaTeX Warning: Reference `eq:modalna_masa_matrica' on page 38 undefined on inpu
+LaTeX Warning: Reference `eq:modalna_masa_matrica' on page 43 undefined on inpu
 t line 81.
 
 
-LaTeX Warning: Reference `eq:modalna_krutost_matrica' on page 38 undefined on i
+LaTeX Warning: Reference `eq:modalna_krutost_matrica' on page 43 undefined on i
 nput line 82.
 
 
-LaTeX Warning: Reference `eq:sustav_modalnih_jednadzbi' on page 38 undefined on
+LaTeX Warning: Reference `eq:sustav_modalnih_jednadzbi' on page 43 undefined on
  input line 83.
 
 
-LaTeX Warning: Reference `eq:mdf_odziv_ntog_moda' on page 38 undefined on input
+LaTeX Warning: Reference `eq:mdf_odziv_ntog_moda' on page 43 undefined on input
  line 87.
 
 )
 
-LaTeX Warning: Empty bibliography on input line 63.
+LaTeX Warning: Empty bibliography on input line 78.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 64.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 64.
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 64.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 64.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 79.
 
 LaTeX Warning: There were undefined references.
 
@@ -2246,19 +2267,21 @@ Package biblatex Warning: Please (re)run Biber on the file:
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 39972 strings out of 480478
- 928826 string characters out of 5905959
+ 40373 strings out of 480478
+ 940109 string characters out of 5905959
  1636944 words of memory out of 5000000
- 55190 multiletter control sequences out of 15000+600000
- 628619 words of font info for 167 fonts, out of 8000000 for 9000
+ 55587 multiletter control sequences out of 15000+600000
+ 630841 words of font info for 171 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,26n,121p,955b,1088s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/texmf
--dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on meta/main-figure6.pdf (1 page, 7649 bytes).
+ 73i,26n,121p,955b,2258s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/share/texmf
+-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}</usr/share/texmf-dist/fonts/type1/
+public/newtx/NewTXMI.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/txsys.
+pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmr.pfb>
+Output written on meta/main-figure6.pdf (1 page, 56539 bytes).
 PDF statistics:
- 19 PDF objects out of 1000 (max. 8388607)
- 13 compressed objects within 1 object stream
+ 27 PDF objects out of 1000 (max. 8388607)
+ 20 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

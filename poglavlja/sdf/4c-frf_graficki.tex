@@ -48,7 +48,6 @@ nastavku.
         \frac{1}{\sqrt{((1-(\omega/\omega_n)^2)^2+(2\cdot 0(\omega/\omega_n))^2}} =
         \frac{1}{|1-(\omega/\omega_n)^2|}
 \end{equation}
-\newpage
 
 Iz formule \eqref{eq:fazniSpektarNepriguseno} očito je da za neprigušeno titranje
 postoje tri vrijednosti faznog kuta koje ovise o izrazu u nazivniku. Vrijednosti
@@ -73,6 +72,7 @@ faznog kuta prikazane su u nastavku:
     sustav}
     \label{fig:frf-nepriguseno}
 \end{figure}
+\newpage
 
 Analizirajući krivulje sa \eqref{fig:frf-priguseno} i \eqref{fig:frf-nepriguseno} 
 navedene grafove možemo podijeliti na tri područja:
@@ -122,90 +122,5 @@ navedene grafove možemo podijeliti na tri područja:
         što znači da su pobuda i odziv izvan faze
 \end{enumerate}
 
-
-\subsection{Dinamički koeficijenti odziva}
-U prethodnim poglavljima, prisilni dio odziva je prikazan kao vremenska funkcija pomaka
-pri čemu je njegova amplituda jednaka statičkom pomaku skaliranom dinamičkim
-koeficijentom pomaka $R_d$. Osim vremenskom funkcijom pomaka, odziv sustava potrebno
-je opisati i vremenskim funkcijama brzine i ubrzanja.
-
-Deriviranjem vremenske funkcije pomaka po vremenu dobijemo vremensku funkciju brzine:
-    \begin{align}
-        \frac{\dot{u}(t)}{(u_{st})_0} &= 
-            \omega R_d\cos(\omega t - \phi)\frac{\omega_n}{\omega_n}\notag\\
-        \frac{\dot{u}(t)}{\omega_n p_0/k} &= 
-            \frac{\omega}{\omega_n}R_d\cos(\omega t-\phi)\label{eq:derivacijaFaktorPomaka}\\
-        \frac{\dot{u}(t)}{p_0/\sqrt{km}} &=
-            R_v\cos(\omega t-\phi)\label{eq:dinamickiFaktorBrzine}
-    \end{align}
-Gdje je:
-\begin{table}[H]
-    \begin{tabular}{r l}
-        $R_v$ & Dinamički koeficijent brzine\\
-    \end{tabular}
-\end{table}
-
-Iz jednadžbi pod \eqref{eq:derivacijaFaktorPomaka} i \eqref{eq:dinamickiFaktorBrzine}
-slijedi relacija:
-\begin{equation}\label{eq:R_v}
-    \frac{\dot{u}(0)}{p_0/\sqrt{km}}=R_v=\left(\frac{\omega}{\omega_n}\right)R_d
-\end{equation}
-
-Analogno tome, dobije se i dinamički faktor ubrzanja koji glasi:
-\begin{equation}\label{eq:R_a}
-    \frac{\ddot{u}(t)}{p_0/m}=-R_a=-\frac{\omega}{\omega_n}R_v
-        =-\left(\frac{\omega}{\omega_n}\right)^2R_d
-\end{equation}
-
-Gdje je:
-\begin{table}[H]
-    \begin{tabular}{r l}
-        $R_a$ & Dinamički koeficijent ubrzanja\\
-    \end{tabular}
-\end{table}
-
-\begin{figure}[H]
-    \input{./grafovi/sdf/rd-rv-ra}
-    \caption{Dinamički faktori pomaka, brzine i ubrzanja za različite vrijednosti
-    $\zeta$}
-    \label{fig:rd-rv-ra}
-\end{figure}
-
-%Sa slike \ref{fig:rd-rv-ra} vidljivo je da prigušenje na sva tri koeficijenta najviše
-%utječe u okolini točke $\omega/\omega_n=1$. Isto tako vidljivo je da je maksimum
-%dinamičkog faktora pomaka pomaknut u lijevo od vertikalnog pravca koji prolazi
-%točkom $\omega/\omega_n=1$, a maksimum dinamičkog faktora ubrzanja u desno. 
-%Maksimum dinamičkog faktora brzine pada na pravac $\omega/\omega_n=1$. Poslijedica
-%toga je da se rezonantne frekvencije sustava na pomak, brzinu i ubrzanje razlikuju.
-%Rezonantne frekvencije biti će razmatrane detaljnije u slijedećim poglavljima.
-
-Iz \eqref{eq:R_v} i \eqref{eq:R_a} slijedi da su dinamički koeficijenti pomaka,
-brzine i ubrzanja u odnosu. Navedeni odnos je prikazan je slijedećom jednadžbom.
-\begin{equation}\label{eq:R_d-R_v-R_a}
-    \frac{R_a}{\omega/\omega_n}=R_v=\frac{\omega}{\omega_n}R_d 
-\end{equation}
-Iz navedene jednadžbe slijedi da je poznavanjem jedne od veličina $R_d, R_v 
-\text{ ili } R_a$ moguće dobiti preostale dvije. Zbog toga što postoji odnos
-između dinamičkih koeficijenata pomaka, brzine i ubrzanja opisan jednadžbom 
-\eqref{eq:R_d-R_v-R_a}, moguće je sve tri navedene veličine prikazati u jednom
-grafu.
-
-Takav graf se sastoji od četiri logaritamske skale:
-\begin{enumerate}
-    \item horizontalne logaritamske skale koja prikazuje omjer frekvencije pobude i 
-        prirodne frekvencije sustava 
-    \item vertikalne logaritamske skale koja prikazuje \textit{dinamički koeficijent brzine
-        $R_d$}
-    \item modificirane logaritamske skale nagnute pod kutem od $+45\degree$ koja prikazuje
-        \textit{dinamički koeficijent ubrzanja $R_a$}
-    \item modificirane logaritamske skale nagnute pod kutem od $-45\degree$ koja prikazuje
-        \textit{dinamički koeficijent pomaka $R_d$}
-\end{enumerate}
-
-\begin{figure}[H]
-    \input{./grafovi/sdf/dva-spektar}
-    \label{fig:dva-spektar}
-    \caption{Dinamički faktori pomaka, brzine i ubrzanja u logaritamskom mjerilu}
-\end{figure}
 
 
