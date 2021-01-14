@@ -1,7 +1,7 @@
-\section{Ortogonalnost modova}
-Kao što je već pokazano, modove (modalne oblike) definiraju vektori. Dva vektora su
+\section{Ortogonalnost vlastitih vektora}
+Kao što je već pokazano, oblike osciliranja definiraju vlastiti vektori. Dva vektora su
 međusobno ortogonalna (okomita) ukoliko je njihov skalarni produkt jednak nuli.
-Razmotrimo li $r$-ti i $n$-ti mod sustava, dobijemo slijedeći sustav jednadžbi 
+Razmotrimo li $r$-ti i $n$-ti vlastiti vektor sustava, dobijemo slijedeći sustav jednadžbi 
 (iz \eqref{eq:sustav_diferencijalnih_matricni_kratko}):
 \begin{equation}\label{eq:pocetni_sustav_ortogonalnost}
     \begin{dcases}
@@ -22,7 +22,7 @@ transponiramo $\vtor{\psi}{}_r$ te ju pomnožimo s $\vtor{\psi}{}_n$. Sustav jed
 
 Oduzimanjem gornje i donje jednadžbe dobijemo:
 \begin{equation}
-    (\omega_n^2-\omega_r^2)\vtor{\psi}{}_r^T\mm\vtor{\psi}{}_s=0
+    (\omega_n^2-\omega_r^2)\vtor{\psi}{}_r^T\mm\vtor{\psi}{}_n=0
 \end{equation}
 
 Za $\omega_n\neq\omega_r$ vrijedi:
@@ -37,21 +37,21 @@ Uvrštavanjem $\vtor{\psi}{}_r^T\mm\vtor{\psi}{}_n=0$ u bilo koju od jednadžbi 
 \end{equation}
 
 Jednadžbe pod \eqref{eq:ortogonalnost_masa} i \eqref{eq:ortogonalnost_krutost}
-govore da su modovi, pomnoženi težinskim koeficijentima iz matrice krutosti ili
-matrice masa, međusobno ortogonalni (valjda). Kažemo da su modovi međusobno ortogonalni s
-obzirom na matricu mase ili matricu krutosti (valjda).
+govore da su vlastiti vektori m-ortogonalni i k-ortogonalni. Odnosno, kažemo da su
+vlastiti vektori međusobno ortogonalni s obzirom na matricu mase ili matricu
+krutosti. 
 \par
 
-Poslijedica ortogonalnosti je dijagonalnost slijedećih pravokutnih matrica:
+Poslijedica ortogonalnosti su slijedeće dijagonalne pravokutne matrice:
 \begin{alignat}{2}
     &\text{Modalna krutost}\quad & \mathbf{K}&=\ppsi^T\kk\ppsi\label{eq:modalna_krutost_matrica}\\
     &\text{Modalna masa}\quad &\mathbf{M}&=\ppsi^T\mm\ppsi\label{eq:modalna_masa_matrica}
 \end{alignat}
 
-Članovi matrica računaju se prema slijedećim formulama:
+Članovi na dijagonali računaju se prema slijedećim formulama:
 \begin{alignat}{2}
     &\text{Za modalnu krutost}\quad & K_{n,n}&=\vtor{\psi}{}_n^Tk\vtor{\psi}{}_n\label{eq:modalna_krutost}\\
-    &\text{Za modalnu masu}\quad &M_{n,n}&=\vtor{\psi}{}_n^Tk\vtor{\psi}{}_n\label{eq:modalna_masa}
+    &\text{Za modalnu masu}\quad &M_{n,n}&=\vtor{\psi}{}_n^Tm\vtor{\psi}{}_n\label{eq:modalna_masa}
 \end{alignat}
 
 Između elemenata matrica vrijedi slijedeći odnos:

@@ -1,5 +1,5 @@
 \section{Jednadžba gibanja modela pri sinusnoj pobudi}
-Dijagram sila za sustav s prigušenjem na koji djeluje sila pobude $p(t)$ prikazan je
+Prikaz sila za sustav s prigušenjem na koji djeluje sila pobude $p(t)$ nalazi se 
 na slijedećoj slici:
 
 \begin{figure}[H]
@@ -14,7 +14,7 @@ na slijedećoj slici:
         \caption{}
         \label{fig:sile-nepriguseni-ekvivalentni-sustav-sdf}
     \end{subfigure}
-    \caption{Dijagram sila;
+    \caption{Prikaz sila;
         (\subref{fig:sile-priguseni-ekvivalentni-sustav-sdf})
             prigušenog sustava; 
     (\subref{fig:sile-nepriguseni-ekvivalentni-sustav-sdf})
@@ -84,15 +84,13 @@ i pobude.}.
 Transformiranjem jednadžbe \eqref{eq:jednadzba_sinusna_pobuda} dobijemo 
 slijedeću algebarsku jednadžbu u frekvencijskoj domeni:
 \begin{equation}\label{eq:transformat_diferencijalna}
-        m(s^2U(s)-su(0)-\dot{u}(0))+
-	c(sU(s)-u(0))+
-	kU(s) = 
-        P(s)
+        m(s^2U(s)-su(0)-\dot{u}(0))+ c(sU(s)-u(0))+ kU(s) = P(s)
 \end{equation}
-Gdje je $P(s)$ transformat funkcije $p(t)=p_0\sin(\omega t)$.
+Gdje je $P(s)$ transformat funkcije $p(t)=p_0\sin(\omega t)$, a $U(s)$ transformat
+funkcije $u(t)$.
 Sređivanjem \eqref{eq:transformat_diferencijalna} dobijemo: 
 \begin{equation}\label{eq:transformat_diferencijalna_sredjeno}
-    U(s)\left(ms^2+cs+k\right)-msu(0)-m\dot{u}-cu(0) = P(s)
+    U(s)\left(ms^2+cs+k\right)-msu(0)-m\dot{u}(0)-cu(0) = P(s)
 \end{equation}
 
 Jednadžbu \eqref{eq:transformat_diferencijalna_sredjeno} možemo rastaviti na više logičnih
@@ -100,7 +98,7 @@ cijelina:
 \begin{alignat}{2}
     &\text{Dinamička krutost} & Z(s)&=ms^2+cs+k\label{eq:din_krutost}\\
     &\text{Prijenosna funkcija sustava}\quad & H(s)&=\frac{1}{Z(s)}=\frac{1}{ms^2+cs+k}\label{eq:prijenosna}\\
-    &\text{Pobuda početnim uvjetima}\quad & W(s)&=(ms+c)u(0)+m\dot{u}\label{eq:pobuda_pocetni}\\
+    &\text{Pobuda početnim uvjetima}\quad & W(s)&=(ms+c)u(0)+m\dot{u}(0)\label{eq:pobuda_pocetni}\\
     &\text{Pobuda sinusnom silom} & P(s)&=p_0\frac{\omega}{s^2+\omega^2}\label{eq:pobuda_sinusna}
 \end{alignat}
 
@@ -111,11 +109,14 @@ Uvrštavanjem \eqref{eq:prijenosna},\eqref{eq:pobuda_pocetnim_uvjetima} u
 \end{equation*}
 
 Množenjem prijenosnom funkcijom sustava ($H(s)$) dobijemo:
-\begin{equation}
-	U(s)=\underbrace{H(s)W(s)}_{\substack{\text{konvolucija u}\\\text{vremenskoj
-	domeni}}}
-	+ 
-	\underbrace{H(s)P(s)}_{\substack{\text{konvolucija u}\\\text{vremenskoj domeni}}}
+%\begin{equation}
+%	U(s)=\underbrace{H(s)W(s)}%_{\substack{\text{konvolucija u}\\\text{vremenskoj
+%	domeni}}}
+%	+ 
+%	\underbrace{H(s)P(s)}_{\substack{\text{konvolucija u}\\\text{vremenskoj domeni}}}
+%\end{equation}
+\begin{equation}\label{eq:uk_rjesenje_freq}
+    U(s) = H(s)W(s)\; + \; H(s)P(s)
 \end{equation}
 
 Pri čemu je:
@@ -212,7 +213,7 @@ Postupak određivanja i sređivanja rješenja konvolucijskog integrala iz
 rješenje.
 \begin{equation}
 	\begin{split}
-	(p*h)(t)&=\underbrace{
+	(h*p)(t)&=\underbrace{
 			Csin(\omega t)+Dcos(\omega t)
 		}_{\text{\textbf{prisilni dio odziva}}}\\
 		&-
@@ -255,7 +256,7 @@ Uvrštavanjem \eqref{eq:konvolucijski_integral_rjesenje} u
 diferencijalne jednadžbe \eqref{eq:jednadzba_sinusna_pobuda} koje glasi:
 \begin{equation}\label{eq:inverz_treci_korak}
 	u(t)=\underbrace{
-		e^{-\sigma t}(Acos(\omega_D t)+Bsin(\omega_Dt)
+            e^{-\sigma t}(Acos(\omega_D t)+Bsin(\omega_Dt))
 		}_{\text{\textbf{prolazni dio odziva}}}
 		+
 	     \underbrace{
@@ -278,7 +279,7 @@ uvjete $u(0)=0$ i $\dot{u}(0)=0$ prikazan je na slijedećoj slici.
     \input{./grafovi/sdf/odziv-priguseno}
     \label{fig:odziv-priguseno}
     \caption{Odziv prigušenog sustava na pobudu sinusnom silom za
-    $\omega/\omega_n=0.2$ i $\zeta=0.05$}
+    $\omega/\omega_n=0,2$ i $\zeta=0,05$}
 \end{figure}
 \newpage
 
@@ -307,21 +308,22 @@ koje glasi:
 \begin{equation}
 	u(t)=\underbrace{
             u(0)cos(\omega_n t)
+            +
 	\left[
-		\frac{\dot{u}(0)}{\omega_n}-\frac{\omega/\omega_n}{1-(\omega/\omega_n)^2}
+            \frac{\dot{u}(0)}{\omega_n}-\frac{p_0}{k}\frac{\omega/\omega_n}{1-(\omega/\omega_n)^2}
         \right]sin(\omega_n t)\\
 	}_{\text{\textbf{prolazni dio odziva}}}
         +
 	\underbrace{
-		\frac{1}{1-(\omega/\omega_n)^2} sin(\omega t)
+            \frac{p_0}{k}\frac{1}{1-(\omega/\omega_n)^2} sin(\omega t)
 	}_{\text{\textbf{prisilni dio odziva}}}
 \end{equation}
 
 \begin{figure}[H]
     \input{./grafovi/sdf/odziv-nepriguseno}
     \label{fig:odziv-nepriguseno}
-    \caption{Odziv neprigusenog sustava za homogene početne uvjete i
-    $\omega/\omega_n=0.2$}
+    \caption{Odziv neprigušenog sustava za homogene početne uvjete i
+    $\omega/\omega_n=0,2$}
 \end{figure}
 \newpage
 

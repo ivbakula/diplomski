@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+	%uteg_1
+	\draw[black,thick] (1.5, 2) rectangle (3.5, 0);
+
+	%sile
+	\draw[strelica1] (1.5, 1.75) -- (0.25, 1.75) 
+		node[pos=1, above]{$k_1u_1$};
+        \draw[strelica1] (1.5, 0.25) -- (0.25, 0.25)
+                node[pos=1, above]{$c_1\dot{u}_1$};
+
+	\draw[strelica1] (3.5, 1) -- ( 5.5, 1) 
+		node[pos=1, right]{$p_1(t)$};
+        \draw[strelica1] (3.5, 1.75) -- (5.5, 1.75);
+%                node[pos=1, below]{$k_2(u_2-u_1)$};
+        \draw[strelica1] (3.5, 0.25) -- (5.5, 0.25);
+%                 node[pos=1, below]{$c_2(\dot{u}_2-\dot{u}_1)$}
+                 
+            
+        %uteg_2
+        \draw[black,thick] (7.5, 2) rectangle (9.5, 0);
+
+        %sile
+        \draw[strelica1] (7.5, 1.75) -- (6, 1.75)
+                node[pos=1, above] {$c_2(\dot{u}_2-\dot{u}_1)$};
+        \draw[strelica1] (7.5, 0.25) -- (6, 0.25)
+                node[pos=1, below]{$k_2(u_2-u_1)$};
+        \draw[strelica1] (9.5, 1) -- (10.5, 1)
+                node[pos=1, above]{$p_2(t)$};
+
+\end{tikzpicture}

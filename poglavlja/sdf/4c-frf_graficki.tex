@@ -1,7 +1,7 @@
 \subsection{Grafički prikaz frekvencijske funkcije odziva}
-Zbog toga što frekvencijska funkcija odziva definira uvećanje amplitude statičkog
-pomaka i fazno zaostajanje odziva za pobudom od posebnog su nam interesa fazni i
-magnitudni spektar frekvencijske funkcije odziva (polarni zapis).
+Zbog toga što frekvencijska funkcija pomaka definira uvećanje amplitude statičkog
+pomaka (dinamički koeficijent pomaka) i fazno zaostajanje odziva za pobudom od posebnog 
+su nam interesa kut i intenzitet frekvencijske funkcije odziva (polarni zapis).
 \par
 
 Za konstantan $\omega_n$ vrijednosti funkcija definiranih jednadžbama 
@@ -9,7 +9,7 @@ Za konstantan $\omega_n$ vrijednosti funkcija definiranih jednadžbama
 $\omega/\omega_n$, stoga taj omjer možemo postaviti i kao argument navedenih
 funkcija. 
 \begin{equation}\label{eq:magnitudniSpektarZaOmjer}
-    \left|H\left(\frac{\omega}{\omega_n}\right)\right|=
+    R_d = \left|H\left(\frac{\omega}{\omega_n}\right)\right|=
         \frac{1}{\sqrt{((1-(\omega/\omega_n)^2)^2+(2\zeta(\omega/\omega_n))^2}}
 \end{equation}
 
@@ -26,19 +26,20 @@ funkcija.
     \begin{subfigure}{1\textwidth}
         \input{./grafovi/sdf/fi-priguseno}
     \end{subfigure}
-    \caption{Magnitudni i fazni spektar Frekvencijske funkcije odziva za različite vrijednosti $\zeta$}
+    \caption{Dinamički koeficijent i fazni kut za prigušeni sustav pri harmonijskoj
+    pobudi}
     \label{fig:frf-priguseno}
 \end{figure}
 
-Magnitudni spektar frekvencijske funkcije odziva prikazuje funkcijsku ovisnost
+Intenzitet frekvencijske funkcije odziva prikazuje funkcijsku ovisnost
 dinamičkog koeficijenta $R_d$ o omjeru frekvencije pobude i prirodne frekvencije za
-određeno prigušenje. Analogno tome fazni spektar frekvencijske funkcije odziva
-prikazuje ovisnost faznog kuta (kašnjenje u fazi za pobudom) o omjeru frekvencija 
+određeno prigušenje. Analogno tome fazni kut frekvencijske funkcije odziva
+prikazuje kašnjenje u fazi za pobudom u ovisnosti o omjeru frekvencija 
 $\omega/\omega_n$ za određeni faktor relativnog prigušenja.
 \par
 
-Za neprigušeno titranje funkcije faznog i magnitudnog spektra prikazane su u
-nastavku.
+Za neprigušeno titranje, funkcije faznoga kuta i dinamičkog koeficijenta pomaka prikazane 
+su u nastavku.
 \begin{equation}\label{eq:fazniSpektarNepriguseno}
     \phi\left(\frac{\omega}{\omega_n}\right)=
         \arctan\left(\frac{0}{1-(\omega/\omega_n)}\right)
@@ -68,14 +69,14 @@ faznog kuta prikazane su u nastavku:
     \begin{subfigure}{1\textwidth}
         \input{grafovi/sdf/fi-nepriguseno}
     \end{subfigure}
-    \caption{Magnitudni i fazni spektar frekvencijske funkcije odziva za neprigušeni
-    sustav}
+    \caption{Dinamički koeficijent i fazni pomak za neprigušeni sustav pri
+    harmonijskoj pobudi}
     \label{fig:frf-nepriguseno}
 \end{figure}
 \newpage
 
 Analizirajući krivulje sa \eqref{fig:frf-priguseno} i \eqref{fig:frf-nepriguseno} 
-navedene grafove možemo podijeliti na tri područja:
+navedene grafove možemo podijeliti na tri područja (~\cite{chopra2011}):
 \begin{enumerate}
     \item Područje kontrolirano krustošću - za slučaj spore promjene opterećenja
         ($\omega/\omega_n<<1$ - lijevo na grafu) utjecaj prigušenja je neznatan

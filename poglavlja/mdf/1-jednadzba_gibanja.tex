@@ -1,25 +1,49 @@
 \section{Jednadžba gibanja slobodnih oscilacija}\label{slobodne_oscilacije}
-Općenito, sustavi s više stupnjeva slobode modelirani su kao $N$ etažni posmični
+Jedan od modela sustava s više stupnjeva slobode su $N$ etažni posmični
 okviri. Takavi sustavi se sastoje od $N$ koncentriranih masa, što znači da je potrebno 
-pratiti $N$ različitih pomaka. Drugim riječima, jednadžba gibanja takvog sustava biti će
+odrediti $N$ različitih pomaka. Drugim riječima, jednadžba gibanja takvog sustava biti će
 zadana kao sustav od N diferencijalnih jednadžbi drugog reda.
 \par
 
 Sustav s više stupnjeva slobode, koji će biti razmatran u ovom radu, je dvoetažni
 posmični okvir prikazan na slijedećoj slici, a osnovni pojmovi biti će objašnjeni
 pomoću slobodnih oscilacija navedenog modela.
-
-\par
-ubaci sliku sustava i ekvivalentnog modela
-\par
+\begin{figure}[H]
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \input{skice/mdf/nepriguseni-sustav-mdf}
+        \caption{}
+        \label{fig:nepriguseni_sustav_okvir-2dof}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \input{skice/mdf/nepriguseni-ekvivalentni-sustav-mdf}
+        \caption{}
+        \label{fig:nepriguseni_ekvivalentni_sustav-2dof}
+    \end{subfigure}
+    \vfill
+    \vspace{0.5cm}
+    \begin{subfigure}[b]{1\textwidth}
+        \centering
+        \input{skice/mdf/sile-nepriguseni-ekvivalentni-sustav-mdf.tex}
+        \caption{}
+        \label{fig:sile_nepriguseni_ekvivalentni_sustav-2dof}
+    \end{subfigure}
+    \caption{Idealizirani sustav s dva stupnja slobode: 
+        (\subref{fig:nepriguseni_sustav_okvir-2dof}) dvoetažni posmični okvir;
+        (\subref{fig:nepriguseni_ekvivalentni_sustav-2dof}) ekvivalentni model;
+        (\subref{fig:sile_nepriguseni_ekvivalentni_sustav-2dof}) prikaz sila}
+    \label{fig:nepriguseni_sustav-2dof}
+\end{figure}
 
 Sustavi sa slike imaju dva dinamička stupnja slobode jer su moguće dvije translacije
-dviju različitih masa, pa jednadžbu gibanja opisuje sustav od dvije diferencijelne
+masa, pa jednadžbu gibanja opisuje sustav od dvije diferencijelne
 jednadžbe drugog reda.
 \begin{equation}\label{eq:sustav_diferencijalnih}
     \begin{dcases}
-        m\ddot{u}_1 + (k_1+k_2)u_1 -k_2u_2 = 0\\
-        m\ddot{u}_2 - k_2u_1 + k_2 u_2 = 0
+        m_1\ddot{u}_1 + (k_1+k_2)u_1 -k_2u_2 = 0\\
+        m_1\ddot{u}_2 - k_2u_1 + k_2 u_2 = 0
     \end{dcases}
 \end{equation}
 
@@ -60,11 +84,14 @@ matrice krutosti. Opći oblik rješenja sustava je slijedeći:
     \vtor{u(t)}{} = \vtor{\psi}{}q(t)
 \end{equation}
 
-Vektor $\psi$ možemo shvatiti kao konstantu integracije, a funkcija $q(t)$ je
-jednostavna harmonijska funkcija oblika:
-\begin{equation}\label{eq:jednostavna_harmonijska_funkcija}
+Vektor $\psi$ nije ovisan o vremenu pa ga u nekom smislu možemo smatrati konstantom
+integracije (~\cite{diferencijalne}), a funkcija $q(t)$ je jednostavna harmonijska 
+funkcija\footnotemark slijedećeg oblika: \begin{equation}\label{eq:jednostavna_harmonijska_funkcija}
     q(t)=A\cos(\omega t) + B\sin(\omega t)
 \end{equation}
+
+\footnotetext{Uočimo da je harmonijska funkcija $q(t)$ rješenje za jedan stupanj slobode}
+
 Druga derivacija \eqref{eq:jednostavna_harmonijska_funkcija} jest:
 \begin{equation}\label{eq:jednostavna_harmonijska_funkcija_dd}
     \ddot{q}(t)=-\omega^2(
@@ -96,41 +123,41 @@ vrijednosti odnosno matrični problem vlastitih vrijednosti. Potrebno je odredit
 dvije nepoznanice: 
 \begin{enumerate}
     \item vlastite vektore $\psi$
-    \item vlastite skalare $\omega^2$
+    \item vlastite vrijednosti $\omega^2$
 \end{enumerate}
 
-Prebacivanjem nepoznanica na jednu stranu dobijemo
+Prebacivanjem nepoznanica na jednu stranu dobijemo homogeni sustav:
 \begin{equation}\label{eq:vlastite_vrijednosti_homogeno}
     (\kk-\omega^2\mm)\vtor{\psi}{}=\vtor{0}{}
 \end{equation}
 
-U općenitom slučaju, izraz \eqref{eq:vlastite_vrijednosti_homogeno} predstavlja
-sustav od N algebarskih jednadžbi s N nepoznanica. Trivijalno rješenje sustava je za
-$\{\psi\}={0}$, a netrivijalno se određuje raspisom determinante matrice
-$[[k]-\omega^2[m]]$. Raspisom determinante navedene matrice, dobije se polinom N-tog
-stupnja kojeg nazivamo \textit{karakterističnim polinomom}. Nultočke polinoma
-predstavljaju vlastite vrijednosti $\omega^2$, odnosno kvadrirane prirodne
-frekvencije. Da bi nultočke polinoma bile realne pozitivne vrijednosti, matrice $[m]$
-i $[k]$ moraju biti simetrične i pozitivno definitne. Uvijeti za pozitivnu
-definitnost u građevinarstvu su slijedeći:
+koji u općem slučaju predstavlja sustav od N algebarskih jednadžbi s N nepoznanica. 
+Trivijalno rješenje sustava je za $\{\psi\}={0}$, a netrivijalno se određuje raspisom 
+determinante matrice $\kk-\omega^2\mm$. Raspisom determinante navedene matrice, 
+dobije se polinom N-tog stupnja kojeg nazivamo \textit{karakterističnim polinomom}. 
+Nultočke polinoma predstavljaju vlastite vrijednosti $\omega^2$, odnosno kvadrirane 
+prirodne frekvencije. Da bi nultočke polinoma bile realne pozitivne vrijednosti, 
+matrice $\mm$ i $\kk$ moraju biti simetrične i pozitivno definitne (~\cite{dk_skripta}).
+Uvijeti za pozitivnu definitnost u građevinarstvu su slijedeći:
 \begin{enumerate}
     \item za matricu $\kk$ - broj i raspored ležajeva u ispravnoj mreži mora biti
-        takav da se spriječe pomaci krutog tijela
+        takav da se spriječe pomaci krutog tijela (~\cite{dk_skripta}).
     \item za matricu $\mm$ - moraju se ukloniti stupnjevi slobode bez pridružene
-        koncentrirane mase. Uklanjanje nepotrebnih stupnjeva slobode, vrši se
-        statičkom kondenzacijom.
+        koncentrirane mase. Uklanjanje stupnjeva slobode bez mase, vrši se
+        statičkom kondenzacijom (~\cite{dk_skripta}). 
 \end{enumerate}
 
 Vlastiti vektori $\psi$ se određuju uvrštavanjem vrijednosti $\omega^2$ u matricu
-$[k-\omega^2m]$, stoga je očito da vektori $\psi$ nisu jedinstveni jer i njihovi
+$\kk-\omega^2\mm$, stoga je očito da vektori $\psi$ nisu jednoznačni jer i njihovi
 višektratnici zadovoljavaju jednadžbu \eqref{eq:vlastite_vrijednosti_homogeno}.
-Vektori $\psi$ nazivaju se \textit{modalnim vektorima}, a definiraju oblik titranja
-sustava na frekvenciji $\omega$. Prvi modalni vektor $\psi_1$, naziva se temeljnim
-(osnovnim) modom, a frekvencija na kojoj sustav titra u navedenom modu ($\omega_1$)
-naziva se \textit{vlastitom frekvencijom temeljnog moda}.
+Vektori $\psi$ nazivaju se \textit{oblicima titranja (osciliranja) sustava}, 
+a definiraju oblik titranja
+sustava na frekvenciji $\omega$. Prvi vlastiti vektor $\psi_1$, naziva se temeljnim
+(osnovnim) oblikom osciliranja, a frekvencija $\omega_1$ na kojoj sustav titra navedenim
+oblikom naziva se \textit{vlastitom frekvencijom temeljnog oblika}.
 \par
 
-Ako su sve prirodne frekvencije različite od nula i međusobno različite, tada su svi
+Ako su sve prirodne frekvencije različite od nule i međusobno različite, tada su svi
 vlastiti vektori linearno nezavisni. Skup od n linearno nezavisnih vektora čini bazu
 n-dimenzionalnog vektorskog prostora, pa je ukupno rješenje sustava diferencijalnih
 jednadžbi linearna kombinacija svih pojedinačnih rješenja.
@@ -201,7 +228,7 @@ Raspisivanjem \eqref{eq:opce_rjesenje_sustava} dobivamo:
 		\vdots \\
 		q_n(t)
 	\end{Bmatrix}
-	}_{\text{\large{$\overrightarrow{q}$}}}
+        }_{\text{\large{$\vtor{q}{}$}}}
 \]
 
 Matricu $\ppsi$ nazivamo modalna matrica, a komponente vektora $q$ nazivaju se
@@ -213,7 +240,7 @@ zapisati matrično kao:
 
 
 Osim modalne matrice postoji i spektralna matrica ($N$x$N$) koja se sastoji od N
-svojstvenih vrijednosti $\omega^2$.
+svojstvenih vrijednosti $\omega^2$ na glavnoj dijagonali.
 \[
 	\oomega^2 
 	= 
@@ -230,9 +257,9 @@ svojstvenih vrijednosti $\omega^2$.
 Za slučaj sustava s dva stupnja slobode, definiranog sustavom diferencijalnih
 jednadžbi pod \eqref{eq:sustav_diferencijalnih_matricno}, prirodne frekvencije 
 $\omega_1^2$ i $\omega_2^2$ dobivene su rješavanjem kvadratne jednadžbe karakterističnog
-polinoma za $\omega^2$. Modalne vektore možemo zapisati kao:
+polinoma za $\omega^2$. Vlastite vektore možemo zapisati kao:
 \begin{align}
-    \overrightarrow{\psi}_1=
+    \vtor{\psi}{}_1=
     \begin{Bmatrix}
         \psi_1\\
         \psi_2
@@ -242,7 +269,7 @@ polinoma za $\omega^2$. Modalne vektore možemo zapisati kao:
         \ffrac{k_1+k_2-\omega_1^2m_1}{k_2}\\
         1
     \end{Bmatrix}\\
-    \overrightarrow{\psi}_2=
+    \vtor{\psi}{}_2=
     \begin{Bmatrix}
         \psi_1\\
         \psi_2
@@ -257,25 +284,39 @@ polinoma za $\omega^2$. Modalne vektore možemo zapisati kao:
 Ukupno rješenje sustava jest linearna kombinacija slijedećih vektora:
 \begin{equation}
     \begin{dcases}
-        \vtor{u}_1(t) = \vtor{\psi}_1 q_1(t) = \vtor{\psi}_1 (A_1\cos(\omega_1 t) + B_1\sin(\omega_1 t))\\
-        \vtor{u}_2(t) = \vtor{\psi}_2 q_2(t) = \vtor{\psi}_2 (A_2\cos(\omega_2 t) + B_2\sin(\omega_2 t))
+        \vtor{u_1}{}(t) = \vtor{\psi}{}_1 q_1(t) = \vtor{\psi}{}_1 (A_1\cos(\omega_1 t) + B_1\sin(\omega_1 t))\\
+        \vtor{u_2}{}(t) = \vtor{\psi}{}_2 q_2(t) = \vtor{\psi}{}_2 (A_2\cos(\omega_2 t) + B_2\sin(\omega_2 t))
     \end{dcases}
 \end{equation}
 
 Stoga, ukupno opće rješenje glasi:
 \begin{equation}\label{eq:ukupno_opce_rjesenje_2dof}
-    \vtor{u}(t)=\vtor{u}_1(t)+\vtor{u}_2(t)
+    \vtor{u}{}(t)=\vtor{u_1}{}(t)+\vtor{u_2}{}(t)
 \end{equation}
-
-Bitno je za napomenuti da modalni vektor $\psi$ ne određuje maksimalne iznose
-ordinata već samo njihov relativni odnos, tj. modalni oblik ili oblik titranja. Da
-bismo dobili amplitude $A_n$ i $B_n$, potrebno je rješiti inicijalni problem oblika 
-$\vtor{u(0)}{} = \vtor{u}{}$ i $\vtor{u(0)}{.}=\vtor{u}{}$. Za slučaj slobodnog titranja,
+\newpage
+Bitno je za napomenuti da vlastiti vektor $\psi$ ne određuje maksimalne iznose
+ordinata već samo njihov relativni odnos, tj. oblik titranja. Da
+bismo dobili amplitude $A_n$ i $B_n$, potrebno je uzeti u obzir početne uvjete  
+$\vtor{u}{}(0) = \vtor{u}{}$ i $\vtor{u}{.}(0)=\vtor{u}{.}$. Za slučaj slobodnog titranja,
 konstante $A_n$ i $B_n$ glase:
 \begin{align}
     A_n&=u_n(0)\\
     B_n&=\frac{\dot{u}_n(0)}{\omega_n}
 \end{align}
 
-Shematski prikaz modova sustava s dva stupnja slobode prikazan je na slijedećoj
+Shematski prikaz oblika titranja sustava s dva stupnja slobode prikazan je na slijedećoj
 slici.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \input{skice/mdf/psi-2}
+        \caption{Prvi vlastiti oblik titranja}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \input{skice/mdf/psi-1}
+        \caption{Drugi vlastiti oblik titranja}
+    \end{subfigure}
+    \caption{Shematski prikaz vlastitih oblika titranja sustava s dva stupnja slobode}
+\end{figure}

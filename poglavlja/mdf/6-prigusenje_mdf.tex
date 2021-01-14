@@ -1,0 +1,205 @@
+\section{Prigušenje u sustavu s više stupnjeva slobode}
+Model prigušenog sustava s više stupnjeva slobode prikazan je na slijedećoj slici.
+\par
+\begin{figure}[H]
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \input{skice/mdf/priguseni-sustav-mdf}
+        \caption{}
+        \label{fig:priguseni_sustav_okvir-2dof}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \input{skice/mdf/priguseni-ekvivalentni-sustav-mdf}
+        \caption{}
+        \label{fig:priguseni_ekvivalentni_sustav-2dof}
+    \end{subfigure}
+    \vfill
+    \vspace{0.5cm}
+    \begin{subfigure}[b]{1\textwidth}
+        \centering
+        \input{skice/mdf/sile-priguseni-ekvivalentni-sustav-mdf}
+        \caption{}
+        \label{fig:priguseni_sustav_okvir_sile-2dof}
+    \end{subfigure}
+    \caption{Idealizirani sustav s dva stupnja slobode i prigušenjem:
+    (\subref{fig:priguseni_sustav_okvir-2dof}) dvoetažni posmični okvir s prigušenjem;
+    (\subref{fig:priguseni_ekvivalentni_sustav-2dof}) ekvivalentni prigušeni model;
+    (\subref{fig:priguseni_sustav_okvir_sile-2dof}) prikaz sila; } 
+    \label{fig:priguseni_sustav-2dof}
+\end{figure}
+
+Jednadžba gibanja sa slike \ref{fig:priguseni_sustav-2dof} glasi:
+\begin{equation}\label{eq:JednadzbaGibanjaPriguseniMDF}
+    \begin{dcases}
+        m_1\ddot{u}_1+\dot{u}_1(c_1+c_2)-c_2\dot{u}_2+u_1(k_1+k_2)-k_2u_2=p_1(t)\\
+        m_2\ddot{u}_2+c_2\dot{u}_2-c_2\dot{u}_1+k_2u_2-k_2u_1=p_2(t)
+    \end{dcases}
+\end{equation}
+
+Sustav \eqref{eq:JednadzbaGibanjaPriguseniMDF} možemo zapisati u matričnom obliku:
+\begin{equation}\label{eq:JednadzbaGibanjaPriguseniMDF-matrice}
+    \begin{bmatrix}
+        m_1 & 0 \\
+        0   & m_2
+    \end{bmatrix}
+    \begin{Bmatrix}
+        \ddot{u}_1\\
+        \ddot{u}_2
+    \end{Bmatrix}
+    +
+    \begin{bmatrix}
+        c_1 + c_2 & -c_2\\
+        -c_2 & c_2
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        k_1+k_2 & -k_2\\
+        -k_2 & k_2
+    \end{bmatrix}
+    \begin{Bmatrix}
+        u_1\\
+        u_2
+    \end{Bmatrix}
+    =
+    \begin{Bmatrix}
+        p_1\\
+        p_2 
+    \end{Bmatrix}
+\end{equation}
+
+Kompaktniji zapis jednadžbe pod \eqref{eq:JednadzbaGibanjaPriguseniMDF-matrice} 
+prikazan je u nastavku:
+\begin{equation}\label{eq:JednadzbaGibanjaPrigusenoMDF-matricni}
+    \mm\vtor{u}{:}+\cc\vtor{u}{.}+\kk\vtor{u}{} = \vtor{p}{}
+\end{equation}
+
+Uvodi se $u=\ppsi\vtor{q}{}$ te jednadzba \eqref{eq:JednadzbaGibanjaPrigusenoMDF-matricni}
+poprima slijedeći oblik:
+\begin{equation}
+    \mm\ppsi\vtor{q}{:}+\cc\ppsi\vtor{q}{.}+\kk\ppsi\vtor{q}{}=\vtor{p(t)}{}\qquad 
+\end{equation}
+
+Množenjem s $\ppsi^T$ dobijemo:
+\begin{equation}\label{eq:JednadzbaGibanjaPrigusenoMDF-svedi}
+    \ppsi^T\mm\ppsi\vtor{q}{:}+\ppsi^T\cc\ppsi\vtor{q}{.}+\ppsi^T\kk\ppsi\vtor{q}{}=\ppsi^T\vtor{p(t)}{}\\
+\end{equation}
+
+Iz poglavlja \ref{sec:normiranje} poznato je da vrijedi:
+\begin{align*}
+    \M &= \ppsi^T\mm\ppsi\\
+    \K &= \ppsi^T\kk\ppsi
+\end{align*}
+Gdje su matrice $\M$ i $\K$ dijagonalne matrice modalne mase odnosno krutosti. Osim
+matrica $\M$ i $\K$ uvodi se i matrica $\C$ koju nazivamo matricom modalnog
+prigušenja, pa je jednadžbu \eqref{eq:JednadzbaGibanjaPrigusenoMDF-svedi} moguće
+zapisati na slijedeći način:
+
+\begin{equation}\label{eq:ModalneJednadzbe}
+    \M\vtor{q}{:} + \C\vtor{q}{.} + \K\vtor{q}{} = \vtor{P}{}
+\end{equation}
+
+Gdje je $\vtor{P}{}$ vektor modalnog opterećenja. Matrica modalnog prigušenja $\C$ može 
+i ne mora biti dijagonalna pa je potrebno razmotriti dva različita slučaja.
+    \begin{enumerate}
+        \item Ukoliko je matrica $\C$ dijagonalna, jednadžba
+            \eqref{eq:ModalneJednadzbe} predstavlja skup međusobno neovisnih
+            jednadžbi pa je na takvome sustavu primjenjiva klasična modalna analiza.
+            Takav oblik prigušenja naziva se \textit{klasični oblik prigušenja}.
+            
+        \item Ukoliko matrica $\C$ nije dijagonalna, jednadžba
+            \eqref{eq:ModalneJednadzbe} predstavlja sustav međusobno povezanih
+            diferencijalnih jednadžbi, te na takav sustav nije primjenjiva klasična
+            modalna analiza. Takav oblik prigušenja naziva se \textit{općim oblikom
+            prigušenja}.
+    \end{enumerate}
+
+Matrica modalnog prigušenja zadana je slijedećim izrazom:
+\begin{equation}\label{eq:ModalnoPrigusenje}
+    C = \ppsi^T \cc \ppsi
+\end{equation}
+
+Za sustav s dva stupnja slobode, matrica $\C$ glasi:
+\begin{equation}
+    \begin{bmatrix}
+        I & II\\
+        III & IV
+    \end{bmatrix}
+\end{equation}
+
+Gdje je:
+\begin{align*}
+    I  &= \psi_{1,1}^2c_1+\psi_{1,1}^2c_2+\psi_{2,1}c_2\psi_{1,1}+\psi_{2,1}^2c_2-\psi_{1,1}c_2\psi_{2,1}\\
+    II &= \psi_{1,1}c_1\psi_{1,2}+\psi_{1,1}c_2\psi_{1,2}-\psi_{2,1}c_2\psi_{1,2}+\psi_{2,1}c_2\psi_{2,2}-\psi_{1,1}c_2\psi_{2,2}\\
+    III&= \psi_{1,1}c_1\psi_{1,2}+\psi_{1,1}c_2\psi_{1,2}-\psi_{2,1}c_2\psi_{1,2}+\psi_{2,1}c_2\psi_{2,2}-\psi_{1,1}c_2\psi_{2,2}\\
+    IV &= \psi_{1,2}^2c_1+\psi_{1,2}^2c_2i-\psi_{2,2}c_2\psi_{1,2}+\psi_{2,2}^2c_2-\psi_{1,2}c_2\psi_{2,2}
+\end{align*}
+
+Matrica $\C$ biti će dijagonalna ukoliko su elementi iznad i ispod glavne dijagonale
+jednaki nula, što znači da je potrebno riješiti slijedeći sustav jednadžbi:
+\begin{equation}
+    \begin{dcases}
+        II=0\\
+        III=0
+    \end{dcases}
+\end{equation}
+
+Zbog toga što je matrica $\C$ simetrična s obzirom na glavnu dijagonalu (u ovom
+slučaju), preostaje jedna jednadžba s dvije nepoznanice $c_1$ i $c_2$, odnosno:
+\begin{equation}\label{eq:JednadzbaRazdiobaPrigusenja}
+    \psi_{1,1}c_1\psi_{1,2}+\psi_{1,1}c_2\psi_{1,2}-\psi_{2,1}c_2\psi_{1,2}+\psi_{2,1}c_2\psi{2,2}-\psi_{1,1}c_2\psi_{2,2}=0
+\end{equation}
+
+Navedena jednadžba ima beskonačno mnogo rješenja slijedećeg oblika:
+\begin{equation}\label{eq:JednadzbaRazdiobaPrigusenja-rjesenje}
+    \frac{c_1}{c_2} = -\frac{\psi_{1,2}\psi_{1,1}-\psi_{2,2}\psi_{1,1}+\psi_{2,2}\psi_{2,1}-\psi_{1,2}\psi_{2,1}}
+                            {\psi_{1,2}\psi_{1,1}}
+\end{equation}
+
+Rješenja jednadžbe \eqref{eq:JednadzbaRazdiobaPrigusenja}
+predstavljaju svaki $c_1$ i $c_2$, čiji je međusobni omjer jednak razlomku s desne
+strane izraza \eqref{eq:JednadzbaRazdiobaPrigusenja-rjesenje}. Iz jednadžbi
+\eqref{eq:JednadzbaRazdiobaPrigusenja} i \eqref{eq:JednadzbaRazdiobaPrigusenja-rjesenje} 
+slijedi da će matrica $\C$ biti dijagonalna samo ako omjer koeficijenata prigušenja $c_1/c_2$ 
+zadovoljava jednakost pod \eqref{eq:JednadzbaRazdiobaPrigusenja-rjesenje}. U
+protivnom, matrica $\C$ nije dijagonalna a u sustavu vlada opći oblik prigušenja.
+Omjer prigušenja nazivamo \textit{razdiobom prigušenja u sustavu}. Zaključno, oblik
+matrice $\C$ ovisi o razdiobi prigušenja u sustavu.
+\par
+
+Bitno je za napomenuti da u slučaju općeg prigušenja, oblici titranja sustava
+su različiti od oblika titranja neprigušenog sustava, a iz jednadžbe pod
+\eqref{eq:JednadzbaGibanjaPriguseniMDF-matrice} dobije se kompleksni problem
+vlastitih vrijednosti čija rješenja su kompleksni vlastiti vektori $\psi$ i
+kompleksne vlastite vrijednosti $\omega$. Zbog svoje dugotrajnosti i matemtičke složenosti,
+navedeni slučaj neće biti razmatran u ovome radu.
+\par
+
+Dakle, jednadžbu \eqref{eq:ModalneJednadzbe} moguće je riješiti ukoliko je sustav
+prigušen klasičnim oblikom prigušenja (matrica $\C$ je dijagonalna), pri čemu je
+postupak analogan postupku iz poglavlja ~\ref{sec:modalnaAnalizaNepriguseniSustav}. Modalna
+jednadžba n-tog oblika titranja glasi:
+\begin{equation}\label{eq:ModalnaJednadzba_n}
+    M_n\ddot{q}_n + C_n\dot{q}_n  + K_nq = P_n(t)
+\end{equation}
+Gdje je $M_n$, $C_n$, $K_n$ i $P_n$ modalna masa, modalno prigušenje, modalna
+krutost i modalno opterećenje n-tog oblika titranja.
+Dijeljenjem jednadžbe \eqref{eq:ModalnaJednadzba_n} s modalnom masom $M_n$ dobijemo:
+\begin{equation}\label{eq:modalnaPriguseno-konacno}
+    \ddot{q}_n + 2\omega_n\zeta_n\ddot{q}_n + \omega_n^2q = \frac{P_n}{M_n}
+\end{equation}
+
+Gdje je $\zeta_n$ relativni faktor prigušenja n-tog oblika titranja a $\omega_n$
+prirodna frekvencija n-tog oblika titranja. Forma rješenja diferencijalne jednadžbe 
+\eqref{eq:modalnaPriguseno-konacno} prikazana je pod \eqref{eq:modalnaPriguseno-rjesenje} 
+a predstavlja odziv n-tog oblika titranja sustava s više stupnjeva slobode. 
+
+\begin{equation}\label{eq:modalnaPriguseno-rjesenje}
+    u_n = \psi_n q_n(t)
+\end{equation}
+
+Ukupni odziv dobijemo superpozcijom odziva svih modalnih oblika, odnosno:
+\begin{equation} 
+    u(t) = \sum_{n=1}^Nu_n(t) = \sum_{n=1}^N\psi_nq_n(t)
+\end{equation}

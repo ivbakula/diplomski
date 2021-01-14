@@ -16,7 +16,7 @@
 \RequirePackage{anyfontsize}
 
 %literatura
-\RequirePackage[backend=biber,style=ieee]{biblatex}
+\RequirePackage[backend=biber,style=authoryear-ibid]{biblatex}
 \addbibresource{lit.bib}
 
 %matematika
@@ -32,6 +32,9 @@
 \RequirePackage{float}
 \RequirePackage{graphicx}
 \RequirePackage{subcaption}
+
+% za referiranje na jednadzbe kroz vise datoteka (naredba \externaldocument{})
+%\usepackage{xr}
 
 %za grafove
 \RequirePackage{tikz}

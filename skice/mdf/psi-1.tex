@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+    %podloga
+    \draw[white, pattern=north east lines, pattern color=black] (-1, 0)
+        rectangle (1, -0.5);
+    \draw[thick] (-1, 0) -- (1, 0);
+
+    %centar
+    \draw[thick] (0, 0) -- (0, 4);
+
+    %bezier #1
+%    \draw[thick] (0,0) ..controls(1.5, 2) and (-0.3,3).. (-0.5, 4);
+%    \draw[thick] (0,0) ..controls(-1.5, 2) and (0.3,3).. (0.5, 4);
+
+    \draw[thick] (0, 0) ..controls (0.3, 0.2) and (-1.25, 2) .. (0, 3);
+    \draw[thick] (0, 3) ..controls (0.5, 3.5) .. (0.5, 4);
+
+    %simietricno
+    \draw[thick] (0, 0) ..controls (-0.3, 0.2) and (1.25, 2) .. (0, 3);
+    \draw[thick] (0, 3) ..controls (-0.5, 3.5) .. (-0.5, 4);
+
+
+    %dvica
+    \draw[thick] (0, 0) ..controls (0.2, 0.2) and (-0.7, 2) .. (0, 3);
+    \draw[thick] (0, 3) ..controls (0.25, 3.5) .. (0.25, 4);
+
+    %simetricno
+    \draw[thick] (0, 0) ..controls (-0.2, 0.2) and (0.7, 2) .. (0, 3);
+    \draw[thick] (0, 3) ..controls (-0.25, 3.5) .. (-0.25, 4);
+
+    %vektori
+    \draw[strelica1] (0, 2) -- (-0.5, 2) node[pos=1, left] {$\mathbf{\psi_{1,2}}$};
+    \draw[strelica1] (0, 4) -- (0.5, 4) node[pos=1, right] {$\mathbf{\psi_{2,2}}$};
+\end{tikzpicture}
