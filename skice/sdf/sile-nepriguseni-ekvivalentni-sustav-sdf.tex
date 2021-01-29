@@ -1,4 +1,20 @@
 \begin{tikzpicture}
+%povecaj strelice
+\tikzset{myptr/.style={decoration={markings,mark=at position 1 with %
+    {\arrow[scale=2,>=stealth]{>}}},postaction={decorate}}}
+
+	%podloga
+%	\draw[white, pattern=north east lines, pattern color=black] (0, 0)
+%	rectangle (-0.5, 2.2);
+%	\draw[thick] (0,0) -- (0, 2.2);
+
+%	\draw[white, pattern=north east lines, pattern color=black] (0, 0) 
+%	rectangle (5, -0.5);
+%	\draw[thick] (0,0) -- (5,0);
+	
+%	\draw[white, pattern=north east lines, pattern color=black] (0, 0)
+%	rectangle (-0.5, -0.5);
+
 	%uteg
 	\filldraw[fill=gray] (1.5, 2) rectangle (3.5, 0.25);
 
@@ -7,9 +23,9 @@
 	\filldraw[fill=gray] (3, 0.125) circle (0.125);
 
 	%sile
-	\draw[strelica1] (1.5, 1) -- (0.25, 1) 
+	\draw[myptr] (1.5, 1) -- (0.25, 1) 
 		node[pos=1, above]{\textbf{\large{$F_s$}}};
-	\draw[strelica1] (3.5, 1) -- ( 4.75, 1) 
+	\draw[myptr] (3.5, 1) -- ( 4.75, 1) 
 		node[pos=1, above]{\textbf{\large{$p(t)$}}};
 
 \end{tikzpicture}
