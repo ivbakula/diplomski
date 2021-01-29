@@ -1,9 +1,10 @@
-\subsection{Analiza područja rezonance}
-Osim rezonantne frekvencije potrebno je odrediti i pojas polovice snage vrha
-frekvencijske funkcije odziva, koji je prikazan na slici \ref{fig:hpb}. Pojas polovice
-snage vrha frekvencijske funkcije odziva bitan je iz dva razloga:
+\subsection{Analiza područja rezonancije}
+Osim rezonancijske frekvencije potrebno je odrediti i pojas polovice snage
+(\textit{engl.} half-power bandwidth) vrha frekvencijske funkcije odziva, 
+koji je prikazan na slici \ref{fig:hpb}. Pojas polovice snage vrha frekvencijske funkcije
+odziva bitan je iz dva razloga:
 \begin{enumerate}
-    \item osim pobude rezonantnom frekvencijom, opasne su i pobude frekvencijama iz
+    \item osim pobude rezonancijskom frekvencijom, opasne su i pobude frekvencijama iz
         njezinog okoliša. Navedeni okoliš definiran je pojasom polovice snage.
     \item Zbog praktične primjene - pojas polovice snage koristi se u pokusima
         za određivanje stupnja prigušenja konstrukcija
@@ -19,7 +20,7 @@ dinamičkog faktora računa se prema slijedećoj relaciji:
     R_d = \frac{1}{\sqrt{2}}R_d^{max}
 \end{equation}
 
-Sa slike je vidljivo da je dinamički faktor $R_d$ iz \eqref{eq:hpb} definiran za
+Sa slike \ref{fig:hpb} je vidljivo da je dinamički faktor $R_d$ iz \eqref{eq:hpb} definiran za
 dvije vrijednosti frekvencije pobude: $\omega_a$ i $\omega_b$. Raspisivanjem
 jednadžbe pod \eqref{eq:hpb} dobijemo:
 
@@ -60,7 +61,7 @@ Odnosno:
     \left(\frac{\omega}{\omega_n}\right)\approx
         \sqrt{1 \pm 2\zeta}
 \end{equation}
-Jednadžba \eqref{hpb_kvadratna_2}, nakon aproksimacije korijena s prva dva člana Taylorovog
+Jednadžba \eqref{eq:hpb_kvadratna_2}, nakon aproksimacije korijena s prva dva člana Taylorovog
 reda glasi:
 \begin{equation}\label{eq:hpb_kvadratna_konacno}
     \frac{\omega}{\omega_n} = 1 \pm \zeta
@@ -84,6 +85,6 @@ Te konačno, dijeljenjem brojnika i nazivnika s $2\pi$:
 
 Gdje je $f=\omega/2\pi$ kružna frekvencija. Jednadžbe pod \eqref{eq:hpb_zeta_omega}
 i \eqref{eq:hpb_zeta_f} bitne su jer omogućuju određivanje koeficijenta relativnog prigušenja
-$\zeta$ bez potrebe za poznavanjem intenziteta sile pobude. 
+$\zeta$ bez potrebe za poznavanjem intenziteta sile pobude (~\cite{chopra2011}). 
 
 

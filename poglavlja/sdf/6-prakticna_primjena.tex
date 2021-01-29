@@ -3,7 +3,7 @@ Definiranjem matematičkog modela prigušenog sustava s jednim stupnjem slobode,
 pobuđenog sinusnom silom postavljeni su temelji za eksperimentalno određivanje
 stupnja prigušenja i prirodne frekvencije. Stupnanj prigušenja jest veličina od
 izuzetne praktične važnosti, a nije ga moguće odrediti teoretski iz projektnih
-parametara, već se mora odrediti eksperimentalno. %Isto tako izmjerena vrijednost prirodne
+parametara, već se mora odrediti eksperimentalno (~\cite{dk_skripta}). %Isto tako izmjerena vrijednost prirodne
 %frekvencije jest stvarno svojstvo konstrukcije, s kojim se uspoređuje teoretski
 %određena prirodna frekvencija. 
 Ispitivanje koje će biti razmatrano u ovome radu naziva se \textit{rezonancijski
@@ -17,7 +17,7 @@ pokus}.
 Ispitivanja se provode \textit{vibracijskim uređajem}. Vibracijski uređaj se sastoji
 od dvije košare sa utezima na uspravnoj osovini koje rotiraju u suprotnim smjerovima
 konstantnom kutnom brzinom $\omega$. Osovina je pričvršćena za metalnu ploču koja se
-kruto povezuje s građevinom. 
+kruto povezuje s građevinom (~\cite{dk_skripta}). 
 
 \begin{figure}[H]
         \begin{subfigure}[b][][l]{0.45\textwidth}
@@ -56,7 +56,7 @@ Amplituda prisilnog pomaka glasi (iz \eqref{eq:prisilni_alternativno_rjesenje_Rd
     u_0=\frac{m_ee}{k}\omega^2R_d = \frac{m_ee}{m}\left(\frac{\omega}{\omega_n}\right)^2R_d
 \end{equation}
 
-Amplituda prisilnog ubrzanja (iz \eqref{eq:R_a}
+Amplituda prisilnog ubrzanja (iz \eqref{eq:R_a}):
 \begin{equation}
     \ddot{u}_0=\frac{m_ee}{m}\omega^2R_a=\frac{m_ee\omega_n^2}{m}\left(\frac{\omega}{\omega_n}\right)^2R_a
 \end{equation}
@@ -94,11 +94,11 @@ Prirodna frekvencija se određuje na slijedeći način:
 \end{enumerate}
 
 Amplitudu prisilnog pomaka možemo dobiti iz amplitude prisilnog ubrzanja korištenjem
-slijedeće formule:
+slijedeće formule (iz (~\cite{dk_skripta})):
 \begin{equation}
     u_0=\frac{(\ddot{u}_0)_{\omega=\omega_n}}{(\omega^2)_{\omega=\omega_n}} \quad
     \text{ jer je } \quad
-    \ddot{u}(t) = -u_0\omega\sin(\omega t -\phi), \quad
+    \ddot{u}(t) = -u_0\omega^2\sin(\omega t -\phi), \quad
 \end{equation}
 
 Da bi bilo moguće odrediti prigušenje sustava prema formuli \eqref{eq:rezonancijski_pokus} 

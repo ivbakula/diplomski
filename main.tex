@@ -3,10 +3,11 @@
 \usetikzlibrary{shapes, arrows, positioning}
 \usetikzlibrary{patterns}
 \usetikzlibrary{decorations.pathmorphing,patterns}
+\usetikzlibrary{math}
 \pgfplotsset{width=15cm, compat=1.15}
 
 \usetikzlibrary{external}
-\tikzexternalize[prefix=meta/]
+\tikzexternalize[prefix=figures/]
 %\tikzset{external/system call={pdflatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode}}
 
 %strelice
@@ -28,11 +29,28 @@
 }
 \newcommand\mm{\mathbf{m}}
 \newcommand\kk{\mathbf{k}}
+\newcommand\cc{\mathbf{c}}
 \newcommand\ppsi{\mathbf{\Psi}}
 \newcommand\oomega{\mathbf{\Omega}}
 \newcommand\K{\mathbf{K}}
 \newcommand\M{\mathbf{M}}
+\newcommand\C{\mathbf{C}}
 
+%argumenti #1 - x_0 #2 - y_0 \dx - x_1 #4 - y_1
+\newcommand{\prigusivac}[4]{%
+    \tikzmath{\dx = #3 - #1;}
+    \tikzmath{\dy = #4 - #2;}
+    \draw[thick](#1, #2) -- ({\dx/2-0.5}, {\dy/2+#2});
+    \draw[thick]({\dx/2-0.5}, {(\dy/2+#2}) -- ({\dx/2-0.1}, {\dy/2+#2});
+    \draw[thick]({\dx/2+0.1}, {\dy/2+#2}) -- ({\dx/2+0.5}, {\dy/2+#2});
+    \draw[thick]({\dx/2+0.5}, {\dy/2+#2}) -- (#3, #4);
+
+    \draw[thick]({\dx/2-0.1}, {\dy/2+#2-0.3}) -- ({\dx/2-0.1}, {\dy/2+#2+0.3});
+    \draw[thick]({\dx/2-0.1}, {\dy/2+#2-0.3}) -- ({\dx/2+0.25}, {\dy/2+#2-0.3});
+    \draw[thick]({\dx/2-0.1}, {\dy/2+#2+0.3}) -- ({\dx/2+0.25}, {\dy/2+#2+0.3});
+
+    \draw[thick]({\dx/2+0.1}, {\dy/2+#2+0.2}) -- ({\dx/2+0.1}, {\dy/2+#2-0.2});
+}
 \begin{document}
 \frontmatter
 \tableofcontents
@@ -76,7 +94,7 @@
     \newpage
     \input{./poglavlja/mdf/5-modalna_analiza}
     \newpage
-\nocite{*}
+    \input{./poglavlja/mdf/6-prigusenje_mdf}
 
 \printbibliography[title=Popis literature]
 \end{document}

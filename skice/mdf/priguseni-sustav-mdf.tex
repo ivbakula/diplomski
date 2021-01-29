@@ -1,0 +1,42 @@
+\begin{tikzpicture}
+%štapovi
+    %prvi (donji) okvir
+	\draw[thick] (0,0) -- (0,2.2)
+                node[pos=0.5,left]{\large{$k_1$}};
+	\draw[thick] (0,2.2) -- (4,2.2);
+	\draw[thick] (4,0) -- (4,2.2);
+
+    %drugi (gornji) okvir
+        \draw[thick] (0,2.2) -- (0, 4.4)
+                node[pos=0.5,left]{\large{$k_2$}};
+        \draw[thick] (0, 4.4) -- (4, 4.4);
+        \draw[thick] (4, 2.2) -- (4, 4.4);
+	
+%mase
+        %donja
+	\filldraw[color=black, fill=gray] (2,2.2) circle (0.42);
+	\node[draw=none, fill=none] at(2,2.2) 
+        {$m_1$};
+
+        %gornja
+        \filldraw[color=black, fill=gray] (2,4.4) circle (0.42);
+        \node[draw=none, fill=none] at (2,4.4)
+        {$m_2$};
+
+        %dolje
+        \prigusivac{0}{0}{4}{2.2}
+        \node[draw=none, fill=none] at (1.65, 1.4) {\large{$c_1$}};
+        %gore
+        \prigusivac{0}{2.2}{4}{4.4} 
+        \node[draw=none, fill=none] at (1.65, 3.6) {\large{$c_2$}};
+
+
+%podloga
+	\draw[white, pattern=north east lines, pattern color=black] (-0.5, 0) 
+	rectangle (0.5, -0.5);
+	\draw[thick] (-0.5, 0) -- (0.5, 0);
+
+	\draw[white, pattern=north east lines, pattern color=black] (3.5, 0)
+	rectangle (4.5, -0.5);
+	\draw[thick] (3.5, 0) -- (4.5, 0);
+\end{tikzpicture}

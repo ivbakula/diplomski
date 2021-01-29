@@ -1,21 +1,21 @@
-\section{Rezonanca}
-Rezonanca je pojava koja se javlja prilikom pobude rezonantnom frekvencijom.
-Rezonantna frekvencija je ona frekvencija pobude za koju će dinamički koeficijent
-odziva biti maksimalan. 
+\section{Rezonancija}
+Rezonanija je pojava koja se javlja prilikom pobude rezonancijskom frekvencijom (~\cite{dk_skripta}).
+Rezonancijska frekvencija je ona frekvencija pobude za koju će dinamički koeficijent
+odziva biti maksimalan (~\cite{dk_skripta}). 
 \par
 
-\subsection{Rezonanca sustava s prigušenjem}
+\subsection{Rezonancija sustava s prigušenjem}
 Razmatranjem krivulja frekvencijskih funkcija odziva sa slike 
 \ref{fig:rd-rv-ra}, možemo uočiti da jedino maksimumi krivulja $R_v$ padaju na 
 vertikalni pravac $\omega/\omega_n=1$. Isto tako, vidljivo je da maksimalni $R_d$
 pada ulijevo od navedenog pravca a maksimalni $R_a$ udesno. To znači da će se 
-rezonantne frekvencije dinamičkih faktora ($R_d$, $R_v$ i $R_a$) međusobno razlikovati 
-te da će rezonantne frekvencije dinamičkih faktora $R_d$ i $R_a$ biti različite od
+rezonancijske frekvencije dinamičkih faktora ($R_d$, $R_v$ i $R_a$) međusobno razlikovati 
+te da će rezonancijske frekvencije dinamičkih faktora $R_d$ i $R_a$ biti različite od
 prirodne frekvencije sustava.
 
-Rezonantne frekvencije za pojedini spektar možemo odrediti deriviranjem frekvencijske 
+Rezonancijske frekvencije za pojedini spektar možemo odrediti deriviranjem frekvencijske 
 funkcije odziva po $\omega/\omega_n$ te izjednačavanjem prve derivacije s
-nulom.
+nulom (~\cite{chopra2011}).
 \[
     R_d = \frac{1}{\sqrt{(1-(\omega/\omega_n)^2) + (2\zeta(\omega/\omega_n))^2}}
 \]
@@ -34,28 +34,40 @@ odnosno:
 \]
 Da bi razlomak bio jednak nula izraz u brojniku mora biti jednak nula.
 Izjednačavanjem brojnika s nulom dobijemo slijedeću jednadžbu:
+\begin{equation}\label{eq:rv_proracun}
+    2x^3 + (4\zeta^2 -2)x = 0
+\end{equation}
+Prvo (trivijalno) rješenje je $x=0$. Daljnim raspisom jednadžbe \eqref{eq:rv_proracun},
+dobijemo slijedeću kvadratnu jednadžbu iz koje se dobije netrivijalno rješenje:
 \[
     \begin{aligned}
-        2x^3+(4\zeta^2-2)x &= 0\\
         x^2 &= 1-2\zeta^2\\
-        x &= \sqrt{1-2\zeta^2} \quad \text{ Uz } \zeta < \frac{1}{\sqrt{2}}
+        x &= \sqrt{1-2\zeta^2} \quad \text{ uz } \zeta < \frac{1}{\sqrt{2}}
     \end{aligned}
 \]
-Uvrštavanjem $\omega/\omega_n$ dobijemo izraz za rezonantnu frekvenciju pomaka:
+Uvrštavanjem $\omega/\omega_n$ dobijemo izraz za rezonancijsku frekvenciju pomaka:
 \begin{equation}\label{eq:rezonantna_frekvencija_pomak}
-    \omega=\omega_n\sqrt{1-2\zeta^2}
+    \frac{\omega}{\omega_n}=\sqrt{1-2\zeta^2}
 \end{equation}
-Analogno tome dobiju se izrazi za rezonantne frekvencije brzine i ubrzanja.
+Analogno tome dobiju se izrazi za rezonancijske frekvencije brzine i ubrzanja.
 \begin{align}
-    \text{Rezonantna frekvencija pomaka}\quad & \omega = \omega_n\sqrt{1-\zeta^2}\label{eq:rd_rezonanca}\\
-    \text{Rezonantna frekvencija brzine}\quad & \omega = \omega_n\label{eq:rv_rezonanca}\\
-    \text{Rezonantna frekvencija ubrzanja}\quad & \omega = \frac{\omega_n}{\sqrt{1-2\zeta^2}}\label{eq:ra_rezonanca}
+    \text{Rezonancijska frekvencija pomaka}\quad & \frac{\omega}{\omega_n} = \sqrt{1-\zeta^2}\label{eq:rd_rezonanca}\\
+    \text{Rezonancijska frekvencija brzine}\quad & \frac{\omega}{\omega_n} = 1 \label{eq:rv_rezonanca}\\
+    \text{Rezonancijska frekvencija ubrzanja}\quad & \frac{\omega}{\omega_n} = \frac{1}{\sqrt{1-2\zeta^2}}\label{eq:ra_rezonanca}
+\end{align}
+
+Maksimalni dinamički faktori (dinamički faktori za rezonancijske frekvencije) glase
+(iz (~\cite{chopra2011})):
+\begin{align}
+    \text{Maksimalni dinamički faktor pomaka}\quad & R_d = \frac{1}{2\zeta\sqrt{1-\zeta^2}}\\
+    \text{Maksimalni dinamički faktor brzine}\quad & R_v = \frac{1}{2\zeta}\\
+    \text{Maksimalni dinamički faktor ubrzanja}\quad & R_a = \frac{1}{2\zeta{1-\zeta^2}}
 \end{align}
 
 Zbog jednostavnosti, karakteristike odziva prigušenog sustava s jednim stupnjem
-slobode u rezonanci, razmotriti ćemo za slučaj $\omega = \omega_n$ uz
-homogene početne uvjete. Iako se rezonantna frekvencija pomaka ne podudara s 
-prirodnom frekvencijom sustava, navedene vrijednosti su vrlo bliske za mali $\zeta$. 
+slobode u rezonanciji, razmotriti ćemo za slučaj $\omega = \omega_n$ uz
+homogene početne uvjete. Iako se rezonancijska frekvencija pomaka ne podudara s 
+prirodnom frekvencijom sustava, navedene vrijednosti su vrlo bliske za mali $\zeta$ (~\cite{chopra2011}). 
 Vremenska funkcija pomaka prigušenog sustava prikazana jednadžbom \eqref{eq:inverz_treci_korak}
 
 Uz homogene početne uvjete i za $\omega=\omega_n$, koeficijenti $A,B,C,\text{ i }D$
@@ -77,8 +89,9 @@ u \eqref{eq:inverz_treci_korak} te sređivanjem dobijemo:
         -\cos(\omega_n t)
         \right]
 \end{equation}
-Iz navedene jednadžbe proizlazi da je amplituda odziva ograničena na vrijednost
-(uočimo da je odziv sustava kontroliran prigušenjem):
+Iz navedene jednadžbe proizlazi da je amplituda odziva ograničena na
+vrijednost:\footnote{Uočimo da je odziv sustava kontroliran prigušenjem (jednadžba \eqref{eq:frf_rezonanca})}
+
 \begin{equation}\label{eq:rezonanca_amplituda}
     u_0=\frac{(u_{st})_0}{2\zeta}
 \end{equation}
@@ -93,9 +106,8 @@ postaje:
 \end{equation}
 
 Iz jednadžbe \eqref{eq:rezonancaOdzivAproksimacija} može se zaključiti da i za
-slučaj rezonance postoji prolazni i prisilni dio odziva, a ukupni odziv je razlika
+slučaj rezonancije postoji prolazni i prisilni dio odziva, a ukupni odziv je razlika
 između prolaznog i prisilnog djela. 
-\newpage
 Prolazni dio odziva opisan je jednadžbom
 \[
     e^{-\sigma t} \cos(\omega_n t)
@@ -119,15 +131,16 @@ prikaz dostizanja prisilnog stanja prikazan je na slijedećoj slici:
     \label{fig:rezonanca-priguseno}
 \end{figure}
 
-O prigušenju u rezonanci ovise slijedeći parametari odziva:
+O prigušenju u rezonanciji ovise slijedeći parametari odziva:
 \begin{itemize}
     \item brzina dostizanje ustaljenog stanja (maksimalne amplitude) - brzina dostizanja 
         ustaljenog stanja raste proporcionalno s prigušenjem (veće prigušenje $\to$ strmija krivulja
         ovojnice $\to$ brže dostizanje ustaljenog stanja).
 
     \item vrijednost maksimalne amplitude - obrnuto proporcionalna od vrijednosti
-        prigušenja, definirana izrazom \eqref{eq:rezonanca_amplituda}. 
-        (veće prigušenje, manja maksimalna amplituda, vidljivo i u frekvencijskim funkcijama odziva)
+        prigušenja, definirana izrazom \eqref{eq:rezonanca_amplituda}
+        (veće prigušenje, manja maksimalna amplituda, vidljivo i u frekvencijskim
+        funkcijama odziva).
 \end{itemize}
 
 Određivanje broja titraja koji je potreban za dostizanje ustaljenog stanja vrši
@@ -166,39 +179,27 @@ Izraz ima smisla samo za diskretne vrijednosti argumenta $j$, odnosno za $j \in
 \mathbb{N}$.
 
 \par
-\begin{minipage}[b][][l]{0.1\textwidth}
-\begin{table}[H]
-    \begin{tabular}{c | c}
-       \hline
-        $\zeta$ & $j$\\
-        \hline
-        $0.01$ & $48$\\
-        \hline
-        $0.02$ & $24$\\
-        \hline
-        $0.05$ & $10$\\
-        \hline
-        $0.1$ & $5$\\
-        \hline
-        $0.2$ & $3$\\
-        \hline
-    \end{tabular}
-    \caption{Očitanje s grafa}
-    \label{table:prirast-rezonanca-priguseno}
-\end{table}
-\end{minipage}
-\hfill
-\begin{minipage}[b][][r]{0.8\textwidth}
 \begin{figure}[H]
     \input{grafovi/sdf/prirast-rezonanca-priguseno}
     \label{fig:prirast-rezonanca-priguseno}
-    \caption{Ovisnost amplitude odziva o broju titraja u rezonanci}
+    \caption{Ovisnost amplitude odziva o broju titraja u rezonanciji}
 \end{figure}
-\end{minipage}
-\vspace{6pt}
+
+\begin{table}[H]
+    \begin{tabular}{|*{7}{c|}} % sedam stupaca; centriraj element
+        \hline
+        $\zeta$ & 0,01 & 0,02 & 0,05 & 0,1 & 0,2\\
+        \hline
+        $j$ & 48 & 24 & 10 & 5 & 3\\
+        \hline
+    \end{tabular}
+    \caption{Potreban broj titraja do ustaljenog stanja}
+    \label{table:prirast-rezonanca-priguseno}
+\end{table}
 
 Uočimo da je uz slabije prigušenje potrebno više titraja za dostizanje ustaljenog
 stanja odnosno maksimalne amplitude. Očitanja vrijednosti sa grafa prikazana su u
 \ref{table:prirast-rezonanca-priguseno}.
+
 
 

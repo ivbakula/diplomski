@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{showframe}
+\usepackage[a4paper, margin=3cm]{geometry}
+\usetikzlibrary{arrows,decorations.markings}
+\usetikzlibrary{shapes, arrows, positioning}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathmorphing,patterns}
+\usetikzlibrary{math}
+\pgfplotsset{width=15cm, compat=1.15}
+
+\newsavebox{\imagebox}      %za poravnavanje slika i opisa u subfigure 
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=meta/]
+%\tikzset{external/system call={pdflatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode}}
+
+%strelice
+\tikzset{strelica1/.style={decoration={markings,mark=at position 1 with %
+    {\arrow[scale=2,>=latex']{>}}},postaction={decorate}}}
+
+\tikzset{strelica0/.style={decoration={markings,mark=at position 0 with %
+    {\arrow[scale=2,>=latex']{<}}},postaction={decorate}}}
+
+%argumenti #1 - x_0 #2 - y_0 \dx - x_1 #4 - y_1
+\newcommand{\prigusivac}[4]{%
+    \tikzmath{\dx = #3 - #1;}
+    \tikzmath{\dy = #4 - #2;}
+    \draw[thick](#1, #2) -- ({\dx/2-0.5}, {\dy/2+#2});
+    \draw[thick]({\dx/2-0.5}, {(\dy/2+#2}) -- ({\dx/2-0.1}, {\dy/2+#2});
+    \draw[thick]({\dx/2+0.1}, {\dy/2+#2}) -- ({\dx/2+0.5}, {\dy/2+#2});
+    \draw[thick]({\dx/2+0.5}, {\dy/2+#2}) -- (#3, #4);
+
+    \draw[thick]({\dx/2-0.1}, {\dy/2+#2-0.3}) -- ({\dx/2-0.1}, {\dy/2+#2+0.3});
+    \draw[thick]({\dx/2-0.1}, {\dy/2+#2-0.3}) -- ({\dx/2+0.25}, {\dy/2+#2-0.3});
+    \draw[thick]({\dx/2-0.1}, {\dy/2+#2+0.3}) -- ({\dx/2+0.25}, {\dy/2+#2+0.3});
+
+    \draw[thick]({\dx/2+0.1}, {\dy/2+#2+0.2}) -- ({\dx/2+0.1}, {\dy/2+#2-0.2});
+}
+\begin{document}
+\savebox{\imagebox}{\input{nepriguseni-sustav-mdf}}
+\begin{figure}[H]
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \usebox{\imagebox}
+        \caption{Posmični okvir s dva stupnja slobode i prigušenjem}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \input{nepriguseni-ekvivalentni-sustav-mdf}
+        \caption{Ekvivalentni prigušeni sustav s dva stupnja slobode}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \input{priguseni-sustav-mdf}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \input{priguseni-ekvivalentni-sustav-mdf.tex}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \input{psi-2}
+        \caption{Prvi vlastiti oblik titranja sustava s dva stupnja slobode}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \input{psi-1}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+    \input{sile-priguseni-ekvivalentni-sustav-mdf}
+\end{figure}
+\end{document}

@@ -1,7 +1,7 @@
 \section{Frekvencijske funkcije odziva}
 \subsection{Izvod}
 Ponašanje sustava opisano je diferencijalnom jednadžbom drugog reda (u vremenskoj
-domeni) koja nakon $\ltr$-transformacija postaje algebarska jednadžba u $s$ domeni.
+domeni) koja nakon $\ltr$-transformacija postaje algebarska jednadžba u $s$ domeni (~\cite{sisbabic}).
 Transformat odziva na sinusnu silu uz homogene početne uvjete glasi:
 \begin{equation}
     U(s) = P(s)\cdot H(s) 
@@ -56,7 +56,7 @@ I konačno tablični oblik dobijemo množenjem s $\omega_D/\omega_D$
 \end{equation}
 
 Poseban slučaj prijenosne funkcije sustava, za slučaj $s=\omega i$, naziva se
-\textit{frekvencijska funkcija odziva} i glasi:
+\textit{frekvencijska funkcija odziva} (~\cite{sisbabic}) i glasi:
 \begin{equation} \label{eq:frf_nesredjeno}
     H(\omega i) = \frac{H(\omega i)}{P(\omega i)}
                 = \frac{1}{-\omega^2 m + i\omega c + k}\frac{1/k}{1/k}
@@ -70,7 +70,7 @@ pa je konačni oblik frekvencijske funkcije odziva:
 \end{equation}
 
 Frekvencijska funkcija odziva $H(\omega)$ je funkcija argumenta $\omega$, odnosno promjenom
-frekvencije pobude, mjenja se i njezina vrijednost, te je redovito je kompleksna.
+frekvencije pobude, mjenja se i njezina vrijednost, te je redovito je kompleksna (~\cite{sisbabic}).
 Jednadžbu pod \eqref{eq:frf_sredjeno} možemo rastaviti na realni i imaginarni dio.
 Rastav na realni i imaginarni dio prikazan je u nastavku.
 \begin{alignat}{2}
@@ -96,10 +96,10 @@ način:
 \begin{equation}\label{eq:trig_zapis_kompleksni_br}
     R=|R|e^{i\phi} = |R|(\cos(\phi)+i\sin(\phi))
 \end{equation}
-Gdje je $|R|$ norma kompleksnog broja, a $\phi$ kut kojega kompleksni vektor zatvara
-s realnom osi.
-Stoga je očito da je za navedeni prikaz potrebno je odrediti magnitudu (normu) kompleksnog
-vektora frekvencijske funkcije odziva te kut koji zatvara s realnom osi. Magnituda je 
+Gdje je $|R|$ apsolutna vrijednost ili norma kompleksnog broja, a $\phi$ kut kojega 
+kompleksni vektor zatvara s realnom osi.
+Stoga je očito da je za navedeni prikaz potrebno je odrediti normu kompleksnog
+broja frekvencijske funkcije odziva te kut koji zatvara s realnom osi. Norma je 
 zadana Pitagorinim poučkom, dakle:
 \begin{equation}\label{eq:magnitudniSpektar}
     |H(\omega)|=\sqrt{(H_r^2+H_i^2)}
@@ -108,14 +108,15 @@ zadana Pitagorinim poučkom, dakle:
 
 Kut koji kompleksni vektor zatvara s realnom osi moguće je odrediti slijedećom
 jednadžbom:
-\begin{equation}
-        \phi(\omega)=\left|\arctan\left(\frac{2\zeta(\omega/\omega_n)}
-                      {1-(\omega/\omega_n)^2}\right)\right|\label{eq:fazniSpektar}
+\begin{equation}\label{eq:fazniSpektar}
+    \phi(\omega)= \left|\arctan\left(\frac{H_i}{H_r}\right)\right| 
+                = \left|\arctan\left(\frac{2\zeta(\omega/\omega_n)}
+                        {1-(\omega/\omega_n)^2}\right)\right|
 \end{equation}
 
 Prikazana u trigonometrijskom obliku, frekvencijsku funkciju odziva potrebno je
-rastaviti na magnitudni spektar koji je definiran jednadžbom \eqref{eq:magnitudniSpektar} i
-na fazni spektar koji je definiran jednadžbom \eqref{eq:fazniSpektar}.
+rastaviti na normu koja je definirana jednadžbom \eqref{eq:magnitudniSpektar} i
+na fazni kut koji je definiran jednadžbom \eqref{eq:fazniSpektar}.
 \textbf{Napomena:} jednadžba \eqref{eq:fazniSpektar} stavljena je u apsolutnu
 vrijednost zato što će se negativni predzak (kašnjenje) ili pozitivni predznak
 uračunati naknadno, no više o tome u slijedećem poglavlju.
