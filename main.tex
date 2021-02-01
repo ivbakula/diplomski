@@ -51,7 +51,22 @@
 
     \draw[thick]({\dx/2+0.1}, {\dy/2+#2+0.2}) -- ({\dx/2+0.1}, {\dy/2+#2-0.2});
 }
+\author{Ivan Bakula} 
+\rad{Diplomski rad}
+\studij{Diplomski studij rudarstva}
+\indeks{R-262}
+\title{Odziv linearnog sustava na pobudu sinusnom silom}
+\godina{2021}
+
 \begin{document}
+
+\maketitle
+
+%titlepage zato da ne numerira karticu (prljav trik)
+\begin{titlepage}
+    \input{kartica}
+\end{titlepage}
+
 \frontmatter
 \tableofcontents
 \newpage
@@ -59,6 +74,7 @@
 \newpage
 \listoffigures
 \newpage
+\input{popis_oznaka}
 \mainmatter
 \chapter{Sustavi s jednim stupnjem slobode}
     \input{./poglavlja/sdf/1-model}

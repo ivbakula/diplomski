@@ -142,7 +142,7 @@ Za $m_1=2m$, $m_2=m$, $k_1=2k$ i $k_2=k$ vektori glase:
 \end{align}
 
 Uz $\omega_1=\sqrt{k/2m}$ i $\omega_2=\sqrt{2k/m}$ te dijeljenjem \eqref{eq:vtor_1} i \eqref{eq:vtor_2}
-dobijemo vektor dinamičkog koeficijenta pomaka (bez dimenzija), koji ovisi o
+s $p_0/2k$ dobijemo vektor dinamičkog koeficijenta pomaka (bez dimenzija), koji ovisi o
 omjerima frekvencija $\omega/\omega_1$ te $\omega/\omega_2$. Vektor je prikazan u nastavku
 \begin{equation}
     \frac{2k}{p_0}\vtor{U}{}
@@ -157,7 +157,7 @@ omjerima frekvencija $\omega/\omega_1$ te $\omega/\omega_2$. Vektor je prikazan 
 
 Prisilni dio odziva glasi:
 \begin{equation}
-    \vtor{u(t)}{} = \vtor{U}{}\sin(\omega t) = 
+    \vtor{u(t)}{} = \frac{2k}{p_0}\vtor{U}{}\sin(\omega t) = 
     \begin{Bmatrix}
         \ffrac{1-0.5(\omega/\omega_1)^2}
               {[1-(\omega/\omega_1)^2][1-(\omega/\omega_2)^2]}\\[12pt]
@@ -167,5 +167,21 @@ Prisilni dio odziva glasi:
     \sin(\omega t)
 \end{equation}
 
-%Komponente vektora $\vtor{U}{}$ možemo iscrtati kao graf funkcije dinamičkog faktora
-%$U_1/p_0/2k$ i $U_2/p_0/2k$ u ovisnosti o frekvencijskom omjeru $\omega/\omega_1$.
+Komponente vektora $\vtor{U}{}$ možemo iscrtati kao graf funkcije dinamičkog faktora
+$U_1/p_0/2k$ i $U_2/p_0/2k$ u ovisnosti o frekvencijskom omjeru $\omega/\omega_1$.
+\begin{figure}[H]
+    \begin{subfigure}[t]{1\textwidth}
+        \centering
+        \input{grafovi/mdf/rd_u1}
+    \end{subfigure}
+    \vfill
+    \begin{subfigure}[b]{1\textwidth}
+        \input{grafovi/mdf/rd_u2}
+    \end{subfigure}
+    \caption{Grafički prikaz vektora $U$ po komponentama $U_1$ i $U_2$}
+    \label{fig:vektor_dinamicki_faktor}
+\end{figure}
+
+Grafovi sa slike \ref{fig:vektor_dinamicki_faktor} ukazuju na postojanje dviju
+rezonancijskih frekvencija: $\omega_1$ i $\omega_2$, pri čemu je dinamički faktor
+neomeđen.

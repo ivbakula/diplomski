@@ -1,13 +1,13 @@
 \section{Jednadžba gibanja slobodnih oscilacija}\label{slobodne_oscilacije}
 Jedan od modela sustava s više stupnjeva slobode su $N$ etažni posmični
-okviri. Takavi sustavi se sastoje od $N$ koncentriranih masa, što znači da je potrebno 
+okviri. Takvi sustavi se sastoje od $N$ koncentriranih masa, što znači da je potrebno 
 odrediti $N$ različitih pomaka. Drugim riječima, jednadžba gibanja takvog sustava biti će
 zadana kao sustav od N diferencijalnih jednadžbi drugog reda.
 \par
 
 Sustav s više stupnjeva slobode, koji će biti razmatran u ovom radu, je dvoetažni
-posmični okvir prikazan na slijedećoj slici, a osnovni pojmovi biti će objašnjeni
-pomoću slobodnih oscilacija navedenog modela.
+posmični okvir bez prigušenja prikazan na sljedećoj slici, a osnovni pojmovi biti će 
+objašnjeni pomoću slobodnih oscilacija navedenog modela.
 \begin{figure}[H]
     \begin{subfigure}[b]{0.5\textwidth}
         \centering
@@ -291,19 +291,34 @@ Ukupno rješenje sustava jest linearna kombinacija slijedećih vektora:
 
 Stoga, ukupno opće rješenje glasi:
 \begin{equation}\label{eq:ukupno_opce_rjesenje_2dof}
-    \vtor{u}{}(t)=\vtor{u_1}{}(t)+\vtor{u_2}{}(t)
+    \vtor{u}{}(t)=\vtor{u_1}{}(t)+\vtor{u_2}{}(t) 
 \end{equation}
+
+Općenitiji zapis jednadžbe pod \eqref{eq:ukupno_opce_rjesenje_2dof} glasi:
+\begin{equation}\label{eq:ukupno_opce_rjesenje_mdof}
+    \vtor{u}{}(t)=\sum_{n=1}^N \vtor{\psi}{}_n (A_n\cos(\omega_nt) + B_n\sin(\omega_nt)
+\end{equation}
+
 \newpage
 Bitno je za napomenuti da vlastiti vektor $\psi$ ne određuje maksimalne iznose
 ordinata već samo njihov relativni odnos, tj. oblik titranja. Da
-bismo dobili amplitude $A_n$ i $B_n$, potrebno je uzeti u obzir početne uvjete  
-$\vtor{u}{}(0) = \vtor{u}{}$ i $\vtor{u}{.}(0)=\vtor{u}{.}$. Za slučaj slobodnog titranja,
-konstante $A_n$ i $B_n$ glase:
+bismo dobili amplitude $A_n$ i $B_n$, potrebno je uzeti u obzir početne uvjete:
+\begin{equation}
+    \vtor{u}{}(0)  = \begin{Bmatrix} u_1(0)\\ u_2(0)\\ \vdots\\ u_N(0) \end{Bmatrix}
+    \qquad \text{i} \qquad
+    \vtor{u}{.}(0) = \begin{Bmatrix} \dot{u}_1(0)\\ \dot{u}_2(0)\\ \vdots\\ \dot{u}_N(0) \end{Bmatrix}
+\end{equation}
+
+Za slučaj slobodnog titranja, konstante $A_n$ i $B_n$ glase:
 \begin{align}
-    A_n&=u_n(0)\\
-    B_n&=\frac{\dot{u}_n(0)}{\omega_n}
+    A_n&=q_n(0)\\
+    B_n&=\frac{\dot{q}_n(0)}{\omega_n}
 \end{align}
 
+pri čemu je:
+\begin{align}
+    q_n(0) = \frac{\vtor{\psi}{}_n^T \mm \vtor{u}{}(0)}{\vtor{psi}{}_n^T \mm \vtor{psi}{}_n}
+\end{align}
 Shematski prikaz oblika titranja sustava s dva stupnja slobode prikazan je na slijedećoj
 slici.
 \begin{figure}[H]

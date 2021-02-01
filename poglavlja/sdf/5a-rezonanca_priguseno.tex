@@ -1,5 +1,5 @@
 \section{Rezonancija}
-Rezonanija je pojava koja se javlja prilikom pobude rezonancijskom frekvencijom (~\cite{dk_skripta}).
+Rezonancija je pojava koja se javlja prilikom pobude rezonancijskom frekvencijom (~\cite{dk_skripta}).
 Rezonancijska frekvencija je ona frekvencija pobude za koju će dinamički koeficijent
 odziva biti maksimalan (~\cite{dk_skripta}). 
 \par
@@ -96,7 +96,7 @@ vrijednost:\footnote{Uočimo da je odziv sustava kontroliran prigušenjem (jedna
     u_0=\frac{(u_{st})_0}{2\zeta}
 \end{equation}
 Za malu vrijednost $\zeta$, vrijedi $\omega_n\approx\omega_D$ te je član
-$\sin(\omega_Dt) \approx 0$. Stoga jednadžba pod \eqref{eq:rezonancaPrigušenoPomak}
+uz $\sin(\omega_Dt) \text{ približno } 0$. Stoga jednadžba pod \eqref{eq:rezonancaPrigušenoPomak}
 postaje:
 \begin{equation}\label{eq:rezonancaOdzivAproksimacija}
     u(t)\simeq\underbrace{
@@ -134,7 +134,7 @@ prikaz dostizanja prisilnog stanja prikazan je na slijedećoj slici:
 O prigušenju u rezonanciji ovise slijedeći parametari odziva:
 \begin{itemize}
     \item brzina dostizanje ustaljenog stanja (maksimalne amplitude) - brzina dostizanja 
-        ustaljenog stanja raste proporcionalno s prigušenjem (veće prigušenje $\to$ strmija krivulja
+        ustaljenog stanja raste s prigušenjem (veće prigušenje $\to$ strmija krivulja
         ovojnice $\to$ brže dostizanje ustaljenog stanja).
 
     \item vrijednost maksimalne amplitude - obrnuto proporcionalna od vrijednosti
@@ -152,7 +152,7 @@ $t=2\pi j/\omega$.
         u_0(e^{-\zeta\omega_n\frac{2\pi j}{\omega_n}}-1)\cos\left(\omega_n\frac{2\pi
         j}{\omega_n}\right)
 \end{equation}
-Gdje je:
+gdje je:
 \begin{table}[H]
     \begin{tabular}{c c}
         $j$ & redni broj titraja\\
@@ -186,6 +186,8 @@ Izraz ima smisla samo za diskretne vrijednosti argumenta $j$, odnosno za $j \in
 \end{figure}
 
 \begin{table}[H]
+    \caption{Potreban broj titraja do ustaljenog stanja}
+    \label{table:prirast-rezonanca-priguseno}
     \begin{tabular}{|*{7}{c|}} % sedam stupaca; centriraj element
         \hline
         $\zeta$ & 0,01 & 0,02 & 0,05 & 0,1 & 0,2\\
@@ -193,8 +195,6 @@ Izraz ima smisla samo za diskretne vrijednosti argumenta $j$, odnosno za $j \in
         $j$ & 48 & 24 & 10 & 5 & 3\\
         \hline
     \end{tabular}
-    \caption{Potreban broj titraja do ustaljenog stanja}
-    \label{table:prirast-rezonanca-priguseno}
 \end{table}
 
 Uočimo da je uz slabije prigušenje potrebno više titraja za dostizanje ustaljenog
