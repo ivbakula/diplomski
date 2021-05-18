@@ -17,8 +17,24 @@
 \RequirePackage{anyfontsize}
 
 %literatura
-\RequirePackage[backend=biber,style=authoryear-ibid]{biblatex}
+\RequirePackage[backend=biber,style=authoryear-ibid,firstinits=true]{biblatex}
+\RequirePackage{xpatch}
 \addbibresource{lit.bib}
+
+%makni navodnike iz naslova
+\DeclareFieldFormat
+    [article,inbook,incollection,inprocessing,patent,thesis,unpublished,book]
+    {title}{#1\isdot}
+
+%makni zagrade iz godine izdanja
+\xpatchbibmacro{date+extradate}{%
+  \printtext[parens]%
+}{%
+  \setunit{\addperiod\space}%
+  \printtext%
+}{}{}
+
+\DeclareFieldFormat[article,book]{author}{\MakeCapital{#1}}
 
 %matematika
 \RequirePackage{amsmath}
@@ -34,6 +50,8 @@
 \RequirePackage{graphicx}
 \RequirePackage{subcaption}
 
+% Za uklapanje pdf-ova (rjesenje)
+\RequirePackage{pdfpages}
 %poravnaj opise u lijevu stranu
 \captionsetup{justification=raggedright, singlelinecheck=false, format=hang}
 \captionsetup[subfigure]{justification=centering, singlelinecheck=false, format=hang}

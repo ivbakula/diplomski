@@ -1,20 +1,53 @@
-U ovom radu razmotren je dinamički sustav pod utjecajem harmonijske pobude. Za
-matematički model dinamičkog sustava uzet je linearni sustav. Linearni sustav je
-ulazno-izlazni model što znači da su pobuda i odziv u uzročno posljedičnoj vezi.
-Linearne sustave je moguće razmatrati kao „crne kutije”. Primjerice, na slici je
-zadan linearni sustav $A$ na koji djeluju pobude $f(t)$ i $g(t)$.
+Dinamičke pobude izuzetno su česta pojava u tehnologiji. Primjerice, u
+graditeljstvu, strojarstvu i sl. dinamičkom pobudom smatramo djelovanje sile
+čiji se intenzitet mijenja tijekom vremena. Takva sila može biti zadana funkcijom
+$p(t) = p_0 \sin(\omega t)$. Dinamički sustav je svaki sustav pod utjecajem dinamičke pobude, a 
+rezultat djelovanja pobude je odziv. 
 
+\begin{figure}[H]
+    \begin{subfigure}{0.3\textwidth}
+        \input{skice/uvod/pobuda}
+    \end{subfigure}
+    \hskip 1pt
+    \begin{subfigure}{0.3\textwidth}
+        \input{skice/uvod/sustav}
+    \end{subfigure}
+    \hskip 1pt
+    \begin{subfigure}{0.3\textwidth}
+        \input{skice/uvod/odziv}
+    \end{subfigure}
+    \caption{Shematski prikaz dinamičkog sustava}
+    \label{fig:shematski_prikaz_sustava}
+\end{figure}
 
-Sa slika su uočljive slijedeće značajke linearnog sustava: 
-\begin{enumerate}
-    \item sinusna pobuda rezultira sinusnim odzivom.
-    \item amplituda odziva je skalirana amplituda pobude. 
-    \item odziv je pomaknut u fazi u odnosu na pobudu.  
-    \item odziv na složenu harmonijsku pobudu, može se zapisati kao linearna
-    kombinacija jednostavnih harmonijskih pobuda (princip superpozicije)
-\end{enumerate}
+Sa shematskoga prikaza \ref{fig:shematski_prikaz_sustava} može se naslutiti da su pobuda 
+i odziv u međusobnoj sprezi. Navedenom spregom "upravlja" dinamički sustav. U slučaju da 
+dinamički sustav pripada razredu linearnih sustava, sprega između pobude i odziva zadana 
+je konvolucijom pobude s prijenosnom funkcije sustava. Sama prijenosna funkcija određena 
+je diferencijalnom jednadžbom sustava. 
+\par
 
+%Većina dinamičkih sustava iz tehnologije zaista spada u kategoriju linearnih sustava. 
+%Da bi određeni dinamički sustav bio i linearni sustav mora zadovoljiti slijedeća 
+%svojstva: 
+%\begin{enumerate}
+%    \item aditivnost
+%    \item homogenost
+%    \item fazni pomak u pobudi rezultira identičnim faznim pomakom u odzivu
+%    \item statička linearnost - nije nužan uvjet, ali je poslijedica prethodna tri
+%\end{enumerate}
+%
+%\par
+%Objasni svojstva
+%\par
 
-Posljedica značajki 1) - 3) jest mogućnost određivanja odziva ukoliko se poznaje
-faktor skaliranja i fazno kašnjenje. Fakotr skaliranja i fazno kašnjenje određuju se
-frekvencijskim funkcijama odziva koje su određene u poglavlju \ref{sec:frf}. 
+U ovome se radu razmatra mehanički linearni sustav najprije s jednim, a
+zatim i s više stupnjeva slobode pod utjecajem harmonijske sile $p(t) = p_0 \sin(\omega t)$. 
+Teorijski koncepti izvedeni za linearni sustav s jednim stupnjem slobode koriste se  
+u razvoju eksperimentalnih metoda za određivanje perioda stupnja prigušenja realnih 
+konstrukcija. 
+\par
+
+Cilj ovog rada jest upoznavanje s osnovnim teorijskim i praktičnim znanjima iz
+dinamike konstrukcija. 
+

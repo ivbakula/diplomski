@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+    \begin{axis} [
+        title style={at={(0.75,0.75)},anchor=south,yshift=-0.1},
+        title = \bfseries{Odziv},
+        ticks = none,
+        width = 5cm, height = 5cm,
+        xmin = 0, xmax = 8,
+        ymin = -2, ymax = 2,
+        axis x line = center,
+        axis y line = center
+    ]
+        \addplot [
+            domain  = 0:7.330382858376184,
+            samples = 100,
+            color   = black,
+            thick,
+        ]{1.5* sin(deg(x) - deg(1.047197))};
+    \end{axis}
+
+\end{tikzpicture}
