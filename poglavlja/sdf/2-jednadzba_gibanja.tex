@@ -3,13 +3,15 @@ Prikaz sila za sustav s prigušenjem na koji djeluje sila pobude $p(t)$ nalazi s
 na slijedećoj slici:
 
 \begin{figure}[H]
-    \begin{subfigure}[b][][l]{0.5\textwidth}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \centering
         \input{skice/sdf/sile-priguseni-ekvivalentni-sustav-sdf}
         \caption{}
         \label{fig:sile-priguseni-ekvivalentni-sustav-sdf}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b][][r]{0.5\textwidth}
+    \begin{subfigure}[c]{0.5\textwidth}
+        \centering
         \input{skice/sdf/sile-nepriguseni-ekvivalentni-sustav-sdf}
         \caption{}
         \label{fig:sile-nepriguseni-ekvivalentni-sustav-sdf}
@@ -30,7 +32,7 @@ Prema drugom Newtonovom aksiomu vrijedi:
         m\ddot{u} + F_S + F_D = p(t) \label{eq:newton}
 \end{align}
 
-Gdje je:\\
+gdje je:\\
 \begin{table}[H]
 \begin{tabular}{c l}
 	$F_S$ & unutarnja sila \\
@@ -50,7 +52,7 @@ A silu prigušenja kao:
 	F_D = c \cdot v = c \cdot \dot{u} \label{eq:prigusenje}
 \end{equation}
 
-Gdje je:\\
+gdje je:\\
 \begin{table}[H]
 \begin{tabular}{c l}
 	$k$ & krutost \\
@@ -86,7 +88,7 @@ slijedeću algebarsku jednadžbu u frekvencijskoj domeni:
 \begin{equation}\label{eq:transformat_diferencijalna}
         m(s^2U(s)-su(0)-\dot{u}(0))+ c(sU(s)-u(0))+ kU(s) = P(s)
 \end{equation}
-Gdje je $P(s)$ transformat funkcije $p(t)=p_0\sin(\omega t)$, a $U(s)$ transformat
+gdje je $P(s)$ transformat funkcije $p(t)=p_0\sin(\omega t)$, a $U(s)$ transformat
 funkcije $u(t)$.
 Sređivanjem \eqref{eq:transformat_diferencijalna} dobijemo: 
 \begin{equation}\label{eq:transformat_diferencijalna_sredjeno}
@@ -138,7 +140,7 @@ sustava na tablični oblik prikazan je u slijedećem pogavlju}.
            \frac{\omega_D}{(s+\sigma)^2+\omega_D^2}
 \end{equation}
 
-Gdje je:\\
+gdje je:\\
 \begin{table}[H]
     \begin{tabular}{r l}
         $\sigma=\zeta\omega_n$ & stupanj prigušenja\\
@@ -159,7 +161,7 @@ Pobuda početnim uvjetima zadana je preko jednadžbe:
     \end{split}
 \end{equation}
 
-Odziv u vremenskoj domeni se određuje pronalaskom inversa $\ltr$ transformacije
+Odziv u vremenskoj domeni se određuje pronalaskom inverza $\ltr$ transformacije
 funkcije odziva u frekvencijskoj domeni.
 \begin{equation}
 	u(t)=\ltr^{-1}\{U(s)\}=\ltr^{-1}\{W(s)H(s)\}+\frac{p_0}{k}\ltr^{-1}\{H(s)P(s)\}
@@ -231,7 +233,7 @@ rješenje.
     \label{eq:konvolucijski_integral_rjesenje}
 \end{equation}
 
-Gdje je:
+gdje je:
 \begin{align}
     C &= \frac{p_0}{k}\frac{1-(\omega/\omega_n)^2}
             {[1-(\omega/\omega_n)^2]^2+[2\zeta\omega/\omega_n]^2}\label{eq:koef_C}\\
@@ -264,7 +266,7 @@ diferencijalne jednadžbe \eqref{eq:jednadzba_sinusna_pobuda} koje glasi:
 		     }_{\text{\textbf{prisilni dio odziva}}}
 \end{equation}
 
-Gdje je:
+gdje je:
 \begin{align}
     A &= u(0)-D\label{eq:koef_A}\\
     B &= \frac{u(0)\sigma}{\omega_D}+

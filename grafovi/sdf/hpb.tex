@@ -1,7 +1,4 @@
 \begin{tikzpicture}[scale=0.75]
-\tikzset{myptr/.style={decoration={markings,mark=at position 1 with %
-    {\arrow[scale=2,>=stealth]{>}}},postaction={decorate}}}
-
     \begin{axis} [
         ylabel = Dinamički koeficijent $R_d$,
         xlabel = $\omega/\omega_n$,
@@ -21,14 +18,17 @@
 
     \draw[color=black,pattern=north east lines, pattern color=black] (0.89,0) 
         rectangle (1.08,3.555);
-    \draw[myptr] (0.75, 1) -- (0.89, 1);
-    \draw[myptr] (2.4, 1) -- (1.08,1)
+    \draw[strelica1] (0.75, 1) -- (0.89, 1);
+    \draw[strelica1] (2.4, 1) -- (1.08,1)
         node[above,pos=0.35] {\footnotesize{Pojas polovice snage = $2\zeta$}};
 
     %kotiraj rezonancijsku amplitudu
     \draw[<->,line width=1pt] (3.5,0) -- (3.5, 5.027)
         node[pos=0.5,above,rotate=90]{\footnotesize{Rezonancijska amplituda}};
     \draw(0.995,5.027) -- (3.5,5.027);
+
+    \node at (0.81, 0.5) {$\frac{\omega_a}{\omega_n}$};
+    \node at (1.16, 0.5) {$\frac{\omega_b}{\omega_n}$};
 
     %kotiraj pojas polovice snage
     \draw[<->,line width=1pt] (3,0) -- (3,3.555)

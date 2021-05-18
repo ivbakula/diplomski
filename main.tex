@@ -4,6 +4,7 @@
 \usetikzlibrary{patterns}
 \usetikzlibrary{decorations.pathmorphing,patterns}
 \usetikzlibrary{math}
+\usepackage{xpatch}
 \pgfplotsset{width=15cm, compat=1.15}
 
 \usetikzlibrary{external}
@@ -51,7 +52,25 @@
 
     \draw[thick]({\dx/2+0.1}, {\dy/2+#2+0.2}) -- ({\dx/2+0.1}, {\dy/2+#2-0.2});
 }
+\author{Ivan Bakula} 
+\rad{Diplomski rad}
+\studij{Diplomski studij rudarstva}
+\indeks{R-262}
+\title{Odziv dinamičkog sistema na harmonijsku pobudu}
+\godina{2021}
+
 \begin{document}
+
+\maketitle
+%\includepdf[pages={1}]{../rjesenje.pdf}
+%titlepage zato da ne numerira karticu (prljav trik)
+\begin{titlepage}
+    \input{kartica_hr}
+\end{titlepage}
+\begin{titlepage}
+    \input{kartica_eng}
+\end{titlepage}
+
 \frontmatter
 \tableofcontents
 \newpage
@@ -59,7 +78,10 @@
 \newpage
 \listoffigures
 \newpage
+\input{popis_oznaka}
 \mainmatter
+\chapter{Uvod}
+    \input{./poglavlja/uvod}
 \chapter{Sustavi s jednim stupnjem slobode}
     \input{./poglavlja/sdf/1-model}
     \newpage
@@ -95,6 +117,10 @@
     \input{./poglavlja/mdf/5-modalna_analiza}
     \newpage
     \input{./poglavlja/mdf/6-prigusenje_mdf}
+\chapter{Zaljučak}
+    \input{./poglavlja/zakljucak}
 
-\printbibliography[title=Popis literature]
+\chapter{Popis literature}
+    \input{./popis_literature}
+%\printbibliography[title=Popis literature]
 \end{document}
